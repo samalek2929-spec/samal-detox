@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="3-дневное антипаразитарное очищение — программа Samal Detox с личным сопровождением Самал Булатханкызы.">
+  <title>3-дневное очищение · Samal Detox</title>
+  <style>
+    @font-face{font-family:"Cormorant Garamond Local";src:url("../assets/fonts/cormorant-garamond.woff2") format("woff2");font-style:italic;font-weight:400;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans Local";src:url("../assets/fonts/ibm-plex-sans.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+
+    :root{
+      --primary:#205A50;
+      --eucalyptus:#87B7AB;
+      --mist:#DDEBE5;
+      --background:#F7F5EF;
+      --sand:#E4D9C8;
+      --ink:#183D38;
+      --radius-card:32px;
+      --radius-pill:999px;
+      --content:min(880px,calc(100% - 40px));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--background);color:var(--ink)}
+    body{margin:0;overflow:hidden;background:var(--background);color:var(--ink);font-family:"IBM Plex Sans Local",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
+    ::selection{background:var(--primary);color:var(--background)}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}
+    .shell{width:var(--content);margin-inline:auto}
+    .skip-link{position:absolute;left:16px;top:-80px;padding:12px 16px;background:var(--primary);color:var(--background);z-index:20}
+    .skip-link:focus{top:16px}
+
+    .site-header{border-bottom:1px solid var(--sand)}
+    .site-header .shell{width:min(1180px,calc(100% - 40px));display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+    .wordmark{font-weight:700;letter-spacing:-.03em;text-decoration:none}
+    .wordmark span{color:var(--primary)}
+    .site-nav{display:flex;align-items:center;gap:18px;font-size:13px}
+    .site-nav a{text-decoration:none}
+    .back-link:hover{text-decoration:underline;text-underline-offset:4px}
+    .nav-cta{padding:10px 16px;border:1px solid var(--primary);border-radius:var(--radius-pill);color:var(--primary);text-decoration:none;transition:background .18s ease,color .18s ease}
+    .nav-cta:hover{background:var(--primary);color:var(--background)}
+
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:680px;margin-bottom:18px;font-size:clamp(38px,8vw,66px);font-weight:700;line-height:.99;letter-spacing:-.04em}
+    h1 em,h2 em{font-family:"Cormorant Garamond Local",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--primary);font-size:1.3em}
+    h2{margin-bottom:18px;font-size:clamp(30px,6vw,44px);line-height:1.02;letter-spacing:-.04em}
+    .eyebrow{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--primary)}
+    .section-intro{max-width:60ch;font-size:17px}
+
+    .program-hero{background:var(--mist);padding:56px 0 48px}
+    .hero-lead{max-width:560px;margin-bottom:28px;font-size:17px;line-height:1.5}
+    .price-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+    .price-main{font-size:28px;font-weight:700;line-height:1.2}
+    .price-alt{display:block;margin-top:4px;font-size:14px;font-weight:400;color:var(--primary)}
+    .duration-chip{padding:10px 18px;background:color-mix(in srgb,var(--background) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-pill);font-size:14px;font-weight:700;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+
+    .section{padding:56px 0;border-top:1px solid var(--sand)}
+    .included-section{background:var(--sand)}
+    .flow-section{background:var(--mist)}
+    .delivery-section{background:var(--sand)}
+    .result-section{background:var(--sand)}
+
+    .split-columns{display:grid;gap:28px;margin-top:8px}
+    .split-col h3{margin:0 0 14px;font-size:18px;letter-spacing:-.01em}
+    .split-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+    .split-list li{padding-left:24px;position:relative;font-size:15px;line-height:1.5}
+    .split-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--primary)}
+    .split-col.self-purchase li::before{background:var(--eucalyptus)}
+
+    .flow-list{display:grid;gap:0;margin:28px 0 0;padding:0;list-style:none;border-top:1px solid var(--eucalyptus)}
+    .flow-item{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--eucalyptus)}
+    .flow-number{color:var(--primary);font-weight:700}
+    .flow-item h3{margin:0 0 4px;font-size:16px;letter-spacing:-.01em}
+    .flow-item p{margin:0;font-size:15px;line-height:1.5}
+    .flow-foot{margin-top:20px;font-size:14px;color:var(--primary)}
+
+    .blend-grid{display:grid;gap:16px;margin-top:28px}
+    .blend-card{padding:26px;background:color-mix(in srgb,var(--background) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-card);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent)}
+    .blend-label{display:block;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--primary)}
+    .blend-card h3{margin:0 0 14px;font-size:19px;letter-spacing:-.01em}
+    .blend-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+    .blend-list li{padding-left:22px;position:relative;font-size:14px}
+    .blend-list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--eucalyptus)}
+
+    .delivery-grid{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+    .delivery-card{min-width:160px;padding:18px 22px;background:color-mix(in srgb,var(--background) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-card);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent)}
+    .delivery-tariff{display:block;margin-bottom:6px;font-size:13px;font-weight:700;color:var(--primary)}
+    .delivery-term{font-size:19px}
+    .delivery-cost-list{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+    .delivery-cost-list strong{font-weight:700}
+
+     .notice-card{padding:28px;background:var(--background);border:1px solid var(--sand);border-radius:var(--radius-card);box-shadow:0 10px 24px var(--mist)}
+    .notice-card ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .notice-card li{padding-left:22px;position:relative;font-size:15px}
+    .notice-card li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--primary)}
+    .notice-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--sand);font-size:14px;color:var(--primary)}
+
+    .result-note{max-width:60ch;margin-top:14px;font-size:15px;color:var(--ink)}
+    .result-note strong{color:var(--primary)}
+
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border:1px solid var(--primary);border-radius:var(--radius-pill);font:inherit;font-weight:700;text-decoration:none;transition:transform .18s ease,background .18s ease,color .18s ease}
+    .button-primary{background:var(--primary);color:var(--background)}
+    .button-primary:hover{background:var(--ink);color:var(--background);transform:translateY(-2px)}
+    .link-arrow{display:inline-flex;margin-top:20px;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+    .link-arrow:hover{color:var(--primary)}
+
+    .final-cta{padding:64px 0;background:var(--primary);color:var(--background);border-top:none}
+    .final-layout{display:grid;gap:22px}
+    .final-cta h2 em{color:var(--eucalyptus)}
+    .final-copy{max-width:440px;margin:0 0 20px;font-size:16px}
+    .final-cta .button-primary{background:var(--background);color:var(--primary);border-color:var(--background)}
+    .final-cta .button-primary:hover{background:var(--eucalyptus);color:var(--ink);border-color:var(--eucalyptus)}
+
+    .related-grid{display:grid;gap:14px;margin:28px 0 24px}
+    .related-card{display:block;padding:22px;background:color-mix(in srgb,var(--mist) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-card);text-decoration:none;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent);transition:box-shadow .18s ease,transform .18s ease}
+    .related-card:hover{box-shadow:0 0 0 1px rgba(24,61,56,.12),inset 0 1px 0 rgba(247,245,239,.8),0 18px 30px rgba(24,61,56,.13);transform:translateY(-2px)}
+    .related-duration{display:block;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--primary)}
+    .related-card h3{margin:0 0 10px;font-size:18px;line-height:1.15;letter-spacing:-.01em}
+    .related-price{font-size:15px;font-weight:700}
+
+    .site-footer{display:flex;justify-content:space-between;gap:24px;padding:24px 0 34px;font-size:13px;width:min(1180px,calc(100% - 40px));margin-inline:auto}
+     .site-footer p{margin:0}
+     .footer-muted{color:var(--primary)}
+    .telegram-status{position:fixed;right:16px;bottom:16px;z-index:10;max-width:300px;padding:14px 16px;background:var(--ink);color:var(--background);border-radius:var(--radius-pill);box-shadow:0 16px 30px var(--sand);font-size:14px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+    .telegram-status.is-visible{opacity:1;transform:translateY(0)}
+
+    @media(min-width:760px){
+      .split-columns{grid-template-columns:1fr 1fr;gap:40px}
+      .blend-grid{grid-template-columns:1fr 1fr}
+      .related-grid{grid-template-columns:repeat(2,1fr)}
+      .final-layout{grid-template-columns:1fr auto;align-items:end}
+      .final-copy{margin-bottom:0}
+    }
+    @media(max-width:480px){
+      .site-nav{gap:10px}
+      .nav-cta{padding:10px 12px}
+    }
+     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.related-card,.telegram-status{transition:none}}
+     .duration-chip,.related-card,.blend-card,.delivery-card,.notice-card{background:var(--background);border-color:var(--sand);box-shadow:0 10px 24px var(--mist);-webkit-backdrop-filter:none;backdrop-filter:none}
+     /* ===== Matte glass surfaces ===== */
+     .duration-chip,.notice-card,.blend-card,.delivery-card,.related-card{background:color-mix(in srgb,var(--background) 40%,transparent);border-color:color-mix(in srgb,var(--background) 72%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+     .related-card{background:color-mix(in srgb,var(--mist) 40%,transparent)}
+     @media(max-width:480px){.duration-chip,.notice-card,.blend-card,.delivery-card,.related-card{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
+
+     /* ===== Экранный формат — визуальная система тюбажа ===== */
+     .site-footer{display:none}#main-content{position:relative;height:calc(100svh - 76px);overflow:hidden;touch-action:pan-y}
+     .story-panel{position:absolute;inset:0;width:100%;height:100%;padding:56px 0 92px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;transform:translateX(100%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .48s cubic-bezier(.23,1,.32,1),opacity .25s ease,visibility 0s linear .48s;will-change:transform}
+     .story-panel.is-before{transform:translateX(-100%);opacity:.72;visibility:visible}.story-panel.is-after{transform:translateX(100%);opacity:0;visibility:visible}.story-panel.is-active{transform:translateX(0);opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
+     .opening-scene{background:var(--background) url("../11.webp") center top/cover no-repeat}.program-hero{padding:56px 0 92px;background:transparent}.program-hero.opening-scene{background:var(--background) url("../11.webp") center top/cover no-repeat}
+     .overview-section{background:var(--background) url("../assets/backgrounds/tubazh-symptoms-morning-v1.webp") center 54%/cover no-repeat;border-top:0}.included-section{background:var(--mist) url("../assets/backgrounds/tubazh-included-lake-v1.webp") center 42%/cover no-repeat}.flow-section{background:var(--sand) url("../assets/backgrounds/tubazh-flow-lotus-v1.webp") center 38%/cover no-repeat}.blend-section{background:var(--sand) url("../assets/backgrounds/tubazh-result-river-v1.webp") 42% center/cover no-repeat}.delivery-section{background:var(--mist) url("../assets/backgrounds/tubazh-water-mist-v1.webp") 72% center/cover no-repeat}.contraindications-section{background:var(--ink) url("../assets/backgrounds/tubazh-contra-night-lake-v1.webp") center 44%/cover no-repeat;color:var(--background)}.result-section{background:var(--sand) url("../assets/backgrounds/cleanse-3-results-v1.webp") 55% center/cover no-repeat!important}.final-cta{padding:64px 0 92px;background:var(--primary) url("../assets/backgrounds/tubazh-deep-garden-v1.webp") center/cover no-repeat}.related-section{background:var(--mist) url("../assets/backgrounds/tubazh-water-mist-v1.webp") right bottom/cover no-repeat}
+     .chapter-nav{position:fixed;left:50%;bottom:22px;z-index:30;display:flex;align-items:center;justify-content:center;gap:24px;width:max-content;margin:0;padding:6px 10px;transform:translateX(-50%) translateZ(0);isolation:isolate}.chapter-control{display:inline-grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--primary);border-radius:50%;background:color-mix(in srgb,var(--background) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--primary);font-family:inherit;font-size:25px;font-weight:700;line-height:1;cursor:pointer;box-shadow:0 6px 16px color-mix(in srgb,var(--ink) 15%,transparent);transition:background .18s ease,color .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}.chapter-control:hover{background:var(--primary);color:var(--background);transform:translateY(-2px)}.chapter-control:disabled{opacity:.38;cursor:not-allowed;box-shadow:none}.chapter-progress{position:relative;display:flex;align-items:center;justify-content:space-between;width:176px;min-width:176px;min-height:44px;padding:0 11px;cursor:grab;touch-action:none;user-select:none}.chapter-progress::before{content:"";position:absolute;left:12px;right:12px;top:50%;height:1px;background:color-mix(in srgb,var(--primary) 42%,transparent);transform:translateY(-50%)}.chapter-progress.is-dragging{cursor:grabbing}.chapter-dot{position:relative;z-index:1;width:8px;height:8px;padding:0;border:1px solid var(--primary);border-radius:50%;background:var(--background);cursor:pointer}.chapter-dot[aria-current="true"]{width:20px;border-radius:999px;background:var(--primary);border-color:var(--primary)}.chapter-dot:hover{transform:scale(1.35);background:var(--primary)}
+     .split-col,.flow-item,.notice-card,.result-note,.final-copy,.related-card,.blend-card,.delivery-card{position:relative;isolation:isolate;background:color-mix(in srgb,var(--background) 48%,transparent);border:1px solid color-mix(in srgb,var(--background) 78%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 78%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 11%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}.split-col,.blend-card,.delivery-card{padding:24px 24px 26px;border-radius:38% 18px 28% 16px / 20px 32% 18px 30%;transform:rotate(-.8deg)}.split-col:nth-child(2),.blend-card:nth-child(2),.delivery-card:nth-child(2){border-radius:16px 34% 18px 38% / 30% 18px 34% 16px;transform:rotate(1deg)}.flow-list{border-top:0;gap:12px}.flow-section .flow-item{grid-template-columns:1fr;padding:18px 20px;border:0;border-radius:18px 38% 20px 32% / 30% 18px 34% 16px;transform:rotate(-.7deg)}.flow-section .flow-number{display:none}.flow-item:nth-child(2){transform:rotate(.8deg)}.flow-item:nth-child(3){transform:rotate(-.4deg)}.blend-card{padding:22px}.delivery-card{min-width:190px}.notice-card{border-radius:34% 16px 38% 22px / 20px 30% 18px 34%;transform:rotate(.5deg)}.result-note,.final-copy{padding:18px 20px;border-radius:18px 38% 20px 34% / 30% 16px 34% 18%;transform:rotate(-.6deg)}.overview-section .shell{isolation:isolate;max-width:min(700px,calc(100% - 40px));padding:28px 32px;border:1px solid color-mix(in srgb,var(--background) 80%,transparent);border-radius:42% 16px 32% 20px / 18px 34% 20px 30%;background:color-mix(in srgb,var(--background) 56%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 84%,transparent),0 18px 32px color-mix(in srgb,var(--ink) 13%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}.overview-section h2,.overview-section h2 em{color:var(--ink)}.contraindications-section .notice-card{color:var(--ink)}.contraindications-section .notice-card ul{gap:12px}.contraindications-section .notice-card li{padding:12px 16px 12px 30px;background:color-mix(in srgb,var(--background) 48%,transparent);border:1px solid color-mix(in srgb,var(--background) 74%,transparent);border-radius:40% 18px 34% 16px / 18px 30% 16px 28%;font-size:15px;line-height:1.42}.contraindications-section .notice-card li:nth-child(even){border-radius:16px 38% 20px 34% / 28% 16px 32% 18%;transform:rotate(-.4deg)}.contraindications-section .notice-card li::before{left:10px;top:20px}.contraindications-section .notice-card strong{font-weight:700;color:var(--primary)}.contraindications-section .section-intro{color:var(--background)}.contraindications-section .chapter-control:hover{background:color-mix(in srgb,var(--background) 86%,transparent);color:var(--primary)}.flow-section h2,.flow-section h2 em{display:table;width:max-content;max-width:100%;padding:8px 14px;color:var(--ink);background:color-mix(in srgb,var(--background) 72%,transparent);border-radius:18px 30% 20px 34% / 30% 18px 34% 16px;box-shadow:0 10px 22px color-mix(in srgb,var(--ink) 14%,transparent)}.flow-section h2 em{display:inline;padding:0;background:transparent;box-shadow:none}.flow-section .flow-foot{display:table;max-width:100%;padding:10px 14px;color:var(--ink);font-weight:700;background:color-mix(in srgb,var(--background) 74%,transparent);border-radius:18px 30% 20px 34% / 30% 18px 34% 16px;box-shadow:0 10px 22px color-mix(in srgb,var(--ink) 12%,transparent)}.result-section .section-intro{display:table;max-width:min(60ch,100%);padding:14px 18px;background:color-mix(in srgb,var(--background) 66%,transparent);border:1px solid color-mix(in srgb,var(--background) 80%,transparent);border-radius:34% 16px 28% 20px / 18px 30% 20px 32%;box-shadow:0 12px 24px color-mix(in srgb,var(--ink) 11%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}.final-cta .chapter-control{border-color:var(--sand);color:var(--sand);background:color-mix(in srgb,var(--sand) 16%,transparent)}.final-cta .chapter-control:hover{background:var(--sand);color:var(--ink)}.final-cta .button-primary{box-shadow:0 0 0 1px color-mix(in srgb,var(--sand) 40%,transparent),0 0 22px color-mix(in srgb,var(--sand) 62%,transparent),0 10px 28px color-mix(in srgb,var(--ink) 24%,transparent);animation:telegramGlow 2.8s ease-in-out infinite}@keyframes telegramGlow{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--sand) 32%,transparent),0 0 18px color-mix(in srgb,var(--sand) 48%,transparent),0 10px 28px color-mix(in srgb,var(--ink) 24%,transparent)}50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--sand) 60%,transparent),0 0 34px color-mix(in srgb,var(--sand) 82%,transparent),0 12px 32px color-mix(in srgb,var(--ink) 28%,transparent)}}
+     @media (hover:hover){.split-col:hover,.flow-item:hover,.notice-card:hover,.result-note:hover,.final-copy:hover,.related-card:hover,.blend-card:hover,.delivery-card:hover{transform:translateY(-2px) rotate(0deg)}}@media(max-width:700px){.chapter-nav{bottom:14px;gap:18px}.chapter-control{width:42px;height:42px;font-size:24px}.chapter-progress{width:142px;min-width:142px;padding:0 9px}.chapter-progress::before{left:10px;right:10px}.chapter-dot{width:7px;height:7px}.chapter-dot[aria-current="true"]{width:17px}.story-panel{padding-top:48px}.blend-section>.shell{padding-bottom:160px}.blend-grid{grid-template-columns:1fr}.delivery-grid{gap:12px}.split-col,.flow-item,.notice-card,.blend-card,.delivery-card,.result-note,.final-copy{transform:none!important}}
+    /* Navigation sits in a viewport layer, never inside a transformed story panel. */
+    .story-navigation-layer{position:fixed;inset:0;z-index:100;pointer-events:none;isolation:isolate}.story-navigation-layer .chapter-nav{position:absolute;inset:auto 0 0;width:100%;min-height:74px;margin:0;padding:10px max(20px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));transform:none;display:none;align-items:center;justify-content:center;gap:24px;background:transparent;border:0;box-shadow:none}.story-navigation-layer .chapter-nav.is-active-navigation{display:flex;pointer-events:auto}.story-navigation-layer .chapter-control{background:color-mix(in srgb,var(--background) 94%,transparent)}@media(max-width:700px){.story-navigation-layer .chapter-nav{min-height:70px;bottom:0;gap:18px}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">К содержанию</a>
+  <header class="site-header" data-od-id="site-header">
+    <div class="shell">
+      <a class="wordmark" href="../index.html" data-od-id="wordmark">Samal <span>Detox</span></a>
+      <nav class="site-nav" aria-label="Основная навигация" data-od-id="main-navigation">
+        <a class="back-link" href="../index.html" data-od-id="nav-all-programs">На главную</a>
+        <a class="nav-cta" href="#telegram" data-od-id="nav-telegram">В Telegram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="program-hero opening-scene story-panel" data-story-panel="0" data-od-id="program-hero">
+      <div class="shell">
+        <p class="eyebrow">Программа</p>
+        <h1 data-od-id="program-title">3-дневное антипаразитарное <em>очищение</em></h1>
+        <p class="hero-lead">Экспресс-очищение кишечника, желчного пузыря и протоков. Происходит процесс глубинной чистки от всего накопленного в кишечнике и желчном пузыре. Клизмы по графику, травяные сборы по времени, пошаговая инструкция и сопровождение на всех днях при необходимости. Подробные рекомендации по правильному выходу.</p>
+        <div class="price-row" data-od-id="price-block">
+          <div class="price-main">130 000 ₸<span class="price-alt">23 000 ₽ · 275 $</span></div>
+          <div class="duration-chip" data-od-id="duration-chip">3 дня + 2 дня подготовки</div>
+        </div>
+        <div class="chapter-nav" data-od-id="hero-navigation"><button class="chapter-control" type="button" disabled aria-label="Предыдущий экран">←</button><button class="chapter-control" type="button" data-story-next="1" aria-label="Что это за программа">→</button></div>
+      </div>
+    </section>
+
+    <section class="section overview-section story-panel" data-story-panel="1" data-od-id="overview-section">
+      <div class="shell">
+        <h2 data-od-id="overview-heading">Что это за <em>программа.</em></h2>
+        <p class="section-intro">Короткий и интенсивный формат для тех, кто хочет разовую глубокую чистку кишечника, желчного пузыря и протоков — с готовыми травяными сборами и полным сопровождением Самал на каждом дне, а не самостоятельно по инструкции из интернета.</p>
+      </div>
+      <div class="chapter-nav" data-od-id="overview-navigation"><button class="chapter-control" type="button" data-story-prev="0" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="2" aria-label="Что входит">→</button></div>
+    </section>
+
+    <section class="section included-section story-panel" data-story-panel="2" data-od-id="included-section">
+      <div class="shell">
+        <h2 data-od-id="included-heading">Что <em>входит.</em></h2>
+        <div class="split-columns">
+          <div class="split-col" data-od-id="included-list">
+            <h3>Входит в стоимость</h3>
+            <ul class="split-list">
+              <li>Готовый перемолотый сбор двух составов — зелёный и белый (подробнее ниже)</li>
+              <li>Личное сопровождение Самал все 3 дня</li>
+              <li>Рекомендации по мягкому выходу после курса</li>
+            </ul>
+          </div>
+          <div class="split-col self-purchase" data-od-id="self-purchase-list">
+            <h3>Вы организуете сами</h3>
+            <ul class="split-list">
+              <li>Одноразовая клизма</li>
+              <li>Доставка сбора — оплачивается отдельно, тарифы и стоимость ниже</li>
+            </ul>
+          </div>
+        </div><div class="chapter-nav" data-od-id="included-navigation"><button class="chapter-control" type="button" data-story-prev="1" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="3" aria-label="Схема прохождения">→</button></div>
+      </div>
+    </section>
+
+    <section class="section flow-section story-panel" data-story-panel="3" data-od-id="flow-section">
+      <div class="shell">
+        <h2 data-od-id="flow-heading">Схема <em>прохождения.</em></h2>
+        <ol class="flow-list" data-od-id="flow-list">
+          <li class="flow-item"><span class="flow-number">—</span><div><h3>Подготовка, 2 дня до старта</h3><p>Лёгкое питание без мяса, теста, чая и кофе.</p></div></li>
+          <li class="flow-item"><span class="flow-number">1</span><div><h3>День 1</h3><p>Клизма 10–15 минут, сбор каждые 6 часов, обильное тёплое питьё.</p></div></li>
+          <li class="flow-item"><span class="flow-number">2</span><div><h3>День 2</h3><p>Клизма 15 минут, сбор каждые 3 часа.</p></div></li>
+          <li class="flow-item"><span class="flow-number">3</span><div><h3>День 3</h3><p>2–3 клизмы по 15–30 минут, последний пакетик сбора, рекомендации по выходу.</p></div></li>
+        </ol>
+        <p class="flow-foot">Курс можно повторять — оптимально раз в 4–6 месяцев.</p><div class="chapter-nav" data-od-id="flow-navigation"><button class="chapter-control" type="button" data-story-prev="2" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="4" aria-label="Состав сборов">→</button></div>
+      </div>
+    </section>
+
+    <section class="section blend-section story-panel" data-story-panel="4" data-od-id="blend-section">
+      <div class="shell">
+        <h2 data-od-id="blend-heading">Состав <em>сборов.</em></h2>
+        <p class="section-intro">Оба сбора уже перемолоты и готовы к употреблению — входят в стоимость программы.</p>
+        <div class="blend-grid">
+          <div class="blend-card" data-od-id="blend-green">
+            <span class="blend-label">Сбор №1 · зелёный</span>
+            <h3>Очищение кишечника</h3>
+            <ul class="blend-list">
+              <li>Лист сенны</li>
+              <li>Фенхель</li>
+              <li>Укроп</li>
+              <li>Ревень</li>
+              <li>Ромашка</li>
+              <li>Крушина</li>
+              <li>Экстракт алоэ</li>
+            </ul>
+          </div>
+          <div class="blend-card" data-od-id="blend-white">
+            <span class="blend-label">Сбор №2 · белый, основной</span>
+            <h3>Поддержка на курсе</h3>
+            <ul class="blend-list">
+              <li>Псиллиум</li>
+              <li>Лён</li>
+              <li>Алтей</li>
+              <li>Спирулина</li>
+              <li>Экстракт алоэ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="chapter-nav" data-od-id="blend-navigation"><button class="chapter-control" type="button" data-story-prev="3" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="5" aria-label="Доставка">→</button></div>
+    </section>
+
+    <section class="section delivery-section story-panel" data-story-panel="5" data-od-id="delivery-section">
+      <div class="shell">
+        <h2 data-od-id="delivery-heading">Доставка <em>сбора.</em></h2>
+        <p class="section-intro">Оплачивается отдельно, сверх цены программы.</p>
+        <div class="delivery-grid" data-od-id="delivery-tariffs">
+          <div class="delivery-card"><span class="delivery-tariff">Экспресс</span><strong class="delivery-term">5–7 дней</strong></div>
+          <div class="delivery-card"><span class="delivery-tariff">Эконом</span><strong class="delivery-term">10–15 дней</strong></div>
+        </div>
+        <ul class="delivery-cost-list" data-od-id="delivery-cost">
+          <li><strong>Казахстан</strong> — 3 000–5 000 ₸</li>
+          <li><strong>Россия</strong> — 1 000–2 500 ₽</li>
+        </ul>
+        <p class="flow-foot">Точная стоимость рассчитывается индивидуально в зависимости от города.</p><div class="chapter-nav" data-od-id="delivery-navigation"><button class="chapter-control" type="button" data-story-prev="4" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="6" aria-label="Противопоказания">→</button></div>
+      </div>
+    </section>
+
+    <section class="section contraindications-section story-panel" data-story-panel="6" data-od-id="contraindications-section">
+      <div class="shell">
+        <h2 data-od-id="contraindications-heading">Противопоказания</h2>
+        <p class="section-intro">Важная часть, а не формальность — прочитайте перед записью.</p>
+        <div class="notice-card" data-od-id="contraindications-card">
+          <ul>
+            <li>Возраст до 20 лет</li>
+            <li>Беременность</li>
+            <li>Язва желудка</li>
+            <li>Большие камни в желчном пузыре</li>
+          </ul>
+          <p class="notice-foot">Если сомневаетесь, подходит ли вам программа — уточните у Самал в Telegram-боте до записи.</p>
+        </div><div class="chapter-nav" data-od-id="contraindications-navigation"><button class="chapter-control" type="button" data-story-prev="5" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="7" aria-label="Чего ожидать">→</button></div>
+      </div>
+    </section>
+
+    <section class="section result-section story-panel" data-story-panel="7" data-od-id="result-section">
+      <div class="shell">
+        <h2 data-od-id="result-heading">Чего <em>ожидать.</em></h2>
+        <p class="section-intro">По опыту клиентов: лёгкость в теле, уменьшение объёмов после курса чистки.</p>
+        <p class="result-note">Отвес — ориентировочно до <strong>5 кг за 3 дня</strong>, у каждого индивидуально. Результат не гарантирован и зависит от особенностей организма.</p><div class="chapter-nav" data-od-id="result-navigation"><button class="chapter-control" type="button" data-story-prev="6" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="8" aria-label="Обсудить с Самал">→</button></div>
+      </div>
+    </section>
+
+    <section id="telegram" class="final-cta story-panel" data-story-panel="8" data-od-id="final-cta">
+      <div class="shell final-layout">
+        <h2 data-od-id="final-heading">Готовы<br><em>начать?</em></h2>
+        <div>
+          <p class="final-copy">Обсудите программу с Самал в Telegram — дата, чек-лист противопоказаний и оплата там же.</p>
+          <a class="button button-primary telegram-link" href="#telegram" data-od-id="final-telegram">Обсудить в Telegram-боте</a><div class="chapter-nav" data-od-id="final-navigation"><button class="chapter-control" type="button" data-story-prev="7" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="9" aria-label="Другие форматы">→</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section related-section story-panel" data-story-panel="9" data-od-id="related-section">
+      <div class="shell">
+        <h2 data-od-id="related-heading">Другие <em>форматы.</em></h2>
+        <div class="related-grid">
+          <a class="related-card" href="tubazh.html" data-od-id="related-tubazh"><span class="related-duration">1 день</span><h3>Глубинный однодневный тюбаж</h3><span class="related-price">25 000 ₸</span></a>
+          <a class="related-card" href="fasting-7-7.html" data-od-id="related-fasting-7"><span class="related-duration">21 день</span><h3>Голодание 7/7</h3><span class="related-price">120 000 ₸</span></a>
+        </div>
+        <a class="link-arrow" href="../index.html#programs" data-od-id="related-all-link">Все программы ↗</a><div class="chapter-nav" data-od-id="related-navigation"><button class="chapter-control" type="button" data-story-prev="8" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="0" aria-label="Начать сначала">→</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-od-id="site-footer"><p>Samal Detox · Самал Булатханкызы</p><p class="footer-muted">Страница программы · 2026</p></footer>
+  <div class="telegram-status" role="status" aria-live="polite" data-od-id="telegram-status">Переход в Telegram будет доступен после подключения бота.</div>
+  <script>
+    (function(){
+      var status=document.querySelector('[data-od-id="telegram-status"]');
+      var links=document.querySelectorAll('.telegram-link');
+      links.forEach(function(link){link.addEventListener('click',function(){status.classList.add('is-visible');window.clearTimeout(status._timer);status._timer=window.setTimeout(function(){status.classList.remove('is-visible')},4200)})});
+      var storyPanels=Array.prototype.slice.call(document.querySelectorAll('[data-story-panel]'));
+      var storyIndex=0;
+      try{var savedStoryIndex=Number(window.localStorage.getItem('cleanse-3-story-panel'));if(savedStoryIndex>=0&&savedStoryIndex<storyPanels.length&&Math.floor(savedStoryIndex)===savedStoryIndex)storyIndex=savedStoryIndex}catch(error){}
+      function updateStory(nextIndex){
+        var next=Math.max(0,Math.min(storyPanels.length-1,nextIndex));
+        if(next===storyIndex)return;
+        storyIndex=next;
+        storyPanels.forEach(function(panel,index){panel.classList.remove('is-before','is-active','is-after');panel.setAttribute('aria-hidden',index===storyIndex?'false':'true');panel.inert=index!==storyIndex;if(index===storyIndex)panel.classList.add('is-active');else if(index<storyIndex)panel.classList.add('is-before');else panel.classList.add('is-after')});
+        storyPanels[storyIndex].scrollTop=0;
+        document.querySelectorAll('.chapter-dot').forEach(function(dot){dot.setAttribute('aria-current',dot.getAttribute('data-story-dot')===String(storyIndex)?'true':'false')});
+        try{window.localStorage.setItem('cleanse-3-story-panel',String(storyIndex))}catch(error){}
+      }
+      storyPanels.forEach(function(panel,index){panel.setAttribute('tabindex','-1');panel.setAttribute('aria-hidden',index===storyIndex?'false':'true');panel.inert=index!==storyIndex;if(index===storyIndex)panel.classList.add('is-active');else if(index<storyIndex)panel.classList.add('is-before');else panel.classList.add('is-after')});
+      document.querySelectorAll('.chapter-nav').forEach(function(nav){
+        var nextButton=nav.querySelector('[data-story-next]');if(!nextButton)return;
+        var progress=document.createElement('div');progress.className='chapter-progress';progress.setAttribute('role','tablist');progress.setAttribute('aria-label','Переход между экранами');
+        storyPanels.forEach(function(panel,index){var dot=document.createElement('button');dot.type='button';dot.className='chapter-dot';dot.setAttribute('role','tab');dot.setAttribute('data-story-dot',String(index));dot.setAttribute('aria-label','Экран '+(index+1)+' из '+storyPanels.length);dot.setAttribute('aria-current',index===storyIndex?'true':'false');dot.addEventListener('click',function(){if(!progress._suppressClick)updateStory(index)});progress.appendChild(dot)});
+        function closestIndex(clientX){var dots=Array.prototype.slice.call(progress.querySelectorAll('.chapter-dot'));var nearest=0;var distance=Infinity;dots.forEach(function(dot,index){var rect=dot.getBoundingClientRect(),nextDistance=Math.abs(clientX-(rect.left+rect.width/2));if(nextDistance<distance){nearest=index;distance=nextDistance}});return nearest}
+        progress.addEventListener('pointerdown',function(event){if(event.button!==undefined&&event.button!==0)return;progress.setPointerCapture(event.pointerId);progress.classList.add('is-dragging');progress._startX=event.clientX;progress._moved=false;updateStory(closestIndex(event.clientX))});
+        progress.addEventListener('pointermove',function(event){if(!progress.classList.contains('is-dragging'))return;if(Math.abs(event.clientX-progress._startX)>4)progress._moved=true;updateStory(closestIndex(event.clientX))});
+        function endDrag(event){if(!progress.classList.contains('is-dragging'))return;if(progress.hasPointerCapture(event.pointerId))progress.releasePointerCapture(event.pointerId);progress.classList.remove('is-dragging');if(progress._moved){progress._suppressClick=true;window.setTimeout(function(){progress._suppressClick=false},0)}}
+        progress.addEventListener('pointerup',endDrag);progress.addEventListener('pointercancel',endDrag);nav.insertBefore(progress,nextButton);
+      });
+      document.querySelectorAll('[data-story-next]').forEach(function(button){button.addEventListener('click',function(){updateStory(Number(button.getAttribute('data-story-next')))});});document.querySelectorAll('[data-story-prev]').forEach(function(button){button.addEventListener('click',function(){updateStory(Number(button.getAttribute('data-story-prev')))});});
+      document.addEventListener('keydown',function(event){if(['INPUT','TEXTAREA','SELECT'].indexOf(document.activeElement&&document.activeElement.tagName)>-1)return;if(event.key==='ArrowRight'||event.key==='ArrowDown'){event.preventDefault();updateStory(storyIndex+1)}if(event.key==='ArrowLeft'||event.key==='ArrowUp'){event.preventDefault();updateStory(storyIndex-1)}});
+      var mainContent=document.querySelector('#main-content'),touchStartX=0,touchStartY=0,wheelDelta=0,wheelTimer=0,wheelLocked=false;if(mainContent){mainContent.addEventListener('touchstart',function(event){var touch=event.touches[0];if(touch){touchStartX=touch.clientX;touchStartY=touch.clientY}},{passive:true});mainContent.addEventListener('touchend',function(event){var touch=event.changedTouches[0];if(!touch)return;var x=touch.clientX-touchStartX,y=touch.clientY-touchStartY;if(Math.abs(x)<64||Math.abs(x)<=Math.abs(y)*1.15)return;updateStory(storyIndex+(x<0?1:-1))},{passive:true});mainContent.addEventListener('wheel',function(event){event.preventDefault();wheelDelta+=(Math.abs(event.deltaY)>=Math.abs(event.deltaX)?event.deltaY:event.deltaX)*.25;window.clearTimeout(wheelTimer);wheelTimer=window.setTimeout(function(){wheelDelta=0},360);if(Math.abs(wheelDelta)<75||wheelLocked)return;var direction=wheelDelta>0?1:-1;wheelDelta=0;wheelLocked=true;window.setTimeout(function(){wheelLocked=false},480);updateStory(storyIndex+direction)},{passive:false})}
+      var navTelegram=document.querySelector('[data-od-id="nav-telegram"]');if(navTelegram)navTelegram.addEventListener('click',function(event){event.preventDefault();updateStory(8)});
+    }());
+  </script>
+  <script>
+    (function(){var panels=[].slice.call(document.querySelectorAll('[data-story-panel]')),navs=[].slice.call(document.querySelectorAll('.chapter-nav'));if(!panels.length||!navs.length)return;var layer=document.createElement('div');layer.className='story-navigation-layer';layer.setAttribute('aria-label','Навигация по программе');document.body.appendChild(layer);navs.forEach(function(nav){var panel=nav.closest('[data-story-panel]');nav.dataset.storyNavigation=panel?panel.dataset.storyPanel:'';layer.appendChild(nav)});function sync(){var active=panels.find(function(panel){return panel.classList.contains('is-active')});var activeId=active?active.dataset.storyPanel:'';navs.forEach(function(nav){var current=nav.dataset.storyNavigation===activeId;nav.classList.toggle('is-active-navigation',current);nav.setAttribute('aria-hidden',current?'false':'true');nav.inert=!current})}var observer=new MutationObserver(sync);panels.forEach(function(panel){observer.observe(panel,{attributes:true,attributeFilter:['class']})});sync()}());
+  </script>
+</body>
+</html>

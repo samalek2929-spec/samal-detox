@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Голодание 7/7 — программа Samal Detox с личным сопровождением Самал Булатханкызы.">
+  <title>Голодание 7/7 · Samal Detox</title>
+  <style>
+    @font-face{font-family:"Cormorant Garamond Local";src:url("../assets/fonts/cormorant-garamond.woff2") format("woff2");font-style:italic;font-weight:400;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans Local";src:url("../assets/fonts/ibm-plex-sans.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+
+    :root{
+      --primary:#205A50;
+      --eucalyptus:#87B7AB;
+      --mist:#DDEBE5;
+      --background:#F7F5EF;
+      --sand:#E4D9C8;
+      --ink:#183D38;
+      --radius-card:32px;
+      --radius-pill:999px;
+      --content:min(880px,calc(100% - 40px));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--background);color:var(--ink)}
+    body{margin:0;overflow:hidden;background:var(--background);color:var(--ink);font-family:"IBM Plex Sans Local",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
+    ::selection{background:var(--primary);color:var(--background)}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}
+    .shell{width:var(--content);margin-inline:auto}
+    .skip-link{position:absolute;left:16px;top:-80px;padding:12px 16px;background:var(--primary);color:var(--background);z-index:20}
+    .skip-link:focus{top:16px}
+
+    .site-header{border-bottom:1px solid var(--sand)}
+    .site-header .shell{width:min(1180px,calc(100% - 40px));display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+    .wordmark{font-weight:700;letter-spacing:-.03em;text-decoration:none}
+    .wordmark span{color:var(--primary)}
+    .site-nav{display:flex;align-items:center;gap:18px;font-size:13px}
+    .site-nav a{text-decoration:none}
+    .back-link:hover{text-decoration:underline;text-underline-offset:4px}
+    .nav-cta{padding:10px 16px;border:1px solid var(--primary);border-radius:var(--radius-pill);color:var(--primary);text-decoration:none;transition:background .18s ease,color .18s ease}
+    .nav-cta:hover{background:var(--primary);color:var(--background)}
+
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:680px;margin-bottom:18px;font-size:clamp(40px,9vw,72px);font-weight:700;line-height:.97;letter-spacing:-.045em}
+    h1 em,h2 em{font-family:"Cormorant Garamond Local",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--primary);font-size:1.3em}
+    h2{margin-bottom:18px;font-size:clamp(30px,6vw,44px);line-height:1.02;letter-spacing:-.04em}
+    .eyebrow{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--primary)}
+    .section-intro{max-width:60ch;font-size:17px}
+
+    .program-hero{background:var(--mist);padding:56px 0 48px}
+    .hero-lead{max-width:560px;margin-bottom:28px;font-size:17px;line-height:1.5}
+    .price-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+    .price-main{font-size:28px;font-weight:700;line-height:1.2}
+    .price-alt{display:block;margin-top:4px;font-size:14px;font-weight:400;color:var(--primary)}
+    .duration-chip{padding:10px 18px;background:color-mix(in srgb,var(--background) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-pill);font-size:14px;font-weight:700;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+
+    .section{padding:56px 0;border-top:1px solid var(--sand)}
+    .included-section{background:var(--sand)}
+    .flow-section{background:var(--mist)}
+    .result-section{background:var(--sand)}
+
+    .split-columns{display:grid;gap:28px;margin-top:8px}
+    .split-col h3{margin:0 0 14px;font-size:18px;letter-spacing:-.01em}
+    .split-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+    .split-list li{padding-left:24px;position:relative;font-size:15px;line-height:1.5}
+    .split-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--primary)}
+    .split-col.self-purchase li::before{background:var(--eucalyptus)}
+
+    .flow-list{display:grid;gap:0;margin:28px 0 0;padding:0;list-style:none;border-top:1px solid var(--eucalyptus)}
+    .flow-item{display:grid;grid-template-columns:1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--eucalyptus)}
+    .flow-item h3{margin:0 0 4px;font-size:16px;letter-spacing:-.01em}
+    .flow-item p{margin:0;font-size:15px;line-height:1.5}
+    .flow-section h2,.flow-section h2 em{color:#fff}
+    .flow-foot{margin-top:20px;font-size:14px;color:#fff;text-shadow:0 1px 12px color-mix(in srgb,var(--ink) 48%,transparent)}
+
+     .notice-card{padding:28px;background:var(--background);border:1px solid var(--sand);border-radius:var(--radius-card);box-shadow:0 10px 24px var(--mist)}
+    .notice-card ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+    .notice-card li{padding-left:22px;position:relative;font-size:15px;line-height:1.45}
+    .notice-card li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--primary)}
+    .notice-card li.notice-pending{font-style:italic;color:var(--primary)}
+    .notice-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--sand);font-size:14px;color:var(--primary)}
+
+    .result-note{max-width:60ch;margin-top:14px;font-size:15px;color:var(--ink)}
+    .result-note strong{color:var(--primary)}
+
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border:1px solid var(--primary);border-radius:var(--radius-pill);font:inherit;font-weight:700;text-decoration:none;transition:transform .18s ease,background .18s ease,color .18s ease}
+    .button-primary{background:var(--primary);color:var(--background)}
+    .button-primary:hover{background:var(--ink);color:var(--background);transform:translateY(-2px)}
+    .link-arrow{display:inline-flex;margin-top:20px;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+    .link-arrow:hover{color:var(--primary)}
+
+    .final-cta{padding:64px 0;background:var(--primary);color:var(--background);border-top:none}
+    .final-layout{display:grid;gap:22px}
+    .final-cta h2 em{color:var(--eucalyptus)}
+    .final-copy{max-width:440px;margin:0 0 20px;font-size:16px}
+    .final-cta .button-primary{background:var(--background);color:var(--primary);border-color:var(--background)}
+    .final-cta .button-primary:hover{background:var(--eucalyptus);color:var(--ink);border-color:var(--eucalyptus)}
+    @keyframes telegram-golden-pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--sand) 0%,transparent),0 8px 22px color-mix(in srgb,var(--sand) 18%,transparent)}50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--sand) 18%,transparent),0 10px 30px color-mix(in srgb,var(--sand) 42%,transparent)}}
+    .final-cta .telegram-link{position:relative;z-index:1;margin-top:12px;animation:telegram-golden-pulse 3.2s ease-in-out infinite}
+
+    .related-grid{display:grid;gap:14px;margin:28px 0 24px}
+    .related-card{display:block;padding:22px;background:color-mix(in srgb,var(--mist) 40%,transparent);border:1px solid color-mix(in srgb,var(--background) 72%,transparent);border-radius:var(--radius-card);text-decoration:none;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent);transition:box-shadow .18s ease,transform .18s ease}
+    .related-card:hover{box-shadow:0 0 0 1px rgba(24,61,56,.12),inset 0 1px 0 rgba(247,245,239,.8),0 18px 30px rgba(24,61,56,.13);transform:translateY(-2px)}
+    .related-duration{display:block;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--primary)}
+    .related-card h3{margin:0 0 10px;font-size:18px;line-height:1.15;letter-spacing:-.01em}
+    .related-price{font-size:15px;font-weight:700}
+
+    .site-footer{display:flex;justify-content:space-between;gap:24px;padding:24px 0 34px;font-size:13px;width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .site-footer p{margin:0}
+    .footer-muted{color:var(--primary)}
+    .telegram-status{position:fixed;right:16px;bottom:16px;z-index:10;max-width:300px;padding:14px 16px;background:var(--ink);color:var(--background);border-radius:var(--radius-pill);box-shadow:0 16px 30px var(--sand);font-size:14px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+    .telegram-status.is-visible{opacity:1;transform:translateY(0)}
+
+    @media(min-width:760px){
+      .split-columns{grid-template-columns:1fr 1fr;gap:40px}
+      .related-grid{grid-template-columns:repeat(2,1fr)}
+      .final-layout{grid-template-columns:1fr auto;align-items:end}
+      .final-copy{margin-bottom:0}
+    }
+    @media(max-width:480px){
+      .site-nav{gap:10px}
+      .nav-cta{padding:10px 12px}
+    }
+     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.related-card,.telegram-status,.story-panel,.chapter-control,.chapter-dot{transition:none}.final-cta .telegram-link{animation:none}}
+     .duration-chip,.related-card,.notice-card{background:var(--background);border-color:var(--sand);box-shadow:0 10px 24px var(--mist);-webkit-backdrop-filter:none;backdrop-filter:none}
+     /* ===== Matte glass surfaces ===== */
+     .duration-chip,.notice-card,.related-card{background:color-mix(in srgb,var(--background) 40%,transparent);border-color:color-mix(in srgb,var(--background) 72%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+     .related-card{background:color-mix(in srgb,var(--mist) 40%,transparent)}
+     @media(max-width:480px){.duration-chip,.notice-card,.related-card{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
+     /* Story-panel contract */
+     .site-footer{display:none}#main-content{position:relative;height:calc(100svh - 76px);overflow:hidden;touch-action:pan-y}.story-panel{position:absolute;inset:0;width:100%;height:100%;padding:56px 0 92px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;transform:translateX(100%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .48s cubic-bezier(.23,1,.32,1),opacity .25s ease,visibility 0s linear .48s;will-change:transform}.story-panel.is-before{transform:translateX(-100%);opacity:.72;visibility:visible}.story-panel.is-after{transform:translateX(100%);opacity:0;visibility:visible}.story-panel.is-active{transform:translateX(0);opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}.chapter-nav{position:fixed;left:50%;bottom:22px;z-index:30;display:flex;align-items:center;justify-content:center;gap:24px;width:max-content;margin:0;padding:6px 10px;transform:translateX(-50%) translateZ(0);isolation:isolate}.chapter-control{display:inline-grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--primary);border-radius:50%;background:color-mix(in srgb,var(--background) 94%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--primary);font-family:inherit;font-size:25px;font-weight:700;line-height:1;cursor:pointer;box-shadow:0 6px 16px color-mix(in srgb,var(--ink) 15%,transparent);transition:background .18s ease,color .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}.chapter-control:hover{background:var(--primary);color:var(--background);transform:translateY(-2px)}.chapter-control:disabled{opacity:.38;cursor:not-allowed;box-shadow:none}.chapter-progress{position:relative;display:flex;align-items:center;justify-content:space-between;width:176px;min-width:176px;min-height:44px;padding:0 11px;cursor:grab;touch-action:none;user-select:none}.chapter-progress::before{content:"";position:absolute;left:12px;right:12px;top:50%;height:1px;background:color-mix(in srgb,var(--primary) 42%,transparent);transform:translateY(-50%)}.chapter-progress.is-dragging{cursor:grabbing}.chapter-dot{position:relative;z-index:1;width:8px;height:8px;padding:0;border:1px solid var(--primary);border-radius:50%;background:var(--background);cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}.chapter-dot[aria-current="true"]{width:20px;border-radius:999px;background:var(--primary);border-color:var(--primary)}.chapter-dot:hover{transform:scale(1.35);background:var(--primary)}
+     .program-hero.opening-scene{background:var(--background) url("../assets/backgrounds/quiet-water-programs-v1.webp") center 54%/cover no-repeat;padding:56px 0 92px}.overview-section{background:var(--background) url("../assets/backgrounds/quiet-water-light-v1.webp") center 54%/cover no-repeat}.included-section{background:var(--mist) url("../assets/backgrounds/quiet-water-trust-v1.webp") center 42%/cover no-repeat}.flow-section{background:var(--sand) url("../assets/backgrounds/quiet-water-river-stones-v1.webp") center 38%/cover no-repeat}.contraindications-section{background:linear-gradient(color-mix(in srgb,var(--ink) 76%,transparent),color-mix(in srgb,var(--ink) 76%,transparent)),url("../assets/backgrounds/quiet-water-faq-v1.webp") center 44%/cover no-repeat;color:var(--background)}.contraindications-section .section-intro{color:var(--background)}.result-section{background:var(--sand) url("../assets/backgrounds/quiet-water-steppe-mist-v1.webp") 42% center/cover no-repeat}.final-cta{background:linear-gradient(color-mix(in srgb,var(--primary) 78%,transparent),color-mix(in srgb,var(--primary) 78%,transparent)),url("../assets/backgrounds/nacre-shell-v1.webp") center/cover no-repeat}.related-section{background:var(--mist) url("../assets/backgrounds/tubazh-water-mist-v1.webp") right bottom/cover no-repeat}
+     .split-col,.flow-item,.notice-card,.result-note,.final-copy,.related-card{position:relative;isolation:isolate;background:color-mix(in srgb,var(--background) 48%,transparent);border:1px solid color-mix(in srgb,var(--background) 78%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 78%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 11%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--ink)}.split-col{padding:24px 24px 26px;border-radius:38% 18px 28% 16px / 20px 32% 18px 30%;transform:rotate(-.8deg)}.split-col:nth-child(2){border-radius:16px 34% 18px 38% / 30% 18px 34% 16px;transform:rotate(1deg)}.flow-list{gap:12px;border-top:0}.flow-item{padding:18px 20px;border:0;border-radius:18px 38% 20px 32% / 30% 18px 34% 16px;transform:rotate(-.7deg)}.flow-item:nth-child(even){border-radius:36% 16px 34% 20px / 18px 30% 16px 32%;transform:rotate(.8deg)}.notice-card{border-radius:34% 16px 38% 22px / 20px 30% 18px 34%;transform:rotate(.5deg)}.notice-card li{padding:10px 14px 10px 30px;background:color-mix(in srgb,var(--background) 36%,transparent);border:1px solid color-mix(in srgb,var(--background) 70%,transparent);border-radius:40% 18px 34% 16px / 18px 30% 16px 28%}.notice-card li:nth-child(even){border-radius:16px 38% 20px 34% / 28% 16px 32% 18%;transform:rotate(-.5deg)}.notice-card li::before{left:10px;top:18px}.result-note,.final-copy{padding:18px 20px;border-radius:18px 38% 20px 34% / 30% 16px 34% 18%;transform:rotate(-.6deg)}.final-copy{color:var(--ink)}.final-cta .chapter-control{border-color:var(--eucalyptus);color:var(--background);background:color-mix(in srgb,var(--background) 18%,transparent)}.final-cta .chapter-control:hover{background:var(--eucalyptus);color:var(--ink)}@media(hover:hover){.split-col:hover,.flow-item:hover,.notice-card:hover,.result-note:hover,.final-copy:hover,.related-card:hover{transform:translateY(-2px) rotate(0deg)}}@media(max-width:700px){.chapter-nav{bottom:14px;gap:18px}.chapter-control{width:42px;height:42px;font-size:24px}.chapter-progress{width:142px;min-width:142px;padding:0 9px}.chapter-progress::before{left:10px;right:10px}.chapter-dot{width:7px;height:7px}.chapter-dot[aria-current="true"]{width:17px}.story-panel{padding-top:48px}.split-col{padding:20px 18px 22px}.flow-item{padding:16px 18px}.notice-card{padding:22px 18px}.result-note,.final-copy{padding:16px 18px}}@media(max-width:480px){.overview-section{background-position:center 42%}.included-section{background-position:center 32%}.flow-section{background-position:center 28%}.contraindications-section{background-position:center 34%}.duration-chip,.notice-card,.related-card{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
+    /* Global story navigation — intentionally outside transformed panels. */
+    .chapter-nav{position:fixed;inset:auto 0 0;width:100%;min-height:74px;margin:0;padding:10px max(20px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));transform:none;z-index:100;display:none;align-items:center;justify-content:center;gap:24px;isolation:isolate;background:transparent;border:0;box-shadow:none}.chapter-nav.is-active-navigation{display:flex}.chapter-nav .chapter-control{background:color-mix(in srgb,var(--background) 94%,transparent)}@media(max-width:700px){.chapter-nav{min-height:70px;bottom:0;gap:18px}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">К содержанию</a>
+  <header class="site-header" data-od-id="site-header">
+    <div class="shell">
+      <a class="wordmark" href="../index.html" data-od-id="wordmark">Samal <span>Detox</span></a>
+      <nav class="site-nav" aria-label="Основная навигация" data-od-id="main-navigation">
+        <a class="back-link" href="../index.html#programs" data-od-id="nav-all-programs">Все программы</a>
+        <a class="nav-cta" href="#telegram" data-od-id="nav-telegram">В Telegram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="program-hero opening-scene story-panel" data-story-panel="0" data-od-id="program-hero">
+      <div class="shell">
+        <p class="eyebrow">Программа</p>
+        <h1 data-od-id="program-title">Голодание <em>7/7</em></h1>
+        <p class="hero-lead">21 день: глубинный тюбаж, 7 дней активной чистки на отварах и воде, 6 дней насыщения на свежевыжатых соках и 7 дней выхода на растительном питании.</p>
+        <div class="price-row" data-od-id="price-block">
+          <div class="price-main">120 000 ₸<span class="price-alt">25 000 ₽ · 260 $</span></div>
+          <div class="duration-chip" data-od-id="duration-chip">21 день</div>
+        </div>
+      </div><div class="chapter-nav" data-od-id="hero-navigation"><button class="chapter-control" type="button" disabled aria-label="Предыдущий экран">←</button><button class="chapter-control" type="button" data-story-next="1" aria-label="Что это за программа">→</button></div>
+    </section>
+
+    <section class="section overview-section story-panel" data-story-panel="1" data-od-id="overview-section">
+      <div class="shell">
+        <h2 data-od-id="overview-heading">Что это за <em>программа.</em></h2>
+        <p class="section-intro">Полноценный трёхнедельный формат для тех, кто хочет пройти голодание не самостоятельно по статьям из интернета, а с личной корректировкой Самал по самочувствию на каждом этапе — от подготовки до выхода.</p>
+      </div><div class="chapter-nav" data-od-id="overview-navigation"><button class="chapter-control" type="button" data-story-prev="0" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="2" aria-label="Что входит">→</button></div>
+    </section>
+
+    <section class="section included-section story-panel" data-story-panel="2" data-od-id="included-section">
+      <div class="shell">
+        <h2 data-od-id="included-heading">Что <em>входит.</em></h2>
+        <div class="split-columns">
+          <div class="split-col" data-od-id="included-list">
+            <h3>Входит в сопровождение</h3>
+            <ul class="split-list">
+              <li>Сопровождение и корректировка Самал все дни программы</li>
+              <li>Инструкции по выходу и примерное меню</li>
+              <li>Доступ к общему информационному каналу</li>
+              <li>Канал с пошаговым прохождением программы</li>
+              <li>Канал с онлайн-тренировками от сертифицированного тренера</li>
+              <li>Самомассажи лица и тела</li>
+            </ul>
+          </div>
+          <div class="split-col self-purchase" data-od-id="self-purchase-list">
+            <h3>Вы организуете сами</h3>
+            <ul class="split-list">
+              <li>Продукты для отваров, соков и рациона на этапе выхода</li>
+            </ul>
+          </div>
+        </div>
+      </div><div class="chapter-nav" data-od-id="included-navigation"><button class="chapter-control" type="button" data-story-prev="1" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="3" aria-label="Схема прохождения">→</button></div>
+    </section>
+
+    <section class="section flow-section story-panel" data-story-panel="3" data-od-id="flow-section">
+      <div class="shell">
+        <h2 data-od-id="flow-heading">Схема <em>прохождения.</em></h2>
+        <ol class="flow-list" data-od-id="flow-list">
+          <li class="flow-item"><div><h3>Глубинный тюбаж</h3><p>Первый день программы.</p></div></li>
+          <li class="flow-item"><div><h3>7 дней активной чистки</h3><p>На отварах и воде.</p></div></li>
+          <li class="flow-item"><div><h3>6 дней насыщения</h3><p>На свежевыжатых соках.</p></div></li>
+          <li class="flow-item"><div><h3>7 дней выхода</h3><p>На растительном питании.</p></div></li>
+        </ol>
+        <p class="flow-foot">Клизмы — все дни, кроме дня глубинного тюбажа.</p>
+      </div><div class="chapter-nav" data-od-id="flow-navigation"><button class="chapter-control" type="button" data-story-prev="2" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="4" aria-label="Проверить противопоказания">→</button></div>
+    </section>
+
+    <section class="section contraindications-section story-panel" data-story-panel="4" data-od-id="contraindications-section">
+      <div class="shell">
+        <h2 data-od-id="contraindications-heading">Противопоказания</h2>
+        <p class="section-intro">Важная часть, а не формальность — прочитайте перед записью.</p>
+        <div class="notice-card" data-od-id="contraindications-card">
+          <ul>
+            <li><strong>Беременность</strong> — абсолютное противопоказание</li>
+            <li><strong>Невозможность делать клизмы</strong> — операция или травма в области ануса, свежие шрамы: абсолютное противопоказание</li>
+            <li><strong>Полостная операция</strong> — не ранее чем через 6 месяцев</li>
+            <li><strong>Лапароскопия</strong> — не ранее чем через 2 месяца</li>
+            <li><strong>Онкология 3–4 стадии</strong> — абсолютное противопоказание</li>
+            <li><strong>Онкология 1–2 стадии</strong> — только по разрешению врача</li>
+            <li><strong>Аллергия на травы</strong> — не отказ, индивидуальный подбор замены</li>
+            <li><strong>Недовес</strong> — только после сбора анамнеза</li>
+             <li data-od-id="age-restriction"><strong>Возраст и состояние здоровья</strong> — перед стартом ограничения и риски обсуждаются индивидуально</li>
+          </ul>
+          <p class="notice-foot">Если сомневаетесь, подходит ли вам программа — обсудите с Самал в Telegram-боте до записи.</p>
+        </div>
+      </div><div class="chapter-nav" data-od-id="contraindications-navigation"><button class="chapter-control" type="button" data-story-prev="3" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="5" aria-label="Чего ожидать">→</button></div>
+    </section>
+
+    <section class="section result-section story-panel" data-story-panel="5" data-od-id="result-section">
+      <div class="shell">
+        <h2 data-od-id="result-heading">Чего <em>ожидать.</em></h2>
+        <p class="section-intro">Результат зависит от длительности голодания и индивидуальных особенностей — Самал сопровождает и корректирует план по самочувствию на каждом этапе.</p>
+        <p class="result-note">Конкретных цифр по итогам курса мы не указываем: вес и самочувствие у всех разные, программа не даёт гарантированного результата.</p>
+      </div><div class="chapter-nav" data-od-id="result-navigation"><button class="chapter-control" type="button" data-story-prev="4" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="6" aria-label="Обсудить с Самал">→</button></div>
+    </section>
+
+    <section id="telegram" class="final-cta story-panel" data-story-panel="6" data-od-id="final-cta">
+      <div class="shell final-layout">
+        <h2 data-od-id="final-heading">Готовы<br><em>начать?</em></h2>
+        <div>
+          <p class="final-copy">Обсудите программу с Самал в Telegram — дата, чек-лист противопоказаний и оплата там же.</p>
+          <a class="button button-primary telegram-link" href="#telegram" data-od-id="final-telegram">Обсудить в Telegram-боте</a><div class="chapter-nav" data-od-id="final-navigation"><button class="chapter-control" type="button" data-story-prev="5" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="7" aria-label="Другие форматы">→</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section related-section story-panel" data-story-panel="7" data-od-id="related-section">
+      <div class="shell">
+        <h2 data-od-id="related-heading">Другие <em>форматы.</em></h2>
+        <div class="related-grid">
+          <a class="related-card" href="cleanse-3.html" data-od-id="related-cleanse-3"><span class="related-duration">3 дня + подготовка</span><h3>3-дневное антипаразитарное очищение</h3><span class="related-price">130 000 ₸</span></a>
+          <a class="related-card" href="fasting-14-14.html" data-od-id="related-fasting-14"><span class="related-duration">42 дня</span><h3>Голодание 14/14</h3><span class="related-price">140 000 ₸</span></a>
+        </div>
+        <a class="link-arrow" href="../index.html#programs" data-od-id="related-all-link">Все программы ↗</a>
+      </div><div class="chapter-nav" data-od-id="related-navigation"><button class="chapter-control" type="button" data-story-prev="6" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="0" aria-label="Начать сначала">→</button></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-od-id="site-footer"><p>Samal Detox · Самал Булатханкызы</p><p class="footer-muted">Страница программы · 2026</p></footer>
+  <div class="telegram-status" role="status" aria-live="polite" data-od-id="telegram-status">Переход в Telegram будет доступен после подключения бота.</div>
+  <script>
+    (function(){var status=document.querySelector('[data-od-id="telegram-status"]'),links=document.querySelectorAll('.telegram-link'),panels=[].slice.call(document.querySelectorAll('[data-story-panel]')),index=0;links.forEach(function(link){link.addEventListener('click',function(){status.classList.add('is-visible');clearTimeout(status._timer);status._timer=setTimeout(function(){status.classList.remove('is-visible')},4200)})});try{var saved=Number(localStorage.getItem('fasting-7-7-story-panel'));if(saved>=0&&saved<panels.length&&Math.floor(saved)===saved)index=saved}catch(error){}function update(next){next=Math.max(0,Math.min(panels.length-1,next));if(next===index)return;index=next;panels.forEach(function(panel,i){panel.classList.remove('is-before','is-active','is-after');panel.setAttribute('aria-hidden',i===index?'false':'true');panel.inert=i!==index;panel.classList.add(i===index?'is-active':i<index?'is-before':'is-after')});panels[index].scrollTop=0;document.querySelectorAll('.chapter-dot').forEach(function(dot){dot.setAttribute('aria-current',dot.dataset.storyDot===String(index)?'true':'false')});try{localStorage.setItem('fasting-7-7-story-panel',String(index))}catch(error){}}panels.forEach(function(panel,i){panel.tabIndex=-1;panel.setAttribute('aria-hidden',i===index?'false':'true');panel.inert=i!==index;panel.classList.add(i===index?'is-active':i<index?'is-before':'is-after')});document.querySelectorAll('.chapter-nav').forEach(function(nav){var next=nav.querySelector('[data-story-next]');if(!next)return;var progress=document.createElement('div');progress.className='chapter-progress';progress.setAttribute('role','tablist');progress.setAttribute('aria-label','Переход между экранами');panels.forEach(function(panel,i){var dot=document.createElement('button');dot.type='button';dot.className='chapter-dot';dot.setAttribute('role','tab');dot.dataset.storyDot=i;dot.setAttribute('aria-label','Экран '+(i+1)+' из '+panels.length);dot.setAttribute('aria-current',i===index?'true':'false');dot.addEventListener('click',function(){if(!progress._suppressClick)update(i)});progress.appendChild(dot)});function closest(x){var best=0,d=Infinity;[].forEach.call(progress.children,function(dot,i){var r=dot.getBoundingClientRect(),n=Math.abs(x-(r.left+r.width/2));if(n<d){d=n;best=i}});return best}progress.addEventListener('pointerdown',function(e){if(e.button!==undefined&&e.button!==0)return;progress.setPointerCapture(e.pointerId);progress.classList.add('is-dragging');progress._x=e.clientX;progress._moved=false;update(closest(e.clientX))});progress.addEventListener('pointermove',function(e){if(!progress.classList.contains('is-dragging'))return;if(Math.abs(e.clientX-progress._x)>4)progress._moved=true;update(closest(e.clientX))});function end(e){if(!progress.classList.contains('is-dragging'))return;if(progress.hasPointerCapture(e.pointerId))progress.releasePointerCapture(e.pointerId);progress.classList.remove('is-dragging');if(progress._moved){progress._suppressClick=true;setTimeout(function(){progress._suppressClick=false},0)}}progress.addEventListener('pointerup',end);progress.addEventListener('pointercancel',end);nav.insertBefore(progress,next)});document.querySelectorAll('[data-story-next]').forEach(function(button){button.addEventListener('click',function(){update(Number(button.dataset.storyNext))})});document.querySelectorAll('[data-story-prev]').forEach(function(button){button.addEventListener('click',function(){update(Number(button.dataset.storyPrev))})});document.addEventListener('keydown',function(e){if(['INPUT','TEXTAREA','SELECT'].indexOf(document.activeElement&&document.activeElement.tagName)>-1)return;if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();update(index+1)}if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();update(index-1)}});var main=document.querySelector('#main-content'),sx=0,sy=0,delta=0,locked=false,timer=0;if(main){main.addEventListener('touchstart',function(e){var t=e.touches[0];if(t){sx=t.clientX;sy=t.clientY}},{passive:true});main.addEventListener('touchend',function(e){var t=e.changedTouches[0],x=t.clientX-sx,y=t.clientY-sy;if(Math.abs(x)>=64&&Math.abs(x)>Math.abs(y)*1.15)update(index+(x<0?1:-1))},{passive:true});main.addEventListener('wheel',function(e){e.preventDefault();delta+=(Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX)*.25;clearTimeout(timer);timer=setTimeout(function(){delta=0},360);if(Math.abs(delta)<75||locked)return;locked=true;setTimeout(function(){locked=false},480);update(index+(delta>0?1:-1));delta=0},{passive:false})}var navTelegram=document.querySelector('[data-od-id="nav-telegram"]');if(navTelegram)navTelegram.addEventListener('click',function(e){e.preventDefault();update(6)});}());
+  </script>
+  <script>
+    (function(){var panels=[].slice.call(document.querySelectorAll('[data-story-panel]')),navs=[].slice.call(document.querySelectorAll('.chapter-nav'));navs.forEach(function(nav,index){nav.dataset.storyNavigation=index;document.body.appendChild(nav)});function sync(){var active=panels.findIndex(function(panel){return panel.classList.contains('is-active')});navs.forEach(function(nav,index){var current=index===active;nav.classList.toggle('is-active-navigation',current);nav.setAttribute('aria-hidden',current?'false':'true');nav.inert=!current})}var observer=new MutationObserver(sync);panels.forEach(function(panel){observer.observe(panel,{attributes:true,attributeFilter:['class']})});sync()}());
+  </script>
+</body>
+</html>

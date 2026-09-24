@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "samal-detox/legal.html",
+  "entry": "samal-detox/legal.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-24T08:06:35.505Z",
+  "updatedAt": "2026-09-24T08:06:35.505Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

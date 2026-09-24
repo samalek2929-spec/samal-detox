@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "samal-detox/programs/fasting-14-14.html",
+  "entry": "samal-detox/programs/fasting-14-14.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-21T09:29:34.714Z",
+  "updatedAt": "2026-09-21T09:29:34.714Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

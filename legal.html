@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Документы и ответы · Samal Detox</title>
+<style>
+  @font-face{font-family:Plex;src:url("assets/fonts/ibm-plex-sans.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
+  @font-face{font-family:Cormorant;src:url("assets/fonts/cormorant-garamond.woff2") format("woff2");font-style:italic;font-weight:400;font-display:swap}
+  :root{--primary:#205A50;--eucalyptus:#87B7AB;--mist:#DDEBE5;--cream:#F7F5EF;--sand:#E4D9C8;--ink:#183D38;--content:min(1180px,calc(100% - 40px));--card:32px;--pill:999px}
+  *{box-sizing:border-box}html{scroll-behavior:smooth;scrollbar-width:none}
+  html::-webkit-scrollbar{display:none}
+  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 Plex,system-ui,sans-serif}
+  a{color:inherit}img{display:block;max-width:100%}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}
+  .shell{width:var(--content);margin:auto}
+  .skip{position:absolute;top:-80px;left:16px;padding:12px 16px;background:var(--primary);color:var(--cream);z-index:3}
+  .skip:focus{top:16px}
+  .header{display:flex;align-items:center;justify-content:space-between;min-height:76px;border-bottom:1px solid var(--sand)}
+  @media(prefers-reduced-motion:no-preference){.header{--header-fade:0;position:fixed;top:0;left:50%;z-index:30;isolation:isolate;background:transparent;border-color:transparent;opacity:calc(1 - var(--header-fade));transform:translateX(-50%);will-change:opacity}.header::before{content:"";position:absolute;inset:0;z-index:-1;width:100vw;left:50%;transform:translateX(-50%);background:color-mix(in srgb,var(--cream) 90%,#fff);border-bottom:1px solid color-mix(in srgb,var(--sand) 55%,transparent)}.header.is-hidden{pointer-events:none}}
+  @media(max-width:759px){[data-od-id="nav-programs"],[data-od-id="nav-faq"],[data-od-id="nav-reviews"]{display:none}}
+  .wordmark{font-weight:700;letter-spacing:-.03em;text-decoration:none}
+  .wordmark span{color:var(--primary)}
+  nav{display:flex;align-items:center;gap:20px;font-size:13px}
+  nav a{text-decoration:none}
+  nav a:not(.button):hover{text-decoration:underline;text-underline-offset:4px}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--primary);border-radius:var(--pill);font:inherit;font-weight:700;text-decoration:none}
+  .button:hover{background:var(--primary);color:var(--cream)}
+  .eyebrow{margin:0 0 18px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+  .legal-journey{--journey:0;--light:0;--orbs:0;position:relative;isolation:isolate}
+  .legal-stage{position:relative;overflow:hidden}
+  .legal-hero{--legal-accent:#9DC2DE;--hero-dark:#183D38;--hero-light:#fff;--hero-surface:var(--hero-dark);--hero-ink:var(--hero-light);--hero-line:var(--legal-accent);--plaque-surface:color-mix(in srgb,var(--hero-dark) 88%,transparent);--plaque-ink:var(--hero-light);--plaque-accent:var(--legal-accent);--plaque-shadow:color-mix(in srgb,var(--ink) 55%,transparent);position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:clamp(620px,82vh,820px);display:flex;align-items:center;background:var(--hero-surface);color:var(--hero-ink)}
+  .legal-hero-inner{position:relative;z-index:2;width:var(--content);margin-inline:auto}
+  .legal-hero-lines{position:absolute;left:50%;top:0;z-index:0;width:100vw;height:100%;transform:translateX(-50%);color:color-mix(in srgb,#d7ecf3 86%,var(--legal-accent));pointer-events:none;filter:drop-shadow(0 0 9px color-mix(in srgb,#bfe4ee 32%,transparent));will-change:opacity}
+  .legal-line-field{will-change:transform}
+  .legal-hero-lines path{fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;animation:legal-wave-breathe var(--wave-time,7s) cubic-bezier(.77,0,.175,1) infinite alternate;animation-play-state:paused}
+  .legal-hero-lines path:nth-child(2n){--wave-time:8.8s;opacity:.68;animation-delay:-2.1s}
+  .legal-hero-lines path:nth-child(3n){--wave-time:10.2s;opacity:.43;animation-delay:-4.7s}
+  .legal-hero-lines path:nth-child(5n){--wave-time:7.6s;opacity:.82;animation-delay:-1.3s}
+  .legal-journey.is-wave-active .legal-hero-lines path{animation-play-state:running}
+  @keyframes legal-wave-breathe{0%{stroke-opacity:.38}100%{stroke-opacity:.92}}
+  @media(prefers-reduced-motion:reduce){.legal-hero-lines{filter:none}}
+  .legal-hero-content{position:relative;isolation:isolate;z-index:1;width:min(40%,520px);max-width:520px;min-height:310px;display:flex;flex-direction:column;justify-content:center;padding:clamp(34px,4.5vw,56px);border-radius:8px;background:var(--plaque-surface);color:var(--plaque-ink);box-shadow:0 24px 52px var(--plaque-shadow);will-change:transform,opacity}
+  .legal-hero-content::before{display:none}
+  .legal-hero .eyebrow{color:var(--plaque-accent)}
+  .legal-hero h1{position:relative;max-width:520px;margin:0 0 22px;font-size:clamp(40px,6vw,60px);line-height:.94;letter-spacing:-.05em;color:var(--plaque-ink)}
+  .legal-hero h1 em{font-family:Cormorant,Georgia,serif;font-weight:400;color:var(--plaque-accent);letter-spacing:-.02em}
+  .legal-hero .lead{position:relative;max-width:480px;margin:0;font-size:17px;line-height:1.6;color:color-mix(in srgb,var(--plaque-ink) 82%,transparent)}
+  @media(min-width:1100px){.legal-hero{padding-block:clamp(150px,17vw,212px)}.legal-hero-content{min-height:360px}}
+  @media(max-width:759px){.legal-hero{min-height:560px;padding:88px 0 100px}.legal-hero-content{width:100%;max-width:520px;min-height:330px;padding:30px 24px}}
+
+  /* Grove — the landing zone at the end of one scroll scene; fades to dark as the last orbs surface */
+  .legal-grove{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:620px;background:#fff}
+  .legal-row{position:relative;isolation:isolate;z-index:2;max-width:var(--content);height:100%;margin:0 auto;padding:32px clamp(16px,5vw,40px)}
+  .legal-item{--orb-size:164px;position:absolute;z-index:2;display:grid;justify-items:center;gap:10px;transform:translate(-50%,-50%) translate3d(0,calc((1 - var(--reveal,1))*24px),0);opacity:var(--reveal,1);transition:opacity .2s linear}
+  .legal-item--offer{left:33%;top:24%}
+  .legal-item--disclaimer{left:67%;top:35%}
+  .legal-item--privacy{left:41%;top:66%}
+  .legal-item--faq{left:63%;top:84%}
+
+  @keyframes legal-orb-glow{
+    0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--cream) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 7px 18px color-mix(in srgb,var(--orb-bright) 34%,transparent),0 12px 22px color-mix(in srgb,var(--ink) 22%,transparent),0 0 0 4px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*20%),transparent),0 0 18px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*58%),transparent)}
+    50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--cream) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 10px 28px color-mix(in srgb,var(--orb-bright) 58%,transparent),0 14px 26px color-mix(in srgb,var(--ink) 20%,transparent),0 0 0 8px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*36%),transparent),0 0 34px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*88%),transparent)}
+  }
+  .legal-orb{position:relative;z-index:1;isolation:isolate;display:grid;place-items:center;width:var(--orb-size);height:var(--orb-size);padding:0;border:1px solid color-mix(in srgb,var(--cream) 86%,transparent);border-radius:50%;cursor:pointer;color:var(--cream);background:radial-gradient(circle at 38% 30%,color-mix(in srgb,var(--orb-bright) 62%,var(--cream)),var(--orb-deep) 50%,color-mix(in srgb,var(--orb-deep) 84%,var(--ink)));animation:legal-orb-glow 3.4s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+  .legal-orb:active{transform:scale(.95)}
+  @media(hover:hover) and (pointer:fine){.legal-orb:hover{transform:scale(1.08);animation-play-state:paused}}
+  .legal-orb-face{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;overflow:hidden;border-radius:50%}
+  .legal-orb-face::before{content:"";position:absolute;inset:7px;border:1px solid color-mix(in srgb,var(--cream) 46%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--cream) 16%,transparent);pointer-events:none}
+  .legal-orb-face svg{position:relative;z-index:1;width:53px;height:53px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--cream) 74%,transparent))}
+  .legal-orb--offer{--orb-deep:#2d3b5c;--orb-bright:#8b9ce0}
+  .legal-orb--disclaimer{--orb-deep:#254952;--orb-bright:#6fb8c4}
+  .legal-orb--privacy{--orb-deep:#33375c;--orb-bright:#9b8fd6}
+  .legal-orb--faq{--orb-deep:#264757;--orb-bright:#7fb4d6}
+
+  .legal-tag{position:relative;z-index:2;padding:7px 14px;border-radius:8px;background:color-mix(in srgb,#fff 94%,transparent);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);color:var(--primary);font-size:13px;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 4px 10px color-mix(in srgb,var(--ink) 10%,transparent)}
+
+  /* Burst — concentric rings radiate from each orb once the grove goes dark: they never
+     cross each other (same center = always nested), but neighbouring bursts overlap in
+     the middle of the canvas, packed tight for density. Pure circles (not a stretched
+     SVG viewBox) so they stay round at any container aspect ratio. */
+  .legal-burst{position:absolute;left:50%;top:calc(var(--orb-size)/2);z-index:0;width:0;height:0;pointer-events:none;transform:scale(calc(.6 + var(--reveal,0)*.4));transition:transform .5s ease}
+  .burst-ring{position:absolute;left:50%;top:50%;aspect-ratio:1;width:calc(var(--orb-size) + 10px + var(--i) * 13px);border-radius:50%;border:1.5px solid color-mix(in srgb,var(--primary) 55%,var(--eucalyptus));transform:translate(-50%,-50%);opacity:calc(var(--reveal,0) * calc(1 - var(--i) * .1));transition:opacity .4s ease}
+  .burst-ring:nth-child(3n){border-style:dashed}
+  .burst-ring:nth-child(4n){border-style:dotted}
+  @media(prefers-reduced-motion:reduce){.legal-burst{transform:scale(1);transition:none}.burst-ring{transition:none;opacity:calc(1 - var(--i) * .12)}}
+
+  .legal-journey.is-ready{height:calc(1200vh + 28svh)}
+  .legal-journey.is-ready .legal-stage{position:sticky;top:0;height:100svh;min-height:560px}
+  .legal-journey.is-ready .legal-hero,.legal-journey.is-ready .legal-grove{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0}
+  .legal-journey.is-ready .legal-hero{background:color-mix(in srgb,#fff calc(var(--light) * 100%),var(--hero-dark));color:color-mix(in srgb,var(--ink) calc(var(--light) * 100%),var(--cream))}
+  .legal-journey.is-ready .legal-hero-lines{opacity:calc(1 - var(--light) * .9)}
+  .legal-journey.is-ready .legal-hero-content{opacity:calc(1 - var(--light) * 1.28);transform:translate3d(0,calc(var(--light) * -38px),0)}
+  .legal-journey.is-ready .legal-grove{z-index:3;display:block;background:linear-gradient(160deg,color-mix(in srgb,#123a33 calc(var(--grove-dark,0)*100%),transparent) 0%,color-mix(in srgb,#0a2622 calc(var(--grove-dark,0)*100%),transparent) 55%,color-mix(in srgb,#071c19 calc(var(--grove-dark,0)*100%),transparent) 100%)}
+  .legal-journey.is-ready .legal-row{height:100%;min-height:0}
+  .legal-journey.is-ready .legal-grove::before{display:none}
+  @media(prefers-reduced-motion:reduce){.legal-journey.is-ready{height:auto}.legal-journey.is-ready .legal-stage{position:relative;height:auto}.legal-journey.is-ready .legal-hero,.legal-journey.is-ready .legal-grove{position:relative;inset:auto;height:auto}.legal-journey.is-ready .legal-hero{background:var(--hero-dark);color:var(--cream)}.legal-journey.is-ready .legal-hero-content{opacity:1;transform:none}.legal-journey.is-ready .legal-grove{background:#fff}}
+
+  @media(max-width:759px){
+    .legal-grove{min-height:520px}
+    .legal-item--offer{left:32%;top:16%}
+    .legal-item--disclaimer{left:69%;top:36%}
+    .legal-item--privacy{left:43%;top:60%}
+    .legal-item--faq{left:61%;top:84%}
+    .legal-item{--orb-size:124px}
+    .legal-orb-face::before{inset:6px}
+    .legal-orb-face svg{width:46px;height:46px}
+    .legal-tag{font-size:12px;padding:6px 12px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .legal-orb{animation:none}
+    .legal-item{opacity:1;transform:translate(-50%,-50%)}
+  }
+
+  /* Dialogs */
+  .legal-dialog{width:min(640px,calc(100% - 40px));max-height:min(720px,calc(100dvh - 48px));padding:0;border:0;background:transparent;color:var(--ink);overflow:visible}
+  .legal-dialog::backdrop{background:color-mix(in srgb,var(--ink) 70%,transparent);backdrop-filter:blur(6px);opacity:0;transition:opacity 220ms ease}
+  .legal-dialog[open]::backdrop{opacity:1}
+  .legal-dialog-surface{position:relative;isolation:isolate;max-height:inherit;overflow:auto;scrollbar-width:none;padding:clamp(28px,5vw,48px);border-radius:22px 46px 24px 40px / 32px 22px 42px 26px;background:var(--cream);box-shadow:0 26px 64px color-mix(in srgb,var(--ink) 42%,transparent);opacity:0;transform:scale(.97);transition:opacity 200ms ease,transform 200ms ease}
+  .legal-dialog-surface::-webkit-scrollbar{display:none}
+  .legal-dialog[open] .legal-dialog-surface{opacity:1;transform:scale(1)}
+  .legal-dialog-close{position:absolute;top:16px;right:16px;z-index:2;width:40px;height:40px;border:1px solid color-mix(in srgb,var(--primary) 40%,transparent);border-radius:50%;background:var(--cream);color:var(--primary);font:28px/1 Plex,system-ui,sans-serif;cursor:pointer;transition:background 160ms ease,transform 160ms cubic-bezier(.23,1,.32,1)}
+  .legal-dialog-close:active{transform:scale(.95)}
+  @media(hover:hover) and (pointer:fine){.legal-dialog-close:hover{background:var(--mist);transform:rotate(90deg)}}
+  .legal-dialog-motif{position:absolute;z-index:0;right:14px;top:14px;width:110px;height:96px;opacity:.24;pointer-events:none}
+  .legal-dialog-motif path{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+  .legal-dialog-motif ellipse{fill:currentColor;stroke:none;opacity:.7}
+  .legal-dialog--offer .legal-dialog-motif{color:#6d5fca}
+  .legal-dialog--disclaimer .legal-dialog-motif{color:#c98a44}
+  .legal-dialog--privacy .legal-dialog-motif{color:#c65a4e}
+  .legal-dialog--faq .legal-dialog-motif{color:#b98a34}
+  .legal-dialog-kicker{position:relative;z-index:1;margin:0 0 10px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .legal-dialog-surface h2{position:relative;z-index:1;max-width:16ch;margin:0 0 18px;font-size:clamp(32px,6vw,46px);line-height:.96;letter-spacing:-.03em}
+  .legal-dialog-surface h2 em{font-family:Cormorant,Georgia,serif;font-weight:400;color:var(--primary)}
+  .legal-dialog-surface p{position:relative;z-index:1;max-width:54ch;margin:0 0 16px;font-size:16px;line-height:1.6}
+  .legal-dialog-surface h3{position:relative;z-index:1;margin:22px 0 6px;font-size:15px;font-weight:700;color:var(--primary)}
+  .legal-dialog-surface .button{position:relative;z-index:1;margin-top:8px}
+
+  /* Page-whirl — the same vine-bloom transition used from index.html, ported here for the
+     FAQ orb: it doesn't open a dialog, it carries the user to the FAQ section on the home page. */
+  .page-whirl{position:fixed;z-index:60;inset:0;display:grid;place-items:center;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;color:var(--eucalyptus)}
+  .page-whirl-haze{position:absolute;inset:-12%;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--primary) 76%,transparent) 0 14%,color-mix(in srgb,var(--ink) 88%,transparent) 48%,color-mix(in srgb,var(--ink) 96%,transparent) 74%);opacity:0}
+  .page-whirl-stage{position:absolute;left:50%;top:50%;width:min(134vmax,1480px);aspect-ratio:1;transform:translate(-50%,-50%) scale(.28) rotate(-34deg);transform-origin:center;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--eucalyptus) 88%,transparent)) drop-shadow(0 0 34px color-mix(in srgb,var(--primary) 72%,transparent));will-change:transform,opacity}
+  .page-whirl-stage svg{display:block;width:100%;height:100%;overflow:visible;clip-path:circle(0 at 50% 50%)}
+  .page-whirl-vine{fill:none;stroke:currentColor;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.96}
+  .page-whirl-vine--inner{color:var(--cream);stroke-width:7;opacity:.9}
+  .page-whirl-vine--fine{color:var(--eucalyptus);stroke-width:5;opacity:.82}
+  .page-whirl-leaf{fill:color-mix(in srgb,var(--eucalyptus) 76%,var(--cream));stroke:var(--cream);stroke-width:2;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center;opacity:0;transform:scale(.2) rotate(-18deg)}
+  .page-whirl-leaf--light{fill:var(--cream);stroke:var(--eucalyptus)}
+  .page-whirl-petal{fill:var(--cream);stroke:var(--eucalyptus);stroke-width:2;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center;opacity:0}
+  .page-whirl-core{fill:none;stroke:var(--cream);stroke-width:8;vector-effect:non-scaling-stroke;opacity:0;filter:drop-shadow(0 0 18px color-mix(in srgb,var(--cream) 84%,transparent))}
+  .page-whirl.is-active{visibility:visible;opacity:1;pointer-events:auto}
+  .page-whirl.is-active .page-whirl-haze{animation:page-whirl-haze 1450ms cubic-bezier(.77,0,.175,1) both}
+  .page-whirl.is-active .page-whirl-stage{animation:page-whirl-stage 1450ms cubic-bezier(.77,0,.175,1) both}
+  .page-whirl.is-active .page-whirl-stage svg{animation:page-vine-reveal 1450ms cubic-bezier(.77,0,.175,1) both}
+  .page-whirl.is-active .page-whirl-leaf{animation:page-leaf-bloom 1450ms cubic-bezier(.23,1,.32,1) both}
+  .page-whirl.is-active .page-whirl-leaf:nth-of-type(3n){animation-delay:-70ms}
+  .page-whirl.is-active .page-whirl-leaf:nth-of-type(4n){animation-delay:-130ms}
+  .page-whirl.is-active .page-whirl-core{animation:page-whirl-core 1450ms cubic-bezier(.77,0,.175,1) both}
+  .page-whirl.is-active .page-whirl-petal{animation:page-petal-burst 1450ms cubic-bezier(.23,1,.32,1) both}
+  @keyframes page-whirl-haze{0%{opacity:0}18%{opacity:.64}62%,76%{opacity:.94}100%{opacity:0}}
+  @keyframes page-whirl-stage{0%{opacity:0;transform:translate(-50%,-50%) scale(.26) rotate(-34deg)}12%{opacity:1}62%{opacity:1;transform:translate(-50%,-50%) scale(.69) rotate(226deg)}76%{opacity:1;transform:translate(-50%,-50%) scale(.64) rotate(256deg)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.22) rotate(344deg)}}
+  @keyframes page-vine-reveal{0%,8%{clip-path:circle(0 at 50% 50%)}62%,76%{clip-path:circle(52% at 50% 50%)}100%{clip-path:circle(78% at 50% 50%)}}
+  @keyframes page-leaf-bloom{0%,24%{opacity:0;transform:scale(.2) rotate(-18deg)}54%,76%{opacity:1;transform:scale(1) rotate(5deg)}100%{opacity:0;transform:scale(1.9) rotate(32deg)}}
+  @keyframes page-petal-burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3) rotate(0deg)}76%{opacity:1;transform:translate(0,0) scale(1) rotate(20deg)}100%{opacity:0;transform:translate(var(--petal-x),var(--petal-y)) scale(.55) rotate(var(--petal-r))}}
+  @keyframes page-whirl-core{0%,42%{opacity:0;transform:scale(.72)}62%{opacity:1;transform:scale(1)}76%{opacity:1;transform:scale(.82)}100%{opacity:0;transform:scale(2.4)}}
+  @media(prefers-reduced-motion:reduce){.page-whirl{display:none}}
+
+  .back-to-top{position:fixed;right:24px;bottom:24px;z-index:9;display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid var(--eucalyptus);border-radius:50%;background:var(--ink);color:var(--cream);box-shadow:0 12px 26px color-mix(in srgb,var(--ink) 22%,transparent);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,visibility .2s ease,transform .2s ease,background .18s ease;cursor:pointer}
+  .back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-to-top:hover{background:var(--primary);color:var(--cream);transform:translateY(-2px)}
+  .back-to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  @media(max-width:759px){.back-to-top{right:16px;bottom:16px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">К содержанию</a>
+<header class="shell header" data-od-id="site-header">
+  <a class="wordmark" href="index.html" data-od-id="wordmark">Samal <span>Detox</span></a>
+  <nav aria-label="Основная навигация" data-od-id="main-navigation">
+    <a href="index.html#programs" data-od-id="nav-programs">Программы</a>
+    <a href="faq.html" data-od-id="nav-faq">FAQ</a>
+    <a href="reviews.html" data-od-id="nav-reviews">Отзывы</a>
+    <a class="button" href="index.html#telegram" data-od-id="nav-telegram">В Telegram</a>
+  </nav>
+</header>
+<main id="main-content">
+<section class="legal-journey" data-legal-journey data-od-id="legal-journey">
+<div class="legal-stage">
+<section class="legal-hero" data-od-id="legal-hero">
+<svg class="legal-hero-lines" viewBox="0 0 1440 960" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="legal-line-field" data-line-field>
+  <path d="M-96 38C84 30 168 96 314 110C488 126 545 18 734 24C903 29 1043 122 1206 96C1323 78 1394 28 1534 46"></path>
+  <path d="M-74 111C93 121 234 165 378 143C503 124 592 45 735 60C912 78 1033 194 1204 169C1328 151 1400 98 1514 113"></path>
+  <path d="M-120 188C39 155 142 171 276 217C417 265 555 271 690 224C833 174 931 132 1084 166C1249 202 1340 275 1522 232"></path>
+  <path d="M-66 268C102 253 217 204 357 234C505 265 570 350 732 344C892 338 991 236 1146 245C1289 253 1376 331 1512 307"></path>
+  <path d="M-101 347C53 377 146 356 276 316C414 274 534 281 664 334C813 395 934 417 1070 370C1241 311 1321 246 1530 285"></path>
+  <path d="M-89 425C88 404 202 448 319 486C447 528 585 515 692 462C824 397 942 359 1087 393C1242 430 1362 521 1518 488"></path>
+  <path d="M-112 507C54 539 185 545 312 499C427 457 542 424 678 457C829 494 937 591 1088 580C1252 569 1337 474 1524 497"></path>
+  <path d="M-70 590C70 550 199 572 324 621C473 680 591 691 717 634C842 577 939 505 1084 535C1239 567 1348 658 1513 636"></path>
+  <path d="M-106 676C36 701 142 678 273 640C423 595 554 610 675 662C814 721 924 749 1068 706C1245 652 1341 589 1526 620"></path>
+  <path d="M-82 757C78 733 183 777 304 815C439 858 576 850 697 794C827 733 943 692 1082 725C1239 762 1354 854 1520 824"></path>
+  <path d="M-118 840C38 868 150 862 284 812C413 764 539 748 673 794C823 846 936 927 1086 917C1246 906 1341 819 1526 842"></path>
+  <path d="M-80 923C86 891 201 923 338 963C474 1003 598 987 720 934C855 875 954 836 1105 873C1257 911 1350 988 1518 958"></path>
+</g></svg>
+  <div class="legal-hero-inner">
+    <div class="legal-hero-content">
+      <p class="eyebrow">Документы и ответы</p>
+      <h1>Перед тем как<br><em>начать.</em></h1>
+      <p class="lead">Здесь — то, что стоит прочитать заранее: оферта и возврат, медицинский дисклеймер, конфиденциальность. Выберите тему ниже — ответ откроется поверх страницы; частые вопросы перенесут вас на главную.</p>
+    </div>
+  </div>
+  </section>
+
+  <section class="legal-grove" data-legal-grove data-od-id="legal-grove">
+    <div class="legal-row">
+      <div class="legal-item legal-item--offer" data-reveal-start="0.00" data-reveal-end="0.14" data-od-id="legal-node-offer">
+        <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
+        <button class="legal-orb legal-orb--offer" type="button" aria-haspopup="dialog" aria-controls="dialog-offer" data-od-id="legal-orb-offer" aria-label="Открыть оферту и условия возврата">
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M13 7h11l7 7v19a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M24 7v7h7"/><path d="M15 22h12M15 27h9"/><ellipse cx="8" cy="12" rx="4" ry="1.7" transform="rotate(-26 8 12)"/></svg></span>
+        </button>
+        <span class="legal-tag">Оферта и возврат</span>
+      </div>
+
+      <div class="legal-item legal-item--disclaimer" data-reveal-start="0.26" data-reveal-end="0.40" data-od-id="legal-node-disclaimer">
+        <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
+        <button class="legal-orb legal-orb--disclaimer" type="button" aria-haspopup="dialog" aria-controls="dialog-disclaimer" data-od-id="legal-orb-disclaimer" aria-label="Открыть медицинский дисклеймер">
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 6C13 6 8 13 8 21c0 9 6 15 13 15s13-6 13-15c0-8-5-15-13-15Z"/><path d="M14 22l4 4 5-9 4 5"/><circle cx="30" cy="10" r="2" fill="currentColor" stroke="none"/></svg></span>
+        </button>
+        <span class="legal-tag">Мед. дисклеймер</span>
+      </div>
+
+      <div class="legal-item legal-item--privacy" data-reveal-start="0.52" data-reveal-end="0.66" data-od-id="legal-node-privacy">
+        <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
+        <button class="legal-orb legal-orb--privacy" type="button" aria-haspopup="dialog" aria-controls="dialog-privacy" data-od-id="legal-orb-privacy" aria-label="Открыть политику конфиденциальности">
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5 8 10v9c0 9 5.5 14.5 13 18 7.5-3.5 13-9 13-18v-9L21 5Z"/><path d="M15 21l4 4 8-9"/></svg></span>
+        </button>
+        <span class="legal-tag">Конфиденциальность</span>
+      </div>
+
+      <div class="legal-item legal-item--faq" data-reveal-start="0.80" data-reveal-end="0.96" data-od-id="legal-node-faq">
+        <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
+        <a class="legal-orb legal-orb--faq" href="index.html#proof" data-od-id="legal-orb-faq" aria-label="Перейти к частым вопросам на главной странице">
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5c0 9-5 13-14 14 9 1 14 5 14 15 0-10 5-14 14-15-9-1-14-5-14-14Z"/><circle cx="21" cy="20" r="2.6" fill="currentColor" stroke="none"/></svg></span>
+        </a>
+        <span class="legal-tag">Частые вопросы</span>
+      </div>
+    </div>
+  </section>
+</div>
+</section>
+</main>
+<button class="back-to-top" type="button" aria-label="Вернуться наверх" data-od-id="back-to-top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path></svg>
+</button>
+
+<dialog class="legal-dialog legal-dialog--offer" id="dialog-offer" data-od-id="dialog-offer" aria-labelledby="dialog-offer-title">
+  <div class="legal-dialog-surface">
+    <button class="legal-dialog-close" type="button" aria-label="Закрыть" data-od-id="dialog-offer-close">×</button>
+    <svg class="legal-dialog-motif" viewBox="0 0 120 106" aria-hidden="true"><path d="M116 8C86 18 79 43 80 67c1 18-11 27-27 32"/><ellipse cx="84" cy="33" rx="14" ry="6" transform="rotate(-26 84 33)"/><ellipse cx="73" cy="57" rx="12" ry="5" transform="rotate(22 73 57)"/><ellipse cx="53" cy="90" rx="11" ry="5" transform="rotate(-30 53 90)"/></svg>
+    <p class="legal-dialog-kicker">Юридическая информация</p>
+    <h2 id="dialog-offer-title">Оферта <em>и возврат.</em></h2>
+    <p>Рабочая структура оферты для услуг Samal Detox. Перед публикацией реквизиты, порядок оплаты, возврата и применимое законодательство должны быть проверены владельцем бизнеса и юристом.</p>
+    <h3>1. Предмет</h3>
+    <p>Исполнитель предоставляет информационно-консультационное сопровождение в рамках выбранной программы. Конкретный состав, сроки и стоимость согласуются с клиентом до оплаты.</p>
+    <h3>2. Порядок записи</h3>
+    <p>Заявка принимается через Telegram. До начала клиент сообщает сведения, необходимые для обсуждения формата и возможных ограничений.</p>
+    <h3>3. Оплата и возврат</h3>
+    <p>Условия оплаты, переносов и возврата фиксируются до заключения сделки и не могут трактоваться как медицинская гарантия результата. Детали конкретного случая обсуждаются с Самал в Telegram до старта программы.</p>
+    <h3>4. Контакты и реквизиты</h3>
+    <p>Реквизиты ИП SAMALBEAUTY, адрес, контакт для юридических обращений и актуальная редакция документа будут добавлены перед запуском сайта.</p>
+  </div>
+</dialog>
+
+<dialog class="legal-dialog legal-dialog--disclaimer" id="dialog-disclaimer" data-od-id="dialog-disclaimer" aria-labelledby="dialog-disclaimer-title">
+  <div class="legal-dialog-surface">
+    <button class="legal-dialog-close" type="button" aria-label="Закрыть" data-od-id="dialog-disclaimer-close">×</button>
+    <svg class="legal-dialog-motif" viewBox="0 0 120 106" aria-hidden="true"><path d="M116 8C86 18 79 43 80 67c1 18-11 27-27 32"/><ellipse cx="84" cy="33" rx="14" ry="6" transform="rotate(-26 84 33)"/><ellipse cx="73" cy="57" rx="12" ry="5" transform="rotate(22 73 57)"/><ellipse cx="53" cy="90" rx="11" ry="5" transform="rotate(-30 53 90)"/></svg>
+    <p class="legal-dialog-kicker">Важная информация</p>
+    <h2 id="dialog-disclaimer-title">Медицинский <em>дисклеймер.</em></h2>
+    <p>Материалы сайта и сопровождение Samal Detox носят информационный характер и не являются медицинской диагностикой, лечением или заменой консультации врача.</p>
+    <h3>Перед началом</h3>
+    <p>Расскажи о текущем самочувствии, диагнозах, принимаемых лекарствах и других обстоятельствах, которые могут иметь значение. При сомнениях обратись к квалифицированному врачу.</p>
+    <h3>О результатах</h3>
+    <p>Реакции организма индивидуальны. Ни одна программа не гарантирует конкретное изменение веса, самочувствия или состояния здоровья. Не изменяй назначенное врачом лечение без его согласия.</p>
+    <h3>Противопоказания</h3>
+    <p>Острые заболевания, беременность, период грудного вскармливания, расстройства пищевого поведения и другие состояния могут требовать отказа от участия или отдельного медицинского решения. Полный список и критерии допуска должны быть подтверждены специалистом до публикации.</p>
+  </div>
+</dialog>
+
+<dialog class="legal-dialog legal-dialog--privacy" id="dialog-privacy" data-od-id="dialog-privacy" aria-labelledby="dialog-privacy-title">
+  <div class="legal-dialog-surface">
+    <button class="legal-dialog-close" type="button" aria-label="Закрыть" data-od-id="dialog-privacy-close">×</button>
+    <svg class="legal-dialog-motif" viewBox="0 0 120 106" aria-hidden="true"><path d="M116 8C86 18 79 43 80 67c1 18-11 27-27 32"/><ellipse cx="84" cy="33" rx="14" ry="6" transform="rotate(-26 84 33)"/><ellipse cx="73" cy="57" rx="12" ry="5" transform="rotate(22 73 57)"/><ellipse cx="53" cy="90" rx="11" ry="5" transform="rotate(-30 53 90)"/></svg>
+    <p class="legal-dialog-kicker">Юридическая информация</p>
+    <h2 id="dialog-privacy-title">Политика <em>конфиденциальности.</em></h2>
+    <p>Рабочая редакция политики для сайта Samal Detox. Финальный текст должен быть дополнен реквизитами оператора, перечнем используемых сервисов и проверен юристом до публикации.</p>
+    <h3>1. Какие данные могут поступать</h3>
+    <p>При обращении через Telegram пользователь может самостоятельно сообщить имя, контакт, город, сведения о самочувствии и выбранной программе.</p>
+    <h3>2. Зачем они нужны</h3>
+    <p>Данные используются для ответа на обращение, обсуждения подходящего формата, организации сопровождения и коммуникации по заявке.</p>
+    <h3>3. Передача и хранение</h3>
+    <p>Данные не публикуются без согласия пользователя. Срок хранения, используемые сервисы и основания передачи третьим лицам должны быть указаны в окончательной версии после проверки фактического процесса.</p>
+    <h3>4. Права пользователя</h3>
+    <p>Пользователь может запросить сведения об обработке, исправление или удаление данных через контакт, который будет опубликован в финальной редакции.</p>
+  </div>
+</dialog>
+
+<div class="page-whirl" aria-hidden="true" data-od-id="page-transition-whirl">
+  <div class="page-whirl-haze"></div>
+  <div class="page-whirl-stage">
+    <svg viewBox="0 0 1000 1000" aria-hidden="true">
+      <path class="page-whirl-vine" pathLength="1" d="M500 105C706 92 886 250 900 466C916 704 730 899 499 900C274 901 93 720 104 496C114 292 286 119 500 105Z"/>
+      <path class="page-whirl-vine page-whirl-vine--inner" pathLength="1" d="M504 172C676 157 824 292 832 475C842 669 692 826 502 830C315 834 169 688 174 501C179 321 325 188 504 172Z"/>
+      <path class="page-whirl-vine page-whirl-vine--fine" pathLength="1" d="M496 236C634 224 758 332 766 478C775 632 654 759 501 766C348 773 231 654 236 502C241 357 354 249 496 236Z"/>
+      <path class="page-whirl-vine" pathLength="1" d="M503 110C590 174 632 252 616 341C600 432 674 469 769 466C855 463 903 522 886 603"/>
+      <path class="page-whirl-vine page-whirl-vine--fine" pathLength="1" d="M112 504C184 434 260 414 342 449C426 485 480 427 498 332C515 243 579 203 661 229"/>
+      <circle class="page-whirl-core" cx="500" cy="500" r="128"/>
+      <ellipse class="page-whirl-leaf" cx="608" cy="135" rx="38" ry="15" transform="rotate(24 608 135)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="724" cy="202" rx="34" ry="14" transform="rotate(43 724 202)"/>
+      <ellipse class="page-whirl-leaf" cx="833" cy="326" rx="41" ry="16" transform="rotate(68 833 326)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="888" cy="482" rx="35" ry="14" transform="rotate(88 888 482)"/>
+      <ellipse class="page-whirl-leaf" cx="842" cy="650" rx="39" ry="15" transform="rotate(116 842 650)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="728" cy="792" rx="35" ry="14" transform="rotate(142 728 792)"/>
+      <ellipse class="page-whirl-leaf" cx="574" cy="881" rx="42" ry="16" transform="rotate(166 574 881)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="403" cy="877" rx="34" ry="14" transform="rotate(-164 403 877)"/>
+      <ellipse class="page-whirl-leaf" cx="251" cy="790" rx="39" ry="15" transform="rotate(-139 251 790)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="139" cy="650" rx="35" ry="14" transform="rotate(-113 139 650)"/>
+      <ellipse class="page-whirl-leaf" cx="107" cy="480" rx="41" ry="16" transform="rotate(-86 107 480)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="164" cy="319" rx="34" ry="14" transform="rotate(-63 164 319)"/>
+      <ellipse class="page-whirl-leaf" cx="281" cy="193" rx="39" ry="15" transform="rotate(-39 281 193)"/>
+      <ellipse class="page-whirl-leaf page-whirl-leaf--light" cx="416" cy="126" rx="34" ry="14" transform="rotate(-15 416 126)"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:190px;--petal-y:-210px;--petal-r:190deg" cx="500" cy="500" rx="22" ry="9"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:300px;--petal-y:-55px;--petal-r:250deg" cx="500" cy="500" rx="18" ry="8"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:238px;--petal-y:178px;--petal-r:310deg" cx="500" cy="500" rx="24" ry="10"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:48px;--petal-y:290px;--petal-r:370deg" cx="500" cy="500" rx="19" ry="8"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:-180px;--petal-y:238px;--petal-r:430deg" cx="500" cy="500" rx="23" ry="9"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:-306px;--petal-y:40px;--petal-r:490deg" cx="500" cy="500" rx="18" ry="8"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:-225px;--petal-y:-190px;--petal-r:550deg" cx="500" cy="500" rx="22" ry="9"/>
+      <ellipse class="page-whirl-petal" style="--petal-x:-25px;--petal-y:-306px;--petal-r:610deg" cx="500" cy="500" rx="19" ry="8"/>
+    </svg>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // One long scroll scene: living water lines travel up as light rises from below.
+    (function(){
+      var journey=document.querySelector('[data-legal-journey]');
+      var header=document.querySelector('[data-od-id="site-header"]');
+      var hero=journey&&journey.querySelector('[data-od-id="legal-hero"]');
+      var lines=hero&&hero.querySelector('.legal-hero-lines');
+      var field=hero&&hero.querySelector('[data-line-field]');
+      var grove=journey&&journey.querySelector('[data-legal-grove]');
+      var items=grove&&Array.prototype.slice.call(grove.querySelectorAll('[data-reveal-start]'));
+      var queued=false;
+      if(!journey||!hero||!lines||!field||!grove)return;
+      function clamp(value){return Math.max(0,Math.min(1,value));}
+      function local(value,start,end){return clamp((value-start)/(end-start));}
+      function smoothstep(value){return value*value*(3-2*value);}
+      function paint(){
+        queued=false;
+        if(reduce.matches){
+          journey.classList.add('is-ready');
+          items.forEach(function(el){el.style.setProperty('--reveal','1');});
+          return;
+        }
+        var rect=journey.getBoundingClientRect();
+        var distance=Math.max(1,journey.offsetHeight-window.innerHeight);
+        var progress=clamp(-rect.top/distance);
+        var headerFade=smoothstep(local(window.scrollY,0,780));
+        var light=local(progress,.40,.59);
+        var waveEntrance=local(progress,.02,.34);
+        var waveFade=local(progress,.62,.72);
+        var groveProgress=local(progress,.55,.995);
+        var groveDark=smoothstep(local(groveProgress,.50,.94));
+        var waveRed=Math.round(215+(169-215)*light);
+        var waveGreen=Math.round(236+(200-236)*light);
+        var waveBlue=Math.round(243+(192-243)*light);
+        journey.style.setProperty('--journey',progress.toFixed(3));
+        journey.style.setProperty('--light',light.toFixed(3));
+        journey.style.setProperty('--grove-dark',groveDark.toFixed(3));
+        if(header){header.style.setProperty('--header-fade',headerFade.toFixed(3));header.classList.toggle('is-hidden',headerFade>.98);}
+        field.setAttribute('transform','translate(0 '+(-progress*264).toFixed(1)+')');
+        lines.style.color='rgb('+waveRed+','+waveGreen+','+waveBlue+')';
+        lines.style.opacity=(Math.min(1,.24+waveEntrance*.76)*(1-waveFade*.96)).toFixed(3);
+        items.forEach(function(el){var reveal=local(groveProgress,Number(el.dataset.revealStart),Number(el.dataset.revealEnd));el.style.setProperty('--reveal',smoothstep(reveal).toFixed(3));});
+      }
+      function requestPaint(){if(!queued){queued=true;requestAnimationFrame(paint);}}
+      journey.classList.add('is-ready');
+      if('IntersectionObserver'in window){
+        new IntersectionObserver(function(entries){
+          journey.classList.toggle('is-wave-active',entries[0].isIntersecting);
+        },{threshold:.04}).observe(journey);
+      }else{journey.classList.add('is-wave-active');}
+      window.addEventListener('scroll',requestPaint,{passive:true});
+      window.addEventListener('resize',requestPaint);
+      reduce.addEventListener&&reduce.addEventListener('change',requestPaint);
+      paint();
+    })();
+
+    // dialogs — plain open/close, no transition burst
+    (function(){
+      var topics=['offer','disclaimer','privacy'];
+      topics.forEach(function(topic){
+        var trigger=document.querySelector('[data-od-id="legal-orb-'+topic+'"]');
+        var dialog=document.getElementById('dialog-'+topic);
+        var close=dialog&&dialog.querySelector('.legal-dialog-close');
+        if(!trigger||!dialog||!close)return;
+        trigger.addEventListener('click',function(){dialog.showModal();});
+        close.addEventListener('click',function(){dialog.close();});
+        dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
+        dialog.addEventListener('cancel',function(event){event.preventDefault();dialog.close();});
+        dialog.addEventListener('close',function(){trigger.focus({preventScroll:true});});
+      });
+      var requestedTopic=(location.hash||'').replace('#dialog-','');
+      if(topics.indexOf(requestedTopic)!==-1){
+        var requestedDialog=document.getElementById('dialog-'+requestedTopic);
+        if(requestedDialog)window.setTimeout(function(){requestedDialog.showModal();},80);
+      }
+    })();
+
+    // FAQ orb — no dialog, no separate page: carries the user to the FAQ section on the
+    // home page through the same vine-bloom whirl transition used elsewhere on the site.
+    (function(){
+      var link=document.querySelector('[data-od-id="legal-orb-faq"]');
+      var whirl=document.querySelector('[data-od-id="page-transition-whirl"]');
+      if(!link||!whirl)return;
+      link.addEventListener('click',function(event){
+        if(reduce.matches||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
+        event.preventDefault();
+        whirl.classList.add('is-active');
+        window.setTimeout(function(){location.href=link.href},1450);
+      });
+    })();
+
+    // back to top
+    (function(){
+      var backToTop=document.querySelector('[data-od-id="back-to-top"]');
+      if(!backToTop)return;
+      function update(){
+        var scrollTop=window.scrollY||window.pageYOffset||0;
+        backToTop.classList.toggle('is-visible',scrollTop>window.innerHeight*.65);
+      }
+      backToTop.addEventListener('click',function(){
+        window.scrollTo({top:0,behavior:reduce.matches?'auto':'smooth'});
+      });
+      update();
+      window.addEventListener('scroll',update,{passive:true});
+    })();
+  })();
+</script>
+</body>
+</html>
