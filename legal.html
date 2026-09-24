@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документы и ответы · Samal Detox</title>
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual';if(!location.hash)window.scrollTo(0,0);</script>
 <style>
   @font-face{font-family:Plex;src:url("assets/fonts/ibm-plex-sans.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
   @font-face{font-family:Cormorant;src:url("assets/fonts/cormorant-garamond.woff2") format("woff2");font-style:italic;font-weight:400;font-display:swap}
   :root{--primary:#205A50;--eucalyptus:#87B7AB;--mist:#DDEBE5;--cream:#F7F5EF;--sand:#E4D9C8;--ink:#183D38;--content:min(1180px,calc(100% - 40px));--card:32px;--pill:999px}
-  *{box-sizing:border-box}html{scroll-behavior:smooth;scrollbar-width:none}
+  *{box-sizing:border-box}html{scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-y:none}
   html::-webkit-scrollbar{display:none}
-  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 Plex,system-ui,sans-serif}
+  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 Plex,system-ui,sans-serif;overscroll-behavior-y:none}
   a{color:inherit}img{display:block;max-width:100%}
   a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}
   .shell{width:var(--content);margin:auto}
@@ -18,12 +19,12 @@
   .skip:focus{top:16px}
   .header{display:flex;align-items:center;justify-content:space-between;min-height:76px;border-bottom:1px solid var(--sand)}
   @media(prefers-reduced-motion:no-preference){.header{--header-fade:0;position:fixed;top:0;left:50%;z-index:30;isolation:isolate;background:transparent;border-color:transparent;opacity:calc(1 - var(--header-fade));transform:translateX(-50%);will-change:opacity}.header::before{content:"";position:absolute;inset:0;z-index:-1;width:100vw;left:50%;transform:translateX(-50%);background:color-mix(in srgb,var(--cream) 90%,#fff);border-bottom:1px solid color-mix(in srgb,var(--sand) 55%,transparent)}.header.is-hidden{pointer-events:none}}
-  @media(max-width:759px){[data-od-id="nav-programs"],[data-od-id="nav-faq"],[data-od-id="nav-reviews"]{display:none}}
+  @media(max-width:759px){[data-od-id="main-navigation"] a:not([data-od-id="nav-telegram"]),[data-od-id="main-navigation"] .nav-current{display:none}}
   .wordmark{font-weight:700;letter-spacing:-.03em;text-decoration:none}
   .wordmark span{color:var(--primary)}
   nav{display:flex;align-items:center;gap:20px;font-size:13px}
   nav a{text-decoration:none}
-  nav a:not(.button):hover{text-decoration:underline;text-underline-offset:4px}
+  nav a:not(.button):hover{text-decoration:underline;text-underline-offset:4px}.nav-current{padding:5px 12px;border-radius:var(--pill);background:var(--mist);color:var(--primary);font-weight:700}
   .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--primary);border-radius:var(--pill);font:inherit;font-weight:700;text-decoration:none}
   .button:hover{background:var(--primary);color:var(--cream)}
   .eyebrow{margin:0 0 18px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
@@ -52,27 +53,32 @@
 
   /* Grove — the landing zone at the end of one scroll scene; fades to dark as the last orbs surface */
   .legal-grove{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:620px;background:#fff}
+  .legal-grove-lines{position:absolute;inset:0;z-index:1;width:100%;height:100%;color:color-mix(in srgb,var(--eucalyptus) 70%,var(--cream));opacity:calc(var(--grove-dark,0)*.38);pointer-events:none}
+  .legal-grove-lines path{fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
   .legal-row{position:relative;isolation:isolate;z-index:2;max-width:var(--content);height:100%;margin:0 auto;padding:32px clamp(16px,5vw,40px)}
-  .legal-item{--orb-size:164px;position:absolute;z-index:2;display:grid;justify-items:center;gap:10px;transform:translate(-50%,-50%) translate3d(0,calc((1 - var(--reveal,1))*24px),0);opacity:var(--reveal,1);transition:opacity .2s linear}
+  .legal-item{--orb-size:164px;position:absolute;z-index:2;display:grid;justify-items:center;gap:10px;transform:translate(-50%,-50%) translate3d(0,calc((1 - var(--reveal,0))*24px),0);opacity:var(--reveal,0);transition:opacity .2s linear}
+  .legal-journey:not(.is-ready) .legal-item{opacity:1;transform:translate(-50%,-50%)}
   .legal-item--offer{left:33%;top:24%}
   .legal-item--disclaimer{left:67%;top:35%}
   .legal-item--privacy{left:41%;top:66%}
   .legal-item--faq{left:63%;top:84%}
 
   @keyframes legal-orb-glow{
-    0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--cream) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 7px 18px color-mix(in srgb,var(--orb-bright) 34%,transparent),0 12px 22px color-mix(in srgb,var(--ink) 22%,transparent),0 0 0 4px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*20%),transparent),0 0 18px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*58%),transparent)}
-    50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--cream) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 10px 28px color-mix(in srgb,var(--orb-bright) 58%,transparent),0 14px 26px color-mix(in srgb,var(--ink) 20%,transparent),0 0 0 8px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*36%),transparent),0 0 34px color-mix(in srgb,var(--orb-bright) calc(var(--grove-dark,0)*88%),transparent)}
+    0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--orb-gold) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 7px 18px color-mix(in srgb,var(--orb-bright) 34%,transparent),0 12px 22px color-mix(in srgb,var(--ink) 22%,transparent),0 0 0 4px color-mix(in srgb,var(--orb-bright) 28%,transparent),0 0 18px color-mix(in srgb,var(--orb-gold) 58%,transparent)}
+    50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--orb-gold) 72%,transparent),inset 0 -8px 14px color-mix(in srgb,var(--ink) 26%,transparent),0 10px 28px color-mix(in srgb,var(--orb-bright) 58%,transparent),0 14px 26px color-mix(in srgb,var(--ink) 20%,transparent),0 0 0 8px color-mix(in srgb,var(--orb-bright) 48%,transparent),0 0 34px color-mix(in srgb,var(--orb-gold) 100%,transparent)}
   }
-  .legal-orb{position:relative;z-index:1;isolation:isolate;display:grid;place-items:center;width:var(--orb-size);height:var(--orb-size);padding:0;border:1px solid color-mix(in srgb,var(--cream) 86%,transparent);border-radius:50%;cursor:pointer;color:var(--cream);background:radial-gradient(circle at 38% 30%,color-mix(in srgb,var(--orb-bright) 62%,var(--cream)),var(--orb-deep) 50%,color-mix(in srgb,var(--orb-deep) 84%,var(--ink)));animation:legal-orb-glow 3.4s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+  @keyframes legal-orb-sigil{0%{opacity:.74;transform:rotate(-7deg) scale(.92)}100%{opacity:1;transform:rotate(7deg) scale(1.08)}}
+  .legal-orb{--orb-gold:#f6cf77;position:relative;z-index:1;isolation:isolate;display:grid;place-items:center;width:var(--orb-size);height:var(--orb-size);padding:0;border:1px solid color-mix(in srgb,var(--orb-gold) 72%,transparent);border-radius:50%;cursor:pointer;color:var(--orb-gold);background:radial-gradient(circle at 38% 30%,var(--orb-bright),var(--orb-deep) 54%,color-mix(in srgb,var(--orb-deep) 84%,var(--ink)));animation:legal-orb-glow 3.4s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
   .legal-orb:active{transform:scale(.95)}
   @media(hover:hover) and (pointer:fine){.legal-orb:hover{transform:scale(1.08);animation-play-state:paused}}
   .legal-orb-face{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;overflow:hidden;border-radius:50%}
-  .legal-orb-face::before{content:"";position:absolute;inset:7px;border:1px solid color-mix(in srgb,var(--cream) 46%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--cream) 16%,transparent);pointer-events:none}
-  .legal-orb-face svg{position:relative;z-index:1;width:53px;height:53px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--cream) 74%,transparent))}
-  .legal-orb--offer{--orb-deep:#2d3b5c;--orb-bright:#8b9ce0}
-  .legal-orb--disclaimer{--orb-deep:#254952;--orb-bright:#6fb8c4}
-  .legal-orb--privacy{--orb-deep:#33375c;--orb-bright:#9b8fd6}
-  .legal-orb--faq{--orb-deep:#264757;--orb-bright:#7fb4d6}
+  .legal-orb-face::before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--orb-gold) 48%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--orb-gold) 18%,transparent);pointer-events:none}
+  .legal-orb-face svg{position:relative;z-index:1;width:53px;height:53px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--orb-gold) 74%,transparent));animation:legal-orb-sigil 1.65s cubic-bezier(.77,0,.175,1) infinite alternate}
+  @media(prefers-reduced-motion:reduce){.legal-orb,.legal-orb-face svg{animation:none}}
+  .legal-orb--offer{--orb-deep:#173b2f;--orb-bright:#3f8f68}
+  .legal-orb--disclaimer{--orb-deep:#123a38;--orb-bright:#37988a}
+  .legal-orb--privacy{--orb-deep:#2a3b1f;--orb-bright:#7ea852}
+  .legal-orb--faq{--orb-deep:#173d2c;--orb-bright:#57bf8a}
 
   .legal-tag{position:relative;z-index:2;padding:7px 14px;border-radius:8px;background:color-mix(in srgb,#fff 94%,transparent);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);color:var(--primary);font-size:13px;font-weight:700;text-align:center;white-space:nowrap;box-shadow:0 4px 10px color-mix(in srgb,var(--ink) 10%,transparent)}
 
@@ -86,7 +92,7 @@
   .burst-ring:nth-child(4n){border-style:dotted}
   @media(prefers-reduced-motion:reduce){.legal-burst{transform:scale(1);transition:none}.burst-ring{transition:none;opacity:calc(1 - var(--i) * .12)}}
 
-  .legal-journey.is-ready{height:calc(1200vh + 28svh)}
+  .legal-journey.is-ready{height:calc(340vh + 28svh)}
   .legal-journey.is-ready .legal-stage{position:sticky;top:0;height:100svh;min-height:560px}
   .legal-journey.is-ready .legal-hero,.legal-journey.is-ready .legal-grove{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0}
   .legal-journey.is-ready .legal-hero{background:color-mix(in srgb,#fff calc(var(--light) * 100%),var(--hero-dark));color:color-mix(in srgb,var(--ink) calc(var(--light) * 100%),var(--cream))}
@@ -173,15 +179,25 @@
   .back-to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   @media(max-width:759px){.back-to-top{right:16px;bottom:16px}}
 </style>
-</head>
+<style>
+.site-quick-menu{position:fixed;right:24px;bottom:88px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 Plex,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 Plex,system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}@media(max-width:760px){.site-quick-menu{right:16px;bottom:80px}.quick-menu-panel{bottom:62px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle{transition:none}}
+</style><style>
+  /* Match the title page’s wordmark and Telegram alignment at every breakpoint. */
+  [data-od-id="site-header"]{width:min(1180px,calc(100% - 40px));min-height:70px;padding:12px 24px}
+  [data-od-id="main-navigation"] [data-od-id="nav-telegram"]{min-height:0;padding:10px 16px}
+  @media(min-width:1100px){[data-od-id="site-header"]{width:min(1180px,calc(100% - 80px))}}
+  @media(max-width:480px){[data-od-id="site-header"]{min-height:62px;padding:10px 16px}[data-od-id="main-navigation"]{gap:8px}[data-od-id="main-navigation"] [data-od-id="nav-telegram"]{padding:10px 12px}}
+</style></head>
 <body>
 <a class="skip" href="#main-content">К содержанию</a>
 <header class="shell header" data-od-id="site-header">
   <a class="wordmark" href="index.html" data-od-id="wordmark">Samal <span>Detox</span></a>
   <nav aria-label="Основная навигация" data-od-id="main-navigation">
     <a href="index.html#programs" data-od-id="nav-programs">Программы</a>
-    <a href="faq.html" data-od-id="nav-faq">FAQ</a>
-    <a href="reviews.html" data-od-id="nav-reviews">Отзывы</a>
+    <a href="about.html" data-od-id="nav-trust">О Самал</a>
+    <a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a>
+    <span class="nav-current" data-od-id="nav-legal" aria-current="page">Условия</span>
+    <a href="materials.html" data-od-id="nav-materials">Отзывы</a>
     <a class="button" href="index.html#telegram" data-od-id="nav-telegram">В Telegram</a>
   </nav>
 </header>
@@ -213,11 +229,18 @@
   </section>
 
   <section class="legal-grove" data-legal-grove data-od-id="legal-grove">
+    <svg class="legal-grove-lines" viewBox="0 0 1000 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M-40 120C140 80 260 200 420 150C580 100 660 220 840 180C960 154 1000 170 1040 158"/>
+      <path d="M-30 300C150 340 250 240 400 280C560 322 640 220 820 260C950 288 1000 250 1040 268"/>
+      <path d="M-40 480C130 450 240 540 410 500C590 458 680 560 850 520C960 494 1000 512 1040 500"/>
+      <path d="M-30 650C150 700 260 610 420 650C580 690 660 600 830 640C950 666 1000 636 1040 652"/>
+      <path d="M-40 800C140 770 250 840 410 810C580 778 670 850 840 818C960 796 1000 810 1040 800"/>
+    </svg>
     <div class="legal-row">
       <div class="legal-item legal-item--offer" data-reveal-start="0.00" data-reveal-end="0.14" data-od-id="legal-node-offer">
         <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
         <button class="legal-orb legal-orb--offer" type="button" aria-haspopup="dialog" aria-controls="dialog-offer" data-od-id="legal-orb-offer" aria-label="Открыть оферту и условия возврата">
-          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M13 7h11l7 7v19a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M24 7v7h7"/><path d="M15 22h12M15 27h9"/><ellipse cx="8" cy="12" rx="4" ry="1.7" transform="rotate(-26 8 12)"/></svg></span>
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 6c8 2 13 8 13 15s-5 13-13 15c-8-2-13-8-13-15S13 8 21 6Z"/><path d="M14 21c3-4 6-5 9-3M28 21c-3 4-6 5-9 3"/><ellipse cx="21" cy="13" rx="3.4" ry="2" transform="rotate(-4 21 13)"/></svg></span>
         </button>
         <span class="legal-tag">Оферта и возврат</span>
       </div>
@@ -225,7 +248,7 @@
       <div class="legal-item legal-item--disclaimer" data-reveal-start="0.26" data-reveal-end="0.40" data-od-id="legal-node-disclaimer">
         <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
         <button class="legal-orb legal-orb--disclaimer" type="button" aria-haspopup="dialog" aria-controls="dialog-disclaimer" data-od-id="legal-orb-disclaimer" aria-label="Открыть медицинский дисклеймер">
-          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 6C13 6 8 13 8 21c0 9 6 15 13 15s13-6 13-15c0-8-5-15-13-15Z"/><path d="M14 22l4 4 5-9 4 5"/><circle cx="30" cy="10" r="2" fill="currentColor" stroke="none"/></svg></span>
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5c3 4 3 7 0 9-3-2-3-5 0-9Z"/><path d="M21 37c3-4 3-7 0-9-3 2-3 5 0 9Z"/><path d="M5 21c4-3 7-3 9 0-2 3-5 3-9 0Z"/><path d="M37 21c-4 3-7 3-9 0 2-3 5-3 9 0Z"/><circle cx="21" cy="21" r="2.6" fill="currentColor" stroke="none"/></svg></span>
         </button>
         <span class="legal-tag">Мед. дисклеймер</span>
       </div>
@@ -233,7 +256,7 @@
       <div class="legal-item legal-item--privacy" data-reveal-start="0.52" data-reveal-end="0.66" data-od-id="legal-node-privacy">
         <div class="legal-burst" aria-hidden="true"><span class="burst-ring" style="--i:0"></span><span class="burst-ring" style="--i:1"></span><span class="burst-ring" style="--i:2"></span><span class="burst-ring" style="--i:3"></span><span class="burst-ring" style="--i:4"></span><span class="burst-ring" style="--i:5"></span></div>
         <button class="legal-orb legal-orb--privacy" type="button" aria-haspopup="dialog" aria-controls="dialog-privacy" data-od-id="legal-orb-privacy" aria-label="Открыть политику конфиденциальности">
-          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5 8 10v9c0 9 5.5 14.5 13 18 7.5-3.5 13-9 13-18v-9L21 5Z"/><path d="M15 21l4 4 8-9"/></svg></span>
+          <span class="legal-orb-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5 33 12v9c0 10-6 16-12 19-6-3-12-9-12-19v-9L21 5Z"/><path d="M15 20c3-3 6-3 9 0M18 26c1-2 3-2 4 0"/><circle cx="21" cy="16" r="1.6" fill="currentColor" stroke="none"/></svg></span>
         </button>
         <span class="legal-tag">Конфиденциальность</span>
       </div>
@@ -452,5 +475,5 @@
     })();
   })();
 </script>
-</body>
+<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle">Menu</button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script></body>
 </html>

@@ -17,6 +17,10 @@
       --background:#F7F5EF;
       --sand:#E4D9C8;
       --ink:#183D38;
+      --burgundy:#5C1F30;
+      --burgundy-deep:#33101B;
+      --burgundy-bloom:#B67A88;
+      --burgundy-ring:#D8BFC5;
       --radius-card:32px;
       --radius-surface:48px;
       --radius-pill:999px;
@@ -260,6 +264,7 @@
        .program-card:nth-child(3){background:var(--sand)}
        .program-card:nth-child(4){background:var(--ink)}
     }
+    @media(max-width:759px){.site-nav a:not(.nav-cta){display:none}}
     @media(max-width:480px){
        .site-header{top:12px;padding:10px 16px;min-height:62px}
        .hero{padding-top:106px}
@@ -306,13 +311,15 @@
       .program-card a:hover{transform:translateX(4px)}
     }
 
-    /* ===== Motion: programs section scroll reveal ===== */
-    @keyframes section-reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    .js-anim .programs-heading,.js-anim .program-card{opacity:0;transform:translateY(18px)}
-    .js-anim .programs-heading.is-visible,.js-anim .program-card.is-visible{animation:section-reveal 1.2s cubic-bezier(.22,1,.36,1) forwards}
-    .js-anim .program-card:nth-child(2).is-visible{animation-delay:140ms}
-    .js-anim .program-card:nth-child(3).is-visible{animation-delay:280ms}
-    .js-anim .program-card:nth-child(4).is-visible{animation-delay:420ms}
+    /* ===== Motion: programs section scroll reveal (once, no hide on scroll-up) ===== */
+    @keyframes section-reveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .js-anim .programs-heading,.js-anim .program-card{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+    .js-anim .programs-heading.is-visible,.js-anim .program-card.is-visible{opacity:1;transform:translateY(0)}
+    .js-anim .program-card:nth-child(2).is-visible{transition-delay:90ms}
+    .js-anim .program-card:nth-child(3).is-visible{transition-delay:180ms}
+    .js-anim .program-card:nth-child(4).is-visible{transition-delay:270ms}
+    /* is-leaving kept as no-op for compat: revealed cards never hide again */
+    .js-anim .programs-heading.is-leaving,.js-anim .program-card.is-leaving{opacity:1;transform:translateY(0)}
 
     /* ===== Water lines belong to the programs surface ===== */
     .programs-section{position:relative;overflow:hidden;padding-top:220px;--program-darkness:0%;--program-card-darkness:0%;background:color-mix(in srgb,var(--background) calc(100% - var(--program-darkness)),var(--ink) var(--program-darkness));color:color-mix(in srgb,var(--ink) calc(100% - var(--program-darkness)),var(--background) var(--program-darkness));transition:background-color .18s linear}
@@ -439,8 +446,8 @@
       @keyframes fade-in-only{from{opacity:0}to{opacity:1}}
       .hero-water-drift,.cta-glow,.final-cta .telegram-link{animation:none}
       .site-header,.hero-copy,.portrait-frame,.portrait-caption{animation:fade-in-only .12s ease both;animation-delay:0s}
-      .js-anim .programs-heading,.js-anim .program-card{transform:none}
-      .js-anim .programs-heading.is-visible,.js-anim .program-card.is-visible{animation:fade-in-only .12s ease forwards;animation-delay:0s}
+      .js-anim .programs-heading,.js-anim .program-card{transform:none;transition:none}
+      .js-anim .programs-heading.is-visible,.js-anim .program-card.is-visible{animation:fade-in-only .12s ease forwards;animation-delay:0s;transition-delay:0s}
       .js-anim .trust-body{transition:none}
       .programs-water-lines path{opacity:.18!important;transform:none;transition:none}
       .program-points li,.program-points-more li,.program-points-extra,.program-more,.program-more__half,.program-more__label,.program-collapse{transition:none}
@@ -503,6 +510,57 @@
     .proof-section .pending-panel .hero-actions{display:flex;flex-wrap:wrap;gap:18px 26px;margin-top:28px;padding-top:4px}
     .proof-section .pending-panel .link-arrow{margin:0;color:var(--primary)}
     @media(max-width:700px){.proof-section::before{left:-28%;top:4%;bottom:44%;width:128%;border-radius:48% 52% 36% 64% / 34% 42% 58% 66%;transform:rotate(-4deg)}.proof-section::after{left:-14%;top:10%;bottom:48%;width:112%;border-radius:42% 58% 48% 52% / 44% 36% 64% 56%;transform:rotate(-4deg)}}
+
+    /* ===== Proof panel: a luminous, calligraphic FAQ trigger ===== */
+    .proof-section .section-heading{display:block}
+    .proof-section .section-heading h2{margin:0}
+    .proof-orb-wrap{display:grid;justify-items:center;gap:15px;width:fit-content;max-width:260px;margin:30px auto 0;text-align:center}
+    .proof-orb{--proof-green:#17493f;--proof-green-bright:#2c7a5c;--proof-gold:#f6cf77;display:block;margin:0;border:0;background:none;padding:3px;cursor:pointer}
+    .proof-orb-face{position:relative;isolation:isolate;width:100px;height:100px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--proof-gold) 72%,transparent);border-radius:50%;background:radial-gradient(circle at 40% 32%,var(--proof-green-bright),var(--proof-green) 54%,color-mix(in srgb,var(--proof-green) 82%,var(--ink)));box-shadow:inset 0 1px 0 color-mix(in srgb,var(--proof-gold) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 5px color-mix(in srgb,var(--proof-green-bright) 28%,transparent),0 0 24px color-mix(in srgb,var(--proof-gold) 66%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent);animation:proof-orb-glow 1.85s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+    .proof-orb-face::before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--proof-gold) 48%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--proof-gold) 18%,transparent);pointer-events:none}
+    .proof-orb-turn{position:relative;z-index:1;display:grid;place-items:center;transform-origin:center;transition:transform 560ms cubic-bezier(.23,1,.32,1)}
+    .proof-orb[aria-expanded="true"] .proof-orb-turn{transform:rotate(180deg)}
+    .proof-orb-arrow{width:60px;height:60px;overflow:visible;color:var(--proof-gold);filter:drop-shadow(0 0 9px color-mix(in srgb,var(--proof-gold) 86%,transparent));animation:proof-orb-sigil 1.65s cubic-bezier(.77,0,.175,1) infinite alternate}
+    .proof-orb-arrow path{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+    .proof-orb-arrow .proof-orb-arrow-fine{stroke-width:1.3;opacity:.82}
+    .proof-orb-caption{margin:0;color:color-mix(in srgb,var(--ink) 56%,transparent);font:700 12px/1.2 Plex,system-ui,sans-serif;letter-spacing:.08em;text-align:center;text-transform:uppercase}
+    @media(hover:hover) and (pointer:fine){.proof-orb:hover .proof-orb-face{animation-play-state:paused;transform:translateY(-3px) scale(1.055);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--proof-gold) 78%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 32%,transparent),0 0 0 6px color-mix(in srgb,var(--proof-green-bright) 38%,transparent),0 0 32px color-mix(in srgb,var(--proof-gold) 90%,transparent),0 22px 38px color-mix(in srgb,var(--ink) 24%,transparent)}}
+    .proof-orb:focus-visible .proof-orb-face{outline:3px solid var(--primary);outline-offset:7px}
+    .proof-orb:active .proof-orb-face{transform:scale(.96)}
+    @keyframes proof-orb-glow{0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--proof-gold) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 5px color-mix(in srgb,var(--proof-green-bright) 28%,transparent),0 0 24px color-mix(in srgb,var(--proof-gold) 66%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent)}50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--proof-gold) 84%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 32%,transparent),0 0 0 10px color-mix(in srgb,var(--proof-green-bright) 48%,transparent),0 0 46px color-mix(in srgb,var(--proof-gold) 100%,transparent),0 20px 38px color-mix(in srgb,var(--ink) 28%,transparent)}}
+    @keyframes proof-orb-sigil{0%{opacity:.74;transform:rotate(-7deg) scale(.92)}100%{opacity:1;transform:rotate(7deg) scale(1.08)}}
+    @media(max-width:700px){.proof-orb-wrap{margin-top:30px;gap:15px}}
+    @media(prefers-reduced-motion:reduce){.proof-orb-face,.proof-orb-arrow{animation:none}.proof-orb-turn{transition:none}}
+
+    .proof-faq-collapse{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.23,1,.32,1)}
+    .proof-faq-collapse.is-open{grid-template-rows:1fr}
+    .proof-faq-panel{overflow:hidden;min-height:0}
+    .proof-faq-type{display:flex;align-items:center;gap:10px;margin-top:26px;padding:14px 18px;border:1px solid color-mix(in srgb,var(--primary) 30%,transparent);border-radius:var(--radius-pill);color:color-mix(in srgb,var(--ink) 48%,transparent);font-size:14px;text-decoration:none}
+    .proof-faq-type:hover{border-color:color-mix(in srgb,var(--primary) 55%,transparent);color:var(--primary)}
+    .proof-faq-cursor{width:2px;height:16px;background:var(--primary);animation:proof-cursor-blink 1.1s step-end infinite}
+    @keyframes proof-cursor-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    .proof-faq-list{position:relative;display:grid;gap:8px;margin-top:16px}
+    .proof-faq-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 4px;border:0;border-top:1px solid color-mix(in srgb,var(--primary) 16%,transparent);background:none;font:inherit;font-size:15px;text-align:left;color:var(--ink);cursor:pointer}
+    .proof-faq-item:hover,.proof-faq-item:focus-visible{color:var(--primary)}
+    .proof-faq-item::after{content:"+";flex:none;color:var(--primary);font-size:18px;line-height:1;transition:transform 220ms cubic-bezier(.23,1,.32,1),color 160ms ease}
+    .proof-faq-item:hover::after,.proof-faq-item:focus-visible::after{transform:rotate(90deg)}
+    .proof-faq-cursor-dot{position:absolute;top:0;left:0;z-index:5;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--primary);color:var(--background);opacity:0;pointer-events:none;transform:translate(-50%,-50%);transition:opacity .15s ease;animation:proof-cursor-spin 3.6s linear infinite}
+    .proof-faq-cursor-dot svg{width:14px;height:14px}
+    .proof-faq-cursor-dot path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+    .proof-faq-list.is-hovering .proof-faq-cursor-dot{opacity:1}
+    @media(hover:hover) and (pointer:fine){.proof-faq-list.is-hovering .proof-faq-item{cursor:none}}
+    @keyframes proof-cursor-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    @media(hover:none),(pointer:coarse){.proof-faq-cursor-dot{display:none}}
+    @media(prefers-reduced-motion:reduce){.proof-faq-collapse{transition:none}.proof-faq-cursor{animation:none;opacity:1}.proof-faq-cursor-dot{animation:none}.proof-faq-item::after{transition:none}}
+    @media(max-width:700px){.proof-faq-type{font-size:13px}}
+
+    /* ===== Proof FAQ answer dialog: instant open/close, no transition ===== */
+    .proof-faq-dialog{padding:0;border:0;border-radius:28px;max-width:min(520px,90vw);background:var(--background);color:var(--ink);box-shadow:0 24px 60px color-mix(in srgb,var(--ink) 40%,transparent)}
+    .proof-faq-dialog::backdrop{background:color-mix(in srgb,var(--ink) 55%,transparent)}
+    .proof-faq-dialog-inner{position:relative;padding:40px 36px 34px}
+    .proof-faq-dialog-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);border-radius:50%;background:var(--background);color:var(--primary);font:24px/1 Plex,system-ui,sans-serif;cursor:pointer}
+    .proof-faq-dialog h3{margin:0 0 14px;font-size:22px;line-height:1.15;letter-spacing:-.02em;color:var(--primary);padding-right:30px}
+    .proof-faq-dialog p{margin:0;font-size:16px;line-height:1.55}
 
     /* ===== Trust pull-out panel: heading and personal content in one sculptural surface ===== */
     .trust-section .trust-body{position:relative;display:grid;gap:28px;min-width:0;width:100%;margin-right:0;padding:52px 128px 52px 48px;border:1px solid color-mix(in srgb,var(--background) 74%,transparent);border-radius:72px 0 0 72px / 58px 0 0 58px;background:color-mix(in srgb,var(--mist) 44%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 76%,transparent),0 22px 44px color-mix(in srgb,var(--ink) 14%,transparent);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
@@ -588,21 +646,21 @@
     }
 
     /* Scoped portal CTA: only the marked Samal/formats link. */
-    [data-od-id="trust-about-link"]{--portal-wine:#711a35;--portal-wine-bright:#a43b59;--portal-ivory:#f7e9d7;display:grid;justify-items:center;gap:15px;width:fit-content;max-width:260px;margin:30px auto 0;color:var(--ink);text-align:center;text-decoration:none;text-underline-offset:0}
-    [data-od-id="trust-about-link"] .trust-portal-orb{position:relative;isolation:isolate;display:grid;width:100px;height:100px;place-items:center;border:1px solid color-mix(in srgb,var(--portal-ivory) 72%,transparent);border-radius:50%;background:radial-gradient(circle at 40% 32%,var(--portal-wine-bright),var(--portal-wine) 54%,color-mix(in srgb,var(--portal-wine) 82%,var(--ink)));box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-ivory) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 4px color-mix(in srgb,var(--portal-wine-bright) 20%,transparent),0 0 18px color-mix(in srgb,var(--portal-wine-bright) 58%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent);animation:trust-portal-glow 3.2s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
+    [data-od-id="trust-about-link"]{--portal-green:#17493f;--portal-green-bright:#2c7a5c;--portal-gold:#f6cf77;display:grid;justify-items:center;gap:15px;width:fit-content;max-width:260px;margin:30px auto 0;color:var(--ink);text-align:center;text-decoration:none;text-underline-offset:0}
+    [data-od-id="trust-about-link"] .trust-portal-orb{position:relative;isolation:isolate;display:grid;width:100px;height:100px;place-items:center;border:1px solid color-mix(in srgb,var(--portal-gold) 72%,transparent);border-radius:50%;background:radial-gradient(circle at 40% 32%,var(--portal-green-bright),var(--portal-green) 54%,color-mix(in srgb,var(--portal-green) 82%,var(--ink)));box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-gold) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 5px color-mix(in srgb,var(--portal-green-bright) 28%,transparent),0 0 24px color-mix(in srgb,var(--portal-gold) 66%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent);animation:trust-portal-glow 1.85s cubic-bezier(.77,0,.175,1) infinite alternate;transition:transform 160ms cubic-bezier(.23,1,.32,1)}
     [data-od-id="trust-about-link"] .trust-portal-face{position:relative;display:grid;width:100%;height:100%;place-items:center;overflow:hidden;border-radius:50%}
-    [data-od-id="trust-about-link"] .trust-portal-face::before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--portal-ivory) 48%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--portal-ivory) 18%,transparent);pointer-events:none}
-    [data-od-id="trust-about-link"] .trust-portal-sigil{position:relative;z-index:1;width:60px;height:60px;color:var(--portal-ivory);filter:drop-shadow(0 0 8px color-mix(in srgb,var(--portal-ivory) 72%,transparent));animation:trust-portal-sigil 4.8s cubic-bezier(.77,0,.175,1) infinite alternate}
+    [data-od-id="trust-about-link"] .trust-portal-face::before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--portal-gold) 48%,transparent);border-radius:50%;box-shadow:inset 0 0 20px color-mix(in srgb,var(--portal-gold) 18%,transparent);pointer-events:none}
+    [data-od-id="trust-about-link"] .trust-portal-sigil{position:relative;z-index:1;width:60px;height:60px;color:var(--portal-gold);filter:drop-shadow(0 0 9px color-mix(in srgb,var(--portal-gold) 86%,transparent));animation:trust-portal-sigil 1.65s cubic-bezier(.77,0,.175,1) infinite alternate}
     [data-od-id="trust-about-link"] .trust-portal-sigil path{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-    [data-od-id="trust-about-link"] .trust-portal-sigil ellipse{fill:color-mix(in srgb,var(--portal-ivory) 30%,transparent);stroke:currentColor;stroke-width:1.3}
-    [data-od-id="trust-about-link"] .trust-portal-label{display:block;max-width:250px;font-size:14px;font-weight:400;line-height:1.35;letter-spacing:.01em}
-    [data-od-id="trust-about-link"] .trust-portal-label strong{display:block;margin-bottom:3px;color:var(--portal-wine);font-size:17px;font-weight:700;letter-spacing:.01em}
+    [data-od-id="trust-about-link"] .trust-portal-sigil ellipse{fill:color-mix(in srgb,var(--portal-gold) 30%,transparent);stroke:currentColor;stroke-width:1.3}
+    [data-od-id="trust-about-link"] .trust-portal-label{display:grid;gap:4px;max-width:250px;color:color-mix(in srgb,var(--ink) 56%,transparent);font:700 12px/1.2 Plex,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    [data-od-id="trust-about-link"] .trust-portal-label strong{display:block;margin:0;color:inherit;font:inherit}
     [data-od-id="trust-about-link"]:focus-visible{outline:0}
     [data-od-id="trust-about-link"]:focus-visible .trust-portal-orb{outline:3px solid var(--primary);outline-offset:7px}
     [data-od-id="trust-about-link"]:active .trust-portal-orb{transform:scale(.96)}
-    @media(hover:hover) and (pointer:fine){[data-od-id="trust-about-link"]:hover{color:var(--ink)}[data-od-id="trust-about-link"]:hover .trust-portal-orb{animation-play-state:paused;transform:translateY(-3px) scale(1.055);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-ivory) 78%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 32%,transparent),0 0 0 6px color-mix(in srgb,var(--portal-wine-bright) 34%,transparent),0 0 30px color-mix(in srgb,var(--portal-wine-bright) 88%,transparent),0 22px 38px color-mix(in srgb,var(--ink) 24%,transparent)}}
-    @keyframes trust-portal-glow{0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-ivory) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 4px color-mix(in srgb,var(--portal-wine-bright) 20%,transparent),0 0 18px color-mix(in srgb,var(--portal-wine-bright) 58%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent)}50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-ivory) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 8px color-mix(in srgb,var(--portal-wine-bright) 36%,transparent),0 0 34px color-mix(in srgb,var(--portal-wine-bright) 88%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent)}}
-    @keyframes trust-portal-sigil{0%{opacity:.72;transform:rotate(-3deg) scale(.97)}100%{opacity:1;transform:rotate(3deg) scale(1.03)}}
+    @media(hover:hover) and (pointer:fine){[data-od-id="trust-about-link"]:hover{color:var(--ink)}[data-od-id="trust-about-link"]:hover .trust-portal-orb{animation-play-state:paused;transform:translateY(-3px) scale(1.055);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-gold) 78%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 32%,transparent),0 0 0 6px color-mix(in srgb,var(--portal-green-bright) 38%,transparent),0 0 32px color-mix(in srgb,var(--portal-gold) 90%,transparent),0 22px 38px color-mix(in srgb,var(--ink) 24%,transparent)}}
+    @keyframes trust-portal-glow{0%,100%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-gold) 74%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 36%,transparent),0 0 0 5px color-mix(in srgb,var(--portal-green-bright) 28%,transparent),0 0 24px color-mix(in srgb,var(--portal-gold) 66%,transparent),0 18px 34px color-mix(in srgb,var(--ink) 25%,transparent)}50%{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--portal-gold) 84%,transparent),inset 0 -16px 30px color-mix(in srgb,var(--ink) 32%,transparent),0 0 0 10px color-mix(in srgb,var(--portal-green-bright) 48%,transparent),0 0 46px color-mix(in srgb,var(--portal-gold) 100%,transparent),0 20px 38px color-mix(in srgb,var(--ink) 28%,transparent)}}
+    @keyframes trust-portal-sigil{0%{opacity:.74;transform:rotate(-7deg) scale(.92)}100%{opacity:1;transform:rotate(7deg) scale(1.08)}}
     @media(prefers-reduced-motion:reduce){[data-od-id="trust-about-link"] .trust-portal-orb,[data-od-id="trust-about-link"] .trust-portal-sigil{animation:none}}
 
     .page-whirl{position:fixed;z-index:60;inset:0;display:grid;place-items:center;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;color:var(--eucalyptus)}
@@ -633,15 +691,20 @@
     @keyframes page-petal-burst{0%,68%{opacity:0;transform:translate(0,0) scale(.3) rotate(0deg)}76%{opacity:1;transform:translate(0,0) scale(1) rotate(20deg)}100%{opacity:0;transform:translate(var(--petal-x),var(--petal-y)) scale(.55) rotate(var(--petal-r))}}
     @media(prefers-reduced-motion:reduce){.page-whirl{display:none}}
 
-  </style>
-</head>
+  .final-actions{display:grid;justify-items:start;gap:12px;margin-top:12px}.final-cta .telegram-link{margin-top:0}.final-cta .button-materials{border-color:var(--eucalyptus);background:var(--eucalyptus);color:var(--ink)}.final-cta .button-materials:hover{border-color:var(--background);background:var(--background);color:var(--primary);transform:translateY(-2px)}@media(max-width:480px){.final-actions{justify-items:stretch;gap:10px;margin-top:26px}.final-actions .button{width:100%}.final-cta .telegram-link{margin-top:0}}</style>
+<style>
+.site-quick-menu{position:fixed;right:24px;bottom:88px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 "IBM Plex Sans Local",system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 "IBM Plex Sans Local",system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}@media(max-width:760px){.site-quick-menu{right:16px;bottom:80px}.quick-menu-panel{bottom:62px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle{transition:none}}
+</style></head>
 <body>
   <a class="skip-link" href="#main-content">К содержанию</a>
   <header class="shell site-header" data-od-id="site-header">
     <a class="wordmark" href="#top" data-od-id="wordmark">Samal <span>Detox</span></a>
     <nav class="site-nav" aria-label="Основная навигация" data-od-id="main-navigation">
+      <a href="#programs" data-od-id="nav-programs">Программы</a>
+      <a href="about.html" data-od-id="nav-trust">О Самал</a>
+      <a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a>
       <a href="legal.html" data-od-id="nav-legal">Условия</a>
-      <a href="about.html" data-od-id="nav-trust">Самал и форматы</a>
+      <a href="materials.html" data-od-id="nav-materials">Отзывы</a>
       <a class="nav-cta" href="#telegram" data-od-id="nav-telegram">В Telegram</a>
     </nav>
   </header>
@@ -740,18 +803,31 @@
        <div class="shell section-grid">
          <div class="section-heading"><h2 data-od-id="proof-heading">Важные<br><em>ответы.</em></h2></div>
          <div>
-           <div class="pending-panel" data-od-id="proof-panel"><strong>Без обещаний и давления</strong><p>Перед стартом важно понять противопоказания, формат сопровождения и ожидания. Ответы на частые вопросы и реальные отзывы собраны отдельно.</p><div class="hero-actions"><a class="link-arrow" href="faq.html" data-od-id="faq-link">Частые вопросы ↗</a><a class="link-arrow" href="reviews.html" data-od-id="reviews-link">Отзывы ↗</a></div></div>
+           <div class="pending-panel" data-od-id="proof-panel"><strong>Без обещаний и давления</strong><p>Перед стартом важно понять противопоказания, формат сопровождения и ожидания. Ответы и важные пояснения собраны здесь.</p><div class="proof-orb-wrap"><button class="proof-orb" type="button" aria-expanded="false" aria-controls="proof-faq-collapse" aria-label="Развернуть важные ответы" data-od-id="proof-notch"><span class="proof-orb-face"><span class="proof-orb-turn"><svg class="proof-orb-arrow" viewBox="0 0 72 72" aria-hidden="true" focusable="false"><path d="M16 46c7-5 12-13 14-27 5 13 12 20 26 23"/><path d="M19 56c9-8 19-12 33-8 4 1 7 3 10 6"/><path class="proof-orb-arrow-fine" d="M42 18c-1 10 5 16 15 19M30 19c-3 8-1 15 5 21"/></svg></span></span></button><p class="proof-orb-caption" aria-hidden="true">Ответы на важные вопросы</p></div><div class="proof-faq-collapse" data-od-id="proof-faq-collapse" id="proof-faq-collapse"><div class="proof-faq-panel" inert data-od-id="proof-faq-panel"><a class="proof-faq-type" href="#telegram" data-od-id="proof-faq-type"><span class="proof-faq-cursor" aria-hidden="true"></span>Задайте ваш вопрос Самал в Telegram</a><div class="proof-faq-list" data-od-id="proof-faq-list"><span class="proof-faq-cursor-dot" aria-hidden="true" data-od-id="proof-faq-cursor-dot"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg></span>
+             <button class="proof-faq-item" type="button" data-faq-q="Что входит в программы Samal Detox?" data-faq-a="Формат зависит от выбранной программы: подготовка, инструкции по этапам и личное сопровождение Самал в согласованные дни. Точный состав и порядок действий обсуждаются до старта." data-od-id="proof-faq-01">Что входит в программы Samal Detox?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Это медицинское лечение?" data-faq-a="Нет. Сайт и программы не заменяют диагностику, лечение или наблюдение у врача. Решение о том, подходит ли вам участие, нельзя принимать только по описанию на сайте." data-od-id="proof-faq-02">Это медицинское лечение?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Кому участие может не подойти?" data-faq-a="Ограничения зависят от состояния здоровья, возраста, лекарств и других обстоятельств. При беременности, хронических заболеваниях, расстройствах пищевого поведения или любых сомнениях сначала обратитесь к врачу." data-od-id="proof-faq-03">Кому участие может не подойти?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Нужно ли проходить врача перед началом?" data-faq-a="Это разумный шаг, особенно если у вас есть диагнозы, постоянная терапия или вы давно не проверяли здоровье. Самал может уточнить формат сопровождения, но не заменяет медицинского специалиста." data-od-id="proof-faq-04">Нужно ли проходить врача перед началом?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Как проходит личное сопровождение?" data-faq-a="Основной формат онлайн: вы связываетесь с Самал и получаете связь по этапам программы. Частота и каналы общения согласуются заранее; это не круглосуточная экстренная медицинская помощь." data-od-id="proof-faq-05">Как проходит личное сопровождение?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Можно ли присоединиться из другой страны?" data-faq-a="Да, программы в основном онлайн, поэтому участие возможно из разных стран. Важно заранее учесть разницу во времени, язык общения и доступность нужных продуктов." data-od-id="proof-faq-06">Можно ли присоединиться из другой страны?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Какие сроки у программ?" data-faq-a="Есть форматы на 1 день и 3 дня, а также программы 7/7 на 21 день и 14/14 на 42 дня. Продолжительность включает указанный в описании период сопровождения." data-od-id="proof-faq-07">Какие сроки у программ?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Гарантирован ли результат?" data-faq-a="Нет. Реакция и опыт каждого человека индивидуальны, поэтому честно обещать конкретный результат, снижение веса или улучшение самочувствия нельзя." data-od-id="proof-faq-08">Гарантирован ли результат?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Что делать, если во время программы стало плохо?" data-faq-a="Остановите действия, связанные с программой, сообщите Самал и оцените необходимость срочной медицинской помощи. При выраженных или опасных симптомах обращайтесь в экстренные службы, не ожидая ответа в чате." data-od-id="proof-faq-09">Что делать, если во время программы стало плохо?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Как происходит оплата?" data-faq-a="Сейчас основной путь — обсудить подходящий формат в Telegram-боте, пройти чек-лист перед оплатой и получить инструкции. Способ и детали оплаты уточняются в диалоге." data-od-id="proof-faq-10">Как происходит оплата?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Можно ли сначала просто задать вопрос?" data-faq-a="Да. Переход в бот начинается с разговора: расскажите о себе и задайте вопросы без обязательства сразу покупать программу." data-od-id="proof-faq-11">Можно ли сначала просто задать вопрос?</button>
+           </div></div></div></div>
          </div>
        </div>
+       <dialog class="proof-faq-dialog" id="proof-faq-dialog" data-od-id="proof-faq-dialog"><div class="proof-faq-dialog-inner"><button class="proof-faq-dialog-close" type="button" aria-label="Закрыть" data-od-id="proof-faq-dialog-close">×</button><h3 id="proof-faq-dialog-title" data-od-id="proof-faq-dialog-title"></h3><p id="proof-faq-dialog-body" data-od-id="proof-faq-dialog-body"></p></div></dialog>
      </section>
 
     <section id="telegram" class="final-cta" data-od-id="final-cta">
       <div class="cta-glow" aria-hidden="true"></div>
-      <div class="shell final-layout"><h2 data-od-id="final-heading">Можно начать<br><em>с простого разговора.</em></h2><div><p class="final-copy">Напиши о себе, задай вопросы и вместе с Самал выбери подходящий формат.</p><a class="button button-primary telegram-link" href="#telegram" data-od-id="final-telegram">Перейти в Telegram-бот</a></div></div>
+      <div class="shell final-layout"><h2 data-od-id="final-heading">Можно начать<br><em>с простого разговора.</em></h2><div><p class="final-copy">Напиши о себе, задай вопросы и вместе с Самал выбери подходящий формат.</p><div class="final-actions"><a class="button button-primary telegram-link" href="#telegram" data-od-id="final-telegram">Перейти в Telegram-бот</a><a class="button button-materials" href="materials.html" data-od-id="final-materials">Отзывы и фото</a></div></div></div>
     </section>
   </main>
 
-  <footer class="shell site-footer" data-od-id="site-footer"><p>Samal Detox · Самал Булатханкызы</p><p class="footer-muted">2026</p></footer>
+  <footer class="shell site-footer" data-od-id="site-footer"><p>Samal Detox · Самал Булатханкызы</p></footer>
   <button class="back-to-top" type="button" aria-label="Вернуться наверх" data-od-id="back-to-top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path></svg>
   </button>
@@ -921,19 +997,18 @@
       },{passive:true});
       if(reduceMotion || !('IntersectionObserver' in window)){
         revealEls.forEach(function(el){el.classList.add('is-visible')});
-        programsSection.classList.add('is-visible');
+        if(programsSection) programsSection.classList.add('is-visible');
       } else {
         var revealObserver=new IntersectionObserver(function(entries,obs){
           entries.forEach(function(entry){
-            if(entry.isIntersecting){
-              entry.target.classList.add('is-visible');
-            } else if(entry.target === programsSection){
-              entry.target.classList.remove('is-visible');
-            }
+            if(!entry.isIntersecting) return;
+            entry.target.classList.remove('is-leaving');
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
           });
-        },{threshold:.15});
+        },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
         revealEls.forEach(function(el){revealObserver.observe(el)});
-        revealObserver.observe(programsSection);
+        if(programsSection) revealObserver.observe(programsSection);
       }
     }());
   </script>
@@ -976,16 +1051,52 @@
 </div>
 <script>
   (function(){
-    var link=document.querySelector('[data-od-id="trust-about-link"]');
+    var links=document.querySelectorAll('[data-od-id="trust-about-link"],[data-od-id="final-materials"]');
     var whirl=document.querySelector('[data-od-id="page-transition-whirl"]');
-    if(!link||!whirl)return;
+    if(!links.length||!whirl)return;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
-    link.addEventListener('click',function(event){
+    links.forEach(function(link){link.addEventListener('click',function(event){
       if(reduce.matches||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
       event.preventDefault();
       whirl.classList.add('is-active');
       window.setTimeout(function(){location.href=link.href},1450);
     });
+    });
   })();
 </script>
-</body></html>
+<script>
+  (function(){
+    var notch=document.querySelector('[data-od-id="proof-notch"]');
+    var collapse=document.getElementById('proof-faq-collapse');
+    var panel=document.querySelector('[data-od-id="proof-faq-panel"]');
+    if(!notch||!collapse||!panel)return;
+    var open=false;
+    function setOpen(next){
+      open=next;
+      collapse.classList.toggle('is-open',open);
+      notch.setAttribute('aria-expanded',String(open));
+      notch.setAttribute('aria-label',open?'Свернуть важные ответы':'Развернуть важные ответы');
+      if(open){panel.removeAttribute('inert');}else{panel.setAttribute('inert','');}
+    }
+    function toggle(){setOpen(!open);}
+    notch.addEventListener('click',toggle);
+  })();
+  (function(){
+    var dialog=document.getElementById('proof-faq-dialog');
+    var close=dialog&&dialog.querySelector('.proof-faq-dialog-close');
+    var title=document.getElementById('proof-faq-dialog-title');
+    var body=document.getElementById('proof-faq-dialog-body');
+    var items=document.querySelectorAll('.proof-faq-item');
+    if(!dialog||!close||!title||!body||!items.length)return;
+    items.forEach(function(item){
+      item.addEventListener('click',function(){
+        title.textContent=item.dataset.faqQ||item.textContent;
+        body.textContent=item.dataset.faqA||'';
+        dialog.showModal();
+      });
+    });
+    close.addEventListener('click',function(){dialog.close();});
+    dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
+  })();
+</script>
+<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle">Menu</button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('faq'))return;window.addEventListener('load',function(){var trigger=document.querySelector('[data-od-id="proof-notch"]');if(trigger&&trigger.getAttribute('aria-expanded')!=='true')trigger.click()})})();</script></body></html>

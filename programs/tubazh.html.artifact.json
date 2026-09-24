@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "samal-detox/programs/tubazh.html",
+  "entry": "samal-detox/programs/tubazh.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-24T13:22:46.616Z",
+  "updatedAt": "2026-09-24T13:22:46.616Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

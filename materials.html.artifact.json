@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "samal-detox/materials.html",
+  "entry": "samal-detox/materials.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-24T14:13:40.877Z",
+  "updatedAt": "2026-09-24T14:13:40.877Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

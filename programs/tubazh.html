@@ -167,7 +167,7 @@
      .duration-chip,.chip,.notice-card,.related-card{background:color-mix(in srgb,var(--background) 40%,transparent);border-color:color-mix(in srgb,var(--background) 72%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 70%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 10%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
      .related-card{background:color-mix(in srgb,var(--mist) 40%,transparent)}
      /* ===== Pebble content islands ===== */
-     .split-col,.flow-item,.notice-card,.result-note,.final-copy,.related-card{position:relative;isolation:isolate;background:color-mix(in srgb,var(--background) 48%,transparent);border:1px solid color-mix(in srgb,var(--background) 78%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 78%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 11%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+     .split-col,.flow-item,.notice-card,.result-note,.final-copy,.related-card{position:relative;isolation:isolate;background:color-mix(in srgb,var(--background) 94%,transparent);border:1px solid color-mix(in srgb,var(--background) 96%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 92%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 14%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
      .split-col{padding:22px 22px 24px;border-radius:38% 18px 28% 16px / 20px 32% 18px 30%;transform:rotate(-.8deg)}
      .split-col:nth-child(2){border-radius:16px 34% 18px 38% / 30% 18px 34% 16px;transform:rotate(1deg)}
      .split-col h3{position:relative;z-index:1}
@@ -199,6 +199,29 @@
      @media(max-width:480px){.program-hero{background-position:center top}.symptoms-section{background-position:55% center}.included-section{background-position:center 32%}.flow-section{background-position:center 28%}.contraindications-section{background-position:center 34%}.result-section{background-position:40% center}.final-cta{background-position:center top}.related-section{background-position:right bottom}.duration-chip,.chip,.notice-card,.related-card{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}}
     /* Navigation sits in a viewport layer, never inside a transformed story panel. */
     .story-navigation-layer{position:fixed;inset:0;z-index:100;pointer-events:none;isolation:isolate}.story-navigation-layer .chapter-nav{position:absolute;inset:auto 0 0;width:100%;min-height:74px;margin:0;padding:10px max(20px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));transform:none;display:none;align-items:center;justify-content:center;gap:24px;background:transparent;border:0;box-shadow:none}.story-navigation-layer .chapter-nav.is-active-navigation{display:flex;pointer-events:auto}.story-navigation-layer .chapter-control{background:color-mix(in srgb,var(--background) 94%,transparent)}@media(max-width:700px){.story-navigation-layer .chapter-nav{min-height:70px;bottom:0;gap:18px}}
+    /* A persistent question control sits apart from the chapter navigation. */
+    .program-question-control{position:fixed;right:24px;bottom:42px;z-index:110;display:grid;grid-template-columns:1fr 46px;align-items:center;gap:10px;min-width:220px;height:64px;padding:0 10px 0 20px;border:1px solid var(--eucalyptus);border-radius:999px;background:var(--ink);color:var(--background);box-shadow:0 12px 26px color-mix(in srgb,var(--ink) 22%,transparent);cursor:pointer;text-align:left;transition:background .18s ease,color .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}
+    .program-question-control:hover{background:var(--primary);transform:translateY(-3px)}
+    .program-question-control:active{transform:translateY(0) scale(.98)}
+    .program-question-label{font:700 15px/1.15 Plex,system-ui,sans-serif;letter-spacing:.01em;white-space:nowrap}
+    .program-question-mark{display:grid;place-items:center;width:46px;height:46px;border:1px solid color-mix(in srgb,var(--eucalyptus) 76%,transparent);border-radius:50%;background:color-mix(in srgb,var(--background) 9%,transparent)}
+    .program-question-control svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .program-question-dialog{width:min(500px,calc(100% - 40px));padding:0;border:0;background:transparent;color:var(--ink);overflow:visible}
+    .program-question-dialog::backdrop{background:color-mix(in srgb,var(--ink) 70%,transparent);backdrop-filter:blur(6px)}
+    .program-question-surface{position:relative;isolation:isolate;padding:clamp(30px,6vw,48px);border-radius:24px;background:var(--background);box-shadow:0 26px 64px color-mix(in srgb,var(--ink) 42%,transparent)}
+    .program-question-close{position:absolute;top:14px;right:14px;display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid color-mix(in srgb,var(--primary) 40%,transparent);border-radius:50%;background:var(--background);color:var(--primary);font:28px/1 Plex,system-ui,sans-serif;cursor:pointer;transition:background .16s ease,transform .16s cubic-bezier(.23,1,.32,1)}
+    .program-question-close:hover{background:var(--mist);transform:rotate(90deg)}
+    .program-question-kicker{margin:0 0 10px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .program-question-surface h2{max-width:15ch;margin:0 0 26px;font-size:clamp(34px,7vw,48px);line-height:.96;letter-spacing:-.03em}
+    .program-question-surface h2 em{font-family:"Cormorant Garamond Local",Georgia,serif;font-weight:400;color:var(--primary)}
+    .program-question-actions{display:grid;justify-items:start;gap:10px}
+    .program-question-faq,.program-question-telegram{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--primary);border-radius:var(--radius-pill);font:700 15px/1 Plex,system-ui,sans-serif;text-decoration:none}
+    .program-question-faq{gap:10px;background:var(--primary);color:var(--background);transition:background .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}
+    .program-question-faq:hover{background:var(--ink);transform:translateY(-2px)}
+    .program-question-faq svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .program-question-telegram{background:transparent;color:var(--primary);cursor:not-allowed;opacity:.54}
+    @media(max-width:760px){.program-question-control{right:16px;bottom:calc(96px + env(safe-area-inset-bottom));grid-template-columns:1fr 42px;gap:8px;min-width:208px;height:58px;padding-left:18px}.program-question-label{font-size:14px}.program-question-mark{width:42px;height:42px}.program-question-control svg{width:21px;height:21px}.program-question-dialog{width:min(500px,calc(100% - 28px))}}
+    @media(prefers-reduced-motion:reduce){.program-question-control,.program-question-close{transition:none}}
   </style>
 </head>
 <body>
@@ -334,6 +357,8 @@
   <!-- legacy back-to-top control removed: chapter navigation replaces it.
     <svg viewBox="0 0 28 28" aria-hidden="true"><path class="ornament-line" d="M4.5 20c1.6-1.8 2.1-3.9 1.5-6.2M23.5 20c-1.6-1.8-2.1-3.9-1.5-6.2M4.5 20c2 .3 3.1-.2 4-1.5M23.5 20c-2 .3-3.1-.2-4-1.5M8 24c1.6-1 2.7-1 4.2 0M20 24c-1.6-1-2.7-1-4.2 0"></path><circle class="ornament-dot" cx="5.8" cy="12.8" r=".75"></circle><circle class="ornament-dot" cx="22.2" cy="12.8" r=".75"></circle><path d="M14 23V6M8.5 11.5 14 6l5.5 5.5"></path><path class="flower-petal" d="M14 6c-2.9-2.3-1.5-4.7 0-4.7s2.9 2.4 0 4.7Z"></path><path class="flower-petal" d="M14 6c2.3-2.9 4.7-1.5 4.7 0S16.3 8.9 14 6Z"></path><path class="flower-petal" d="M14 6c-2.3 2.9-4.7 1.5-4.7 0S11.7 3.1 14 6Z"></path><circle cx="14" cy="6" r="1.2" fill="var(--background)" stroke="none"></circle></svg>
   -->
+  <button class="program-question-control" type="button" aria-haspopup="dialog" aria-controls="program-question-dialog" aria-label="Остались вопросы? Задать вопрос Самал" data-od-id="program-question-trigger"><span class="program-question-label">Остались вопросы?</span><span class="program-question-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.4 9a3 3 0 1 1 5.25 1.98c-1.24 1.4-2.65 1.88-2.65 4.02"/><path d="M12 18.1h.01"/></svg></span></button>
+  <dialog class="program-question-dialog" id="program-question-dialog" aria-labelledby="program-question-title" data-od-id="program-question-dialog"><div class="program-question-surface"><button class="program-question-close" type="button" aria-label="Закрыть" data-od-id="program-question-close">×</button><p class="program-question-kicker">Остались вопросы?</p><h2 id="program-question-title" data-od-id="program-question-title">Начните<br><em>с ответов.</em></h2><div class="program-question-actions"><button class="program-question-telegram" type="button" disabled data-od-id="program-question-telegram">Перейти в Telegram-бот</button></div></div></dialog>
   <div class="telegram-status" role="status" aria-live="polite" data-od-id="telegram-status">Переход в Telegram будет доступен после подключения бота.</div>
   <script>
     (function(){
@@ -464,4 +489,7 @@
   </script>
 
 
+  <script>
+    (function(){var trigger=document.querySelector('[data-od-id="program-question-trigger"]'),dialog=document.getElementById('program-question-dialog'),close=dialog&&dialog.querySelector('[data-od-id="program-question-close"]');if(!trigger||!dialog||!close)return;trigger.addEventListener('click',function(){dialog.showModal();});close.addEventListener('click',function(){dialog.close();});dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});dialog.addEventListener('close',function(){trigger.focus({preventScroll:true});});}());
+  </script>
 </body></html>

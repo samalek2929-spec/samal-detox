@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "samal-detox/programs/cleanse-3.html",
+  "entry": "samal-detox/programs/cleanse-3.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-24T13:22:46.474Z",
+  "updatedAt": "2026-09-24T13:22:46.474Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
