@@ -29,7 +29,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;background:var(--background);color:var(--ink);scrollbar-width:none}
     html::-webkit-scrollbar{display:none}
-    body{margin:0;background:var(--background);color:var(--ink);font-family:"IBM Plex Sans Local",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
+    body{margin:0;min-height:100svh;background:var(--background);color:var(--ink);font-family:"IBM Plex Sans Local",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
     ::selection{background:var(--primary);color:var(--background)}
     a{color:inherit}
     a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}
@@ -221,7 +221,7 @@
       .portrait-caption__quote{font-size:16px}
       .back-to-top{right:16px;bottom:16px}
       .programs-heading{display:block}.programs-heading p{margin-top:16px}
-      .site-footer{display:block;padding-bottom:88px}.site-footer p+p{margin-top:8px}.final-cta .telegram-link{margin-top:26px}
+      .site-footer{display:block;padding-bottom:28px}.site-footer p+p{margin-top:8px}.final-cta .telegram-link{margin-top:26px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.telegram-status,.back-to-top{transition:none}}
 
@@ -396,6 +396,17 @@
     .programs-section .program-card:nth-child(4) .program-more:hover{color:var(--ink)}
     .programs-section .program-card:nth-child(4) .program-more:hover .program-more__half{background:var(--eucalyptus)}
     .programs-section .program-card>a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:700}
+    .programs-section{padding-bottom:56px}
+    .programs-formats-cta{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(100%,720px);min-height:104px;margin:38px auto 0;padding:22px 30px;border:1px solid var(--eucalyptus);border-radius:var(--radius-card);background:var(--mist);color:var(--ink);box-shadow:0 14px 28px color-mix(in srgb,var(--ink) 16%,transparent);text-decoration:none;transition:transform 220ms cubic-bezier(.23,1,.32,1),box-shadow 220ms cubic-bezier(.23,1,.32,1)}
+    .programs-formats-cta__copy{display:grid;flex:1;min-width:0;gap:4px}
+    .programs-formats-cta__title{font-size:clamp(20px,2.6vw,28px);font-weight:700;line-height:1.08;letter-spacing:-.03em}
+    .programs-formats-cta__detail{font-size:14px;line-height:1.4;color:var(--primary)}
+    .programs-formats-cta__art{display:block;flex:0 0 94px;width:94px;height:62px;margin-left:auto;overflow:visible}
+    .programs-formats-cta__arrow{display:grid;flex:none;place-items:center;width:48px;height:48px;border:1px solid var(--primary);border-radius:50%;color:var(--primary);font-size:26px;line-height:1;transition:transform 220ms cubic-bezier(.23,1,.32,1),background-color 220ms ease,color 220ms ease}
+    .programs-formats-cta:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:5px}
+    @media(hover:hover) and (pointer:fine){.programs-formats-cta:hover{transform:translateY(-3px);box-shadow:0 20px 36px color-mix(in srgb,var(--ink) 22%,transparent)}.programs-formats-cta:hover .programs-formats-cta__arrow{transform:translateX(3px);background:var(--primary);color:var(--background)}}
+    @media(max-width:480px){.programs-section{padding-bottom:40px}.programs-formats-cta{min-height:96px;margin-top:24px;padding:19px 20px;gap:9px}.programs-formats-cta__art{flex-basis:48px;width:48px;height:42px}.programs-formats-cta__arrow{width:44px;height:44px}}
+    @media(prefers-reduced-motion:reduce){.programs-formats-cta,.programs-formats-cta__arrow{transition:none}}
     @media(max-width:480px){.programs-water-lines--lower{height:260px}}
     @media(max-width:700px){.programs-section .program-card h3{font-size:clamp(24px,7vw,29px)}}
 
@@ -562,6 +573,44 @@
     .proof-faq-dialog h3{margin:0 0 14px;font-size:22px;line-height:1.15;letter-spacing:-.02em;color:var(--primary);padding-right:30px}
     .proof-faq-dialog p{margin:0;font-size:16px;line-height:1.55}
 
+    /* ===== Lead magnet: shake-the-tree popup ===== */
+    .lead-magnet{padding:0;border:0;border-radius:36px;max-width:min(440px,92vw);max-height:min(680px,calc(100dvh - 32px));overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;background:var(--background);color:var(--ink);box-shadow:0 30px 70px color-mix(in srgb,var(--ink) 44%,transparent);opacity:0;transform:scale(.94) translateY(14px);transition:opacity .26s ease,transform .3s cubic-bezier(.22,1,.36,1),overlay .3s allow-discrete,display .3s allow-discrete}
+    .lead-magnet[open]{opacity:1;transform:scale(1) translateY(0)}
+    @starting-style{.lead-magnet[open]{opacity:0;transform:scale(.94) translateY(14px)}}
+    .lead-magnet::backdrop{background:color-mix(in srgb,var(--ink) 58%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity .3s ease,overlay .3s allow-discrete,display .3s allow-discrete}
+    .lead-magnet[open]::backdrop{opacity:1}
+    @starting-style{.lead-magnet[open]::backdrop{opacity:0}}
+    .lead-magnet-inner{position:relative;padding:34px 28px 30px;text-align:center}
+    .lead-magnet-close{position:absolute;top:14px;right:14px;z-index:6;width:36px;height:36px;border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);border-radius:50%;background:var(--background);color:var(--primary);font:22px/1 Plex,system-ui,sans-serif;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background 160ms ease}
+    .lead-magnet-close:hover{transform:rotate(90deg);background:var(--mist)}
+    .lead-magnet h3{margin:0 0 10px;font-size:25px;line-height:1.18;letter-spacing:-.02em;padding-right:6px}
+    .lead-magnet h3 em{font-family:"Cormorant Garamond Local",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.02em;font-size:1.18em;color:var(--primary)}
+    .lead-magnet-lead{margin:0 auto;max-width:29ch;font-size:14px;line-height:1.5;color:color-mix(in srgb,var(--ink) 78%,transparent)}
+    .lead-magnet-scene{position:relative;margin:18px 0 0;padding:18px 0 16px;border-radius:28px;background:#101f35;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 18px 34px color-mix(in srgb,var(--ink) 22%,transparent);overflow:hidden}
+    .lead-magnet-moon{position:absolute;top:14px;right:20px;width:34px;height:34px}
+    .lead-magnet-tree{position:relative;width:250px;height:196px;margin:0 auto;touch-action:none;cursor:grab}
+    .lead-magnet-tree:active{cursor:grabbing}
+    .lead-magnet-tree-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+    .lead-magnet-leaf-a{fill:var(--eucalyptus)}
+    .lead-magnet-leaf-b{fill:var(--primary)}
+    .lead-magnet-canopy{transform-origin:120px 130px;transition:transform .1s ease}
+    .lead-magnet-tree.is-shaking .lead-magnet-canopy{animation:lead-tree-sway .16s ease-in-out infinite}
+    .lead-magnet-fruit{position:absolute;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffcf8a,#e08a2e 62%,#b8631a);box-shadow:0 3px 5px rgba(0,0,0,.45)}
+    .lead-magnet-tree.is-shaking .lead-magnet-fruit{animation:lead-fruit-jitter .16s ease-in-out infinite}
+    @keyframes lead-fruit-jitter{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(1.5px,-1px) rotate(-7deg)}50%{transform:translate(-1.5px,1px) rotate(6deg)}75%{transform:translate(1px,1.5px) rotate(-5deg)}}
+    @keyframes lead-tree-sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(1.6deg)}}
+    .lead-magnet-fruit.is-falling{transition:transform .6s cubic-bezier(.4,.1,.7,.9),opacity .45s ease .3s;transform:translate(var(--fx,0),150px) rotate(220deg);opacity:0}
+    .lead-magnet-hint{position:relative;z-index:1;margin:6px 0 0;color:#e8c98a;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:1;visibility:visible;animation:lead-hint-pulse 1.6s ease-in-out infinite;transition:opacity .2s ease}
+    .lead-magnet-hint.is-hidden{opacity:0;visibility:hidden;animation:none}
+    @keyframes lead-hint-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+    .lead-magnet-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:18px;padding:0 26px;border:0;border-radius:var(--radius-pill);background:var(--primary);color:var(--background);font:700 15px/1 Plex,system-ui,sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(6px) scale(.96);pointer-events:none;transition:opacity .3s ease,transform .34s cubic-bezier(.34,1.56,.64,1),background .18s ease}
+    .lead-magnet-cta:hover{background:var(--ink)}
+    .lead-magnet-cta.is-visible{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:auto}
+    .lead-magnet-note{position:fixed;left:50%;bottom:24px;z-index:130;transform:translate(-50%,8px);max-width:min(320px,calc(100% - 32px));padding:14px 18px;border-radius:999px;background:#183D38;color:#F7F5EF;font-size:14px;line-height:1.3;text-align:center;box-shadow:0 16px 30px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+    .lead-magnet-note.is-visible{opacity:1;transform:translate(-50%,0)}
+    @media(prefers-reduced-motion:reduce){.lead-magnet,.lead-magnet::backdrop{transition:none}.lead-magnet-tree.is-shaking .lead-magnet-fruit,.lead-magnet-tree.is-shaking .lead-magnet-canopy{animation:none}.lead-magnet-hint{animation:none;transition:none}.lead-magnet-fruit.is-falling{transition:opacity .3s ease}.lead-magnet-cta{transition:opacity .2s ease}}
+    @media(max-width:480px){.lead-magnet-inner{padding:30px 20px 26px}.lead-magnet-scene{padding:16px 0 14px}.lead-magnet-tree{width:210px;height:164px}.lead-magnet-moon{width:28px;height:28px;top:12px;right:16px}}
+
     /* ===== Trust pull-out panel: heading and personal content in one sculptural surface ===== */
     .trust-section .trust-body{position:relative;display:grid;gap:28px;min-width:0;width:100%;margin-right:0;padding:52px 128px 52px 48px;border:1px solid color-mix(in srgb,var(--background) 74%,transparent);border-radius:72px 0 0 72px / 58px 0 0 58px;background:color-mix(in srgb,var(--mist) 44%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 76%,transparent),0 22px 44px color-mix(in srgb,var(--ink) 14%,transparent);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
     .trust-section .trust-body::before{content:"";position:absolute;inset:14px 0 14px 14px;z-index:0;border:1px solid color-mix(in srgb,var(--background) 38%,transparent);border-right:0;border-radius:58px 0 0 48px / 44px 0 0 40px;pointer-events:none}
@@ -693,15 +742,15 @@
 
   .final-actions{display:grid;justify-items:start;gap:12px;margin-top:12px}.final-cta .telegram-link{margin-top:0}.final-cta .button-materials{border-color:var(--eucalyptus);background:var(--eucalyptus);color:var(--ink)}.final-cta .button-materials:hover{border-color:var(--background);background:var(--background);color:var(--primary);transform:translateY(-2px)}@media(max-width:480px){.final-actions{justify-items:stretch;gap:10px;margin-top:26px}.final-actions .button{width:100%}.final-cta .telegram-link{margin-top:0}}</style>
 <style>
-.site-quick-menu{position:fixed;right:24px;bottom:88px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 "IBM Plex Sans Local",system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 "IBM Plex Sans Local",system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}@media(max-width:760px){.site-quick-menu{right:16px;bottom:80px}.quick-menu-panel{bottom:62px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle{transition:none}}
+.site-quick-menu{position:fixed;right:24px;bottom:152px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 "IBM Plex Sans Local",system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 "IBM Plex Sans Local",system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}.lead-magnet-fab{position:fixed;right:24px;bottom:88px;z-index:21;display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.lead-magnet-fab:hover{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.lead-magnet-fab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lead-magnet-fab:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}@media(max-width:760px){.site-quick-menu{right:16px;bottom:144px}.quick-menu-panel{bottom:62px}.lead-magnet-fab{right:16px;bottom:80px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle,.lead-magnet-fab{transition:none}}
 </style></head>
 <body>
   <a class="skip-link" href="#main-content">К содержанию</a>
   <header class="shell site-header" data-od-id="site-header">
     <a class="wordmark" href="#top" data-od-id="wordmark">Samal <span>Detox</span></a>
     <nav class="site-nav" aria-label="Основная навигация" data-od-id="main-navigation">
-      <a href="#programs" data-od-id="nav-programs">Программы</a>
       <a href="about.html" data-od-id="nav-trust">О Самал</a>
+      <a href="#programs" data-od-id="nav-programs">Программы</a>
       <a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a>
       <a href="legal.html" data-od-id="nav-legal">Условия</a>
       <a href="materials.html" data-od-id="nav-materials">Отзывы</a>
@@ -767,6 +816,11 @@
             <article class="program-card" data-od-id="program-fasting-7"><div class="program-media"><img class="program-header-img" src="assets/icons/fasting-7-7.webp" alt="" loading="lazy"><p class="program-duration">21 день</p></div><h3>Голодание 7/7<small>Индивидуальный курс</small></h3><p class="program-pain"><strong>Решает трудности</strong>лишний вес · хроническая усталость · зашлакованность организма · нарушения пищеварения · тяга к сладкому</p><div class="program-points-row"><ul class="program-points" aria-label="Возможные эффекты"><li>вход в кетоз</li><li>уходят отёки</li><li>лёгкость в теле</li></ul><div class="program-points-extra"><ul class="program-points-more" aria-label="Дополнительные эффекты"><li>ясная голова</li><li>голод пропадает</li><li>ровная энергия</li><li>снижение давления</li><li>уходит тяга к сладкому</li><li>отвес 3–5 кг</li><li>отдых ЖКТ</li></ul></div><div class="program-actions"><button class="program-more" type="button" aria-expanded="false" data-od-id="program-fasting-7-more"><span class="program-more__half program-more__half--l" aria-hidden="true"></span><span class="program-more__half program-more__half--r" aria-hidden="true"></span><span class="program-more__label">Раскрыть пользу</span></button><button class="program-collapse" type="button" aria-expanded="false" aria-label="Свернуть список пользы" data-od-id="program-fasting-7-collapse"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button></div></div><a href="programs/fasting-7-7.html" data-od-id="program-fasting-7-link">Подробнее о программе ↗</a></article>
             <article class="program-card" data-od-id="program-fasting-14"><div class="program-media"><img class="program-header-img" src="assets/icons/fasting-14-14.webp" alt="" loading="lazy"><p class="program-duration">42 дня</p></div><h3>Голодание 14/14<small>Индивидуальный курс</small></h3><p class="program-pain"><strong>Решает трудности</strong>многолетний вес · эмоциональное выгорание · скованность в теле · пищевые срывы · застой в организме</p><div class="program-points-row"><ul class="program-points" aria-label="Возможные эффекты"><li>запуск аутофагии</li><li>обновление клеток</li><li>снижение воспаления</li></ul><div class="program-points-extra"><ul class="program-points-more" aria-label="Дополнительные эффекты"><li>нормализация сахара</li><li>улучшение липидов крови</li><li>уменьшение объёма талии</li><li>перезапуск вкуса</li><li>новые пищевые привычки</li><li>устойчивое снижение веса</li><li>эмоциональный подъём</li></ul></div><div class="program-actions"><button class="program-more" type="button" aria-expanded="false" data-od-id="program-fasting-14-more"><span class="program-more__half program-more__half--l" aria-hidden="true"></span><span class="program-more__half program-more__half--r" aria-hidden="true"></span><span class="program-more__label">Раскрыть пользу</span></button><button class="program-collapse" type="button" aria-expanded="false" aria-label="Свернуть список пользы" data-od-id="program-fasting-14-collapse"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button></div></div><a href="programs/fasting-14-14.html" data-od-id="program-fasting-14-link">Подробнее о программе ↗</a></article>
         </div>
+        <a class="programs-formats-cta" href="about.html?formats=1#formats" data-od-id="programs-formats-cta" aria-label="Открыть групповые форматы: онлайн 7/7 и выездные программы">
+          <span class="programs-formats-cta__copy"><span class="programs-formats-cta__title">Пройти программу в группе</span><span class="programs-formats-cta__detail">Онлайн 7/7 и выездные офлайн-группы</span></span>
+          <svg class="programs-formats-cta__art" viewBox="0 0 112 70" fill="none" aria-hidden="true" focusable="false"><path d="M4 57c18-8 34-8 52-2 19 6 36 5 52-5M10 64c18-6 32-5 48-1 17 4 31 2 45-4" stroke="#87B7AB" stroke-width="2" stroke-linecap="round"/><path d="M31 52V32m25 23V22m25 31V33" stroke="#205A50" stroke-width="2.2" stroke-linecap="round"/><path d="M31 40c-10-1-16-8-16-17 10 1 16 7 16 17Zm0-5c2-11 8-17 18-18-1 10-7 16-18 18Zm25 6c-10-2-17-9-17-19 11 1 17 8 17 19Zm0-9c2-11 9-18 20-19-2 10-9 17-20 19Zm25 10c-8-1-14-7-15-15 9 1 14 6 15 15Zm0-5c2-9 8-14 16-15-2 9-7 14-16 15Z" fill="#87B7AB"/><path d="M31 35c2-11 8-17 18-18-1 10-7 16-18 18Zm25-3c2-11 9-18 20-19-2 10-9 17-20 19Zm25 5c2-9 8-14 16-15-2 9-7 14-16 15Z" fill="#205A50"/><circle cx="56" cy="15" r="5.5" fill="#D4AE71"/><path d="M56 3v4m-12 5 3 2m21-2-3 2" stroke="#D4AE71" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="programs-formats-cta__arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
 
@@ -779,7 +833,7 @@
             <div class="trust-portrait"><img src="assets/portraits/samal-quiet-water-v1.webp" width="736" height="920" alt="Самал Булатханкызы, эксперт Samal Detox"></div>
             <div class="trust-copy">
               <div class="expert-profile" data-od-id="expert-profile"><p class="expert-name">Самал Булатханкызы</p><p class="expert-role">Основательница Samal Detox · личное сопровождение</p></div>
-              <p class="section-intro">13+ лет в массаже и остеопатии, 6 лет — программы очищения и голодания, среднее специальное медицинское образование. Самал сама сопровождает каждого клиента, без делегирования команде.</p>
+              <p class="section-intro">6 лет в остеопатии, 2 года — в программах очищения и голодания. Самал сама сопровождает каждого клиента, без делегирования команде.</p>
               <a class="link-arrow" href="about.html" data-od-id="trust-about-link" aria-label="Открыть страницу о Самал и форматах сопровождения"><span class="trust-portal-orb" aria-hidden="true"><span class="trust-portal-face"><svg class="trust-portal-sigil" viewBox="0 0 80 80" focusable="false"><path d="M40 9c1 14-7 23-20 27 13 4 21 13 20 28 1-15 9-24 22-28C49 32 41 23 40 9Z"/><path d="M16 55c12-12 25-12 38-2 6 5 10 10 11 16M28 17c-9 8-11 17-7 28"/><ellipse cx="25" cy="25" rx="9" ry="4" transform="rotate(-42 25 25)"/><ellipse cx="57" cy="48" rx="10" ry="4" transform="rotate(28 57 48)"/></svg></span></span><span class="trust-portal-label"><strong>Самал и форматы</strong>История, опыт и варианты сопровождения</span></a>
             </div>
           </div>
@@ -1099,4 +1153,194 @@
     dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
   })();
 </script>
-<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle">Menu</button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('faq'))return;window.addEventListener('load',function(){var trigger=document.querySelector('[data-od-id="proof-notch"]');if(trigger&&trigger.getAttribute('aria-expanded')!=='true')trigger.click()})})();</script></body></html>
+<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('faq'))return;window.addEventListener('load',function(){var trigger=document.querySelector('[data-od-id="proof-notch"]');if(trigger&&trigger.getAttribute('aria-expanded')!=='true')trigger.click()})})();</script>
+
+<button class="lead-magnet-fab" type="button" aria-label="Открыть подарок" data-od-id="lead-magnet-fab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.4"/><path d="M4 9h16M12 9v11M8.2 9c-1.9 0-3.2-1.1-3.2-2.6C5 4.9 6.3 4 7.9 4c1.7 0 3 1.3 4.1 3.1M15.8 9c1.9 0 3.2-1.1 3.2-2.6C19 4.9 17.7 4 16.1 4c-1.7 0-3 1.3-4.1 3.1"/></svg></button>
+<dialog class="lead-magnet" id="lead-magnet-dialog" data-od-id="lead-magnet-dialog" aria-labelledby="lead-magnet-title"><div class="lead-magnet-inner"><button class="lead-magnet-close" type="button" aria-label="Закрыть" data-od-id="lead-magnet-close">×</button><h3 id="lead-magnet-title">Потряси дерево — <em>получи подарок</em></h3><p class="lead-magnet-lead">На телефоне — потряси сам телефон. За компьютером — потряси дерево мышкой.</p><div class="lead-magnet-scene"><svg class="lead-magnet-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#f2d999"/><circle cx="27" cy="14" r="12" fill="#101f35"/></svg><div class="lead-magnet-tree" data-od-id="lead-magnet-tree" role="button" tabindex="0" aria-label="Потрясти дерево"><svg class="lead-magnet-tree-art" viewBox="0 0 240 190" aria-hidden="true" focusable="false"><path d="M120 186c0-24 1-46 2-64" stroke="#9c7a52" stroke-width="8" stroke-linecap="round" fill="none"/><g class="lead-magnet-canopy"><circle class="lead-magnet-leaf-a" cx="120" cy="75" r="62"/><circle class="lead-magnet-leaf-a" cx="62" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="178" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="88" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="152" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="120" cy="118" r="40"/><circle class="lead-magnet-leaf-b" cx="95" cy="48" r="20"/><circle class="lead-magnet-leaf-b" cx="150" cy="52" r="18"/><circle class="lead-magnet-leaf-b" cx="68" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="172" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="120" cy="85" r="22"/><circle class="lead-magnet-leaf-b" cx="118" cy="30" r="14"/></g></svg><span class="lead-magnet-fruit" style="left:31%;top:42%;--fx:-18px"></span><span class="lead-magnet-fruit" style="left:58%;top:21%;--fx:14px"></span><span class="lead-magnet-fruit" style="left:40%;top:18%;--fx:-4px"></span><span class="lead-magnet-fruit" style="left:71%;top:39%;--fx:20px"></span><span class="lead-magnet-fruit" style="left:50%;top:58%;--fx:6px"></span><span class="lead-magnet-fruit" style="left:25%;top:32%;--fx:-22px"></span><span class="lead-magnet-fruit" style="left:77%;top:53%;--fx:16px"></span></div><p class="lead-magnet-hint" data-od-id="lead-magnet-hint">Тряси!</p></div><button type="button" class="lead-magnet-cta" data-od-id="lead-magnet-cta">Забери подарок</button></div></dialog>
+<div class="lead-magnet-note" role="status" aria-live="polite" data-od-id="lead-magnet-note">Telegram-бот скоро будет доступен</div>
+<script>
+(function(){
+  var dialog=document.querySelector('[data-od-id="lead-magnet-dialog"]');
+  if(!dialog||typeof dialog.showModal!=='function')return;
+  var fab=document.querySelector('[data-od-id="lead-magnet-fab"]');
+  var closeBtn=dialog.querySelector('[data-od-id="lead-magnet-close"]');
+  var tree=dialog.querySelector('[data-od-id="lead-magnet-tree"]');
+  var fruits=Array.prototype.slice.call(dialog.querySelectorAll('.lead-magnet-fruit'));
+  var hint=dialog.querySelector('[data-od-id="lead-magnet-hint"]');
+  var cta=dialog.querySelector('[data-od-id="lead-magnet-cta"]');
+  var note=document.querySelector('[data-od-id="lead-magnet-note"]');
+  function showNote(){
+    if(!note)return;
+    note.classList.add('is-visible');
+    window.clearTimeout(note._timer);
+    note._timer=window.setTimeout(function(){note.classList.remove('is-visible')},4200);
+  }
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SHOWN_KEY='leadMagnetShown';
+  var hasFallen=false,energy=0;
+
+  function markShown(){try{localStorage.setItem(SHOWN_KEY,'1')}catch(_){}}
+  function alreadyShown(){try{return !!localStorage.getItem(SHOWN_KEY)}catch(_){return false}}
+
+  function rectCenter(r){return {x:r.left+r.width/2,y:r.top+r.height/2};}
+
+  function resetGame(){
+    hasFallen=false;
+    energy=0;
+    tree.classList.remove('is-shaking','has-fallen');
+    fruits.forEach(function(fruit){fruit.classList.remove('is-falling')});
+    hint.classList.remove('is-hidden');
+    cta.classList.remove('is-visible');
+  }
+
+  var lockedScrollY=0;
+  function lockScroll(){
+    lockedScrollY=window.scrollY||window.pageYOffset||0;
+    document.body.style.position='fixed';
+    document.body.style.top=(-lockedScrollY)+'px';
+    document.body.style.left='0';
+    document.body.style.right='0';
+    document.body.style.width='100%';
+  }
+  function unlockScroll(){
+    document.body.style.position='';
+    document.body.style.top='';
+    document.body.style.left='';
+    document.body.style.right='';
+    document.body.style.width='';
+    window.scrollTo({top:lockedScrollY,left:0,behavior:'instant'});
+  }
+
+  function openWithGrow(){
+    if(dialog.open)return;
+    resetGame();
+    try{dialog.showModal()}catch(_){return}
+    markShown();
+    lockScroll();
+    if(!reduceMotion&&fab){
+      var fr=fab.getBoundingClientRect(),dr=dialog.getBoundingClientRect();
+      var fc=rectCenter(fr),dc=rectCenter(dr);
+      var scale=Math.max(.08,fr.width/dr.width);
+      dialog.style.transition='none';
+      dialog.style.opacity='0';
+      dialog.style.transform='translate('+(fc.x-dc.x)+'px,'+(fc.y-dc.y)+'px) scale('+scale+')';
+      dialog.offsetHeight;
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        dialog.style.transition='';
+        dialog.style.opacity='';
+        dialog.style.transform='';
+      });});
+    }
+  }
+
+  function closeWithSuck(){
+    if(!dialog.open)return;
+    if(reduceMotion||!fab){dialog.close();return;}
+    var fr=fab.getBoundingClientRect(),dr=dialog.getBoundingClientRect();
+    var fc=rectCenter(fr),dc=rectCenter(dr);
+    var scale=Math.max(.08,fr.width/dr.width);
+    dialog.style.transition='opacity .32s ease,transform .36s cubic-bezier(.4,0,.2,1)';
+    dialog.style.opacity='0';
+    dialog.style.transform='translate('+(fc.x-dc.x)+'px,'+(fc.y-dc.y)+'px) scale('+scale+')';
+    window.setTimeout(function(){
+      dialog.close();
+      dialog.style.transition='';
+      dialog.style.opacity='';
+      dialog.style.transform='';
+    },340);
+  }
+
+  function fall(){
+    if(hasFallen)return;
+    hasFallen=true;
+    tree.classList.remove('is-shaking');
+    tree.classList.add('has-fallen');
+    hint.classList.add('is-hidden');
+    fruits.forEach(function(fruit,i){window.setTimeout(function(){fruit.classList.add('is-falling')},i*70)});
+    window.setTimeout(function(){cta.classList.add('is-visible')},fruits.length*70+240);
+  }
+
+  function addEnergy(amount){
+    if(hasFallen)return;
+    energy=Math.min(200,energy+amount);
+    tree.classList.toggle('is-shaking',energy>6);
+    if(energy>=170)fall();
+  }
+
+  window.setInterval(function(){
+    if(hasFallen)return;
+    energy=Math.max(0,energy-4);
+    if(energy<=6)tree.classList.remove('is-shaking');
+  },120);
+
+  var trustSection=document.querySelector('[data-od-id="trust-section"]');
+  if(!alreadyShown()&&trustSection&&'IntersectionObserver' in window){
+    var leadMagnetObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          openWithGrow();
+          leadMagnetObserver.disconnect();
+        }
+      });
+    },{threshold:.2});
+    leadMagnetObserver.observe(trustSection);
+  }
+
+  if(fab)fab.addEventListener('click',function(){dialog.open?closeWithSuck():openWithGrow();});
+
+  if(reduceMotion){
+    tree.addEventListener('click',fall);
+  }else{
+    var lastX=null,lastY=null;
+    tree.addEventListener('pointermove',function(event){
+      if(event.pointerType==='touch')return;
+      if(lastX!==null)addEnergy(Math.min(6,Math.hypot(event.clientX-lastX,event.clientY-lastY)*.35));
+      lastX=event.clientX;lastY=event.clientY;
+    });
+    tree.addEventListener('pointerleave',function(){lastX=null;lastY=null});
+
+    var lastTX=null,lastTY=null;
+    tree.addEventListener('touchmove',function(event){
+      var t=event.touches[0];if(!t)return;
+      if(lastTX!==null)addEnergy(Math.min(6,Math.hypot(t.clientX-lastTX,t.clientY-lastTY)*.35));
+      lastTX=t.clientX;lastTY=t.clientY;
+    },{passive:true});
+    tree.addEventListener('touchend',function(){lastTX=null;lastTY=null});
+
+    var lastAccel=null,motionEnabled=false;
+    function handleMotion(event){
+      var a=event.accelerationIncludingGravity||event.acceleration;
+      if(!a||a.x==null)return;
+      if(lastAccel){
+        var delta=Math.abs(a.x-lastAccel.x)+Math.abs(a.y-lastAccel.y)+Math.abs(a.z-lastAccel.z);
+        if(delta>10)addEnergy(Math.min(7,delta*.6));
+      }
+      lastAccel={x:a.x,y:a.y,z:a.z};
+    }
+    function enableMotion(){
+      if(motionEnabled||typeof DeviceMotionEvent==='undefined')return;
+      motionEnabled=true;
+      window.addEventListener('devicemotion',handleMotion);
+    }
+    if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
+      dialog.addEventListener('pointerdown',function askMotion(){
+        DeviceMotionEvent.requestPermission().then(function(state){if(state==='granted')enableMotion()}).catch(function(){});
+        dialog.removeEventListener('pointerdown',askMotion);
+      },{once:true});
+    }else{
+      enableMotion();
+    }
+  }
+
+  tree.addEventListener('keydown',function(event){
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();fall()}
+  });
+
+  cta.addEventListener('click',function(event){event.preventDefault();showNote();closeWithSuck();});
+  closeBtn.addEventListener('click',closeWithSuck);
+  dialog.addEventListener('click',function(event){if(event.target===dialog)closeWithSuck();});
+  dialog.addEventListener('cancel',function(event){event.preventDefault();closeWithSuck();});
+  dialog.addEventListener('close',function(){markShown();unlockScroll();});
+})();
+</script>
+</body></html>

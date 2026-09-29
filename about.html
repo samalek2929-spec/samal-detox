@@ -11,7 +11,7 @@
     :root{--primary:#205A50;--eucalyptus:#87B7AB;--mist:#DDEBE5;--cream:#F7F5EF;--sand:#E4D9C8;--ink:#183D38;--content:min(1180px,calc(100% - 40px));--card:32px;--pill:999px}
     *{box-sizing:border-box}html{scroll-behavior:smooth;scrollbar-width:none}html::-webkit-scrollbar{display:none}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 Plex,system-ui,sans-serif}a{color:inherit}img{display:block;max-width:100%}a:focus-visible,button:focus-visible{outline:3px solid var(--eucalyptus);outline-offset:4px}.shell{width:var(--content);margin:auto}.skip{position:absolute;top:-80px;left:16px;padding:12px 16px;background:var(--primary);color:var(--cream);z-index:3}.skip:focus{top:16px}.header{display:flex;align-items:center;justify-content:space-between;min-height:76px;border-bottom:1px solid var(--sand)}.wordmark{font-weight:700;letter-spacing:-.03em;text-decoration:none}.wordmark span{color:var(--primary)}nav{display:flex;align-items:center;gap:20px;font-size:13px}nav a{text-decoration:none}nav a:not(.button):hover{text-decoration:underline;text-underline-offset:4px}.nav-current{padding:5px 12px;border-radius:var(--pill);background:var(--mist);color:var(--primary);font-weight:700}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--primary);border-radius:var(--pill);font:inherit;font-weight:700;text-decoration:none}.button:hover{background:var(--primary);color:var(--cream)}.button-primary{background:var(--primary);color:var(--cream)}.eyebrow{margin:0 0 18px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.hero{display:grid;gap:34px;padding:64px 0 88px}.hero h1{max-width:730px;margin:0 0 24px;font-size:clamp(48px,12vw,104px);line-height:.9;letter-spacing:-.06em}.hero h1 em,.section h2 em{font-family:Cormorant,Georgia,serif;font-weight:400;color:var(--primary);letter-spacing:-.03em}.hero h1 em{font-size:1.22em}.lead{max-width:620px;margin:0;font-size:20px;line-height:1.4}.portrait{overflow:hidden;max-width:520px;margin-left:auto;border-radius:48% 48% 28px 28px;background:var(--eucalyptus);border:8px solid var(--cream);box-shadow:0 20px 40px rgba(24,61,56,.12)}.portrait img{width:100%;aspect-ratio:1122/1402;object-fit:cover;object-position:center top}.section{padding:76px 0;border-top:1px solid var(--sand)}.section-grid{display:grid;gap:32px}.section h2{margin:0;font-size:clamp(38px,8vw,68px);line-height:.95;letter-spacing:-.055em}.copy{max-width:650px;font-size:18px}.facts{display:grid;gap:12px;margin:28px 0 0;padding:0;list-style:none}.fact{padding:20px;background:var(--mist);border-radius:var(--card);border:1px solid var(--eucalyptus)}.fact strong{display:block;margin-bottom:4px;font-size:24px;color:var(--primary)}.note{padding:26px;background:var(--sand);border-radius:var(--card);font-size:17px}.note p:last-child{margin-bottom:0}.cta{padding:76px 0;background:var(--primary);color:var(--cream)}.cta h2{max-width:700px;margin:0 0 24px;font-size:clamp(40px,8vw,72px);line-height:.95;letter-spacing:-.055em}.cta h2 em{font-family:Cormorant,Georgia,serif;font-weight:400;color:var(--eucalyptus)}.cta p{max-width:480px}.cta .button{background:var(--cream);color:var(--primary);border-color:var(--cream)}footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 34px;font-size:13px}footer p{margin:0;color:var(--primary)}.back-to-top{position:fixed;right:24px;bottom:24px;z-index:9;display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid var(--eucalyptus);border-radius:50%;background:var(--ink);color:var(--cream);box-shadow:0 12px 26px color-mix(in srgb,var(--ink) 22%,transparent);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,visibility .2s ease,transform .2s ease,background .18s ease;cursor:pointer}.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}.back-to-top:hover{background:var(--primary);color:var(--cream);transform:translateY(-2px)}.back-to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}@media(max-width:759px){.back-to-top{right:16px;bottom:16px}}@media(prefers-reduced-motion:reduce){.back-to-top{transition:none}}
     @media(min-width:760px){:root{--content:min(1180px,calc(100% - 80px))}.hero{grid-template-columns:1.05fr .95fr;align-items:center;min-height:680px}.section{padding:104px 0}.section-grid{grid-template-columns:.65fr 1.35fr;gap:72px}.section-heading{position:sticky;top:28px;align-self:start}.facts{grid-template-columns:repeat(3,1fr)}.fact{min-height:150px}}
-    @media(max-width:520px){nav{gap:9px}nav a:not(.button){display:none}.header{min-height:68px}.hero{padding:48px 0 70px}.lead{font-size:18px}.portrait{margin:0 8% 0 0}footer{display:block}footer p+p{margin-top:8px}}
+    @media(max-width:520px){.header nav{gap:9px}.header nav a:not(.button){display:none}.header{min-height:68px}.hero{padding:48px 0 70px}.lead{font-size:18px}.portrait{margin:0 8% 0 0}footer{display:block}footer p+p{margin-top:8px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 <style>
@@ -200,6 +200,7 @@
   .group-dialog{width:min(760px,calc(100% - 40px));max-height:min(820px,calc(100dvh - 48px));padding:0;border:0;background:transparent;color:var(--ink);overflow:visible;outline:none}
   .group-dialog:focus,.group-dialog:focus-visible{outline:none}
   .group-dialog::backdrop{background:color-mix(in srgb,var(--ink) 72%,transparent);backdrop-filter:blur(7px);opacity:0;transition:opacity 250ms cubic-bezier(.23,1,.32,1)}
+  @media(max-width:760px){.group-dialog::backdrop{-webkit-backdrop-filter:none;backdrop-filter:none}}
   .group-dialog[open]::backdrop{opacity:1}
   .group-dialog-surface{position:relative;max-height:inherit;overflow:auto;scrollbar-width:none;-ms-overflow-style:none;padding:clamp(30px,6vw,60px);border:1px solid color-mix(in srgb,var(--cream) 62%,transparent);border-radius:24px 54px 28px 48px / 38px 26px 50px 30px;background:var(--cream);box-shadow:0 28px 72px color-mix(in srgb,var(--ink) 45%,transparent);opacity:1;transform:scale(1);transition:opacity 250ms cubic-bezier(.23,1,.32,1),transform 250ms cubic-bezier(.23,1,.32,1)}
   .group-dialog-surface::-webkit-scrollbar{display:none;width:0!important;height:0!important}
@@ -224,6 +225,31 @@
   .group-option li{position:relative;padding-left:19px;line-height:1.5}
   .group-option li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border:1px solid var(--primary);border-radius:50%;background:var(--eucalyptus)}
   .group-option p:not(.group-option-lead){margin:14px 0 0;font-size:15px;line-height:1.55}
+  .online-course{margin:0 0 42px;padding:28px 30px 30px;border:1px solid var(--eucalyptus);border-radius:18px 34px 20px 28px;background:var(--mist)}
+  .online-course-head{display:flex;align-items:start;justify-content:space-between;gap:18px}
+  .online-course-label{margin:0 0 6px;color:var(--primary);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .online-course h3{margin:0;font-size:clamp(27px,4vw,38px);line-height:1.05;letter-spacing:-.03em}
+  .online-course-price{flex:none;margin:3px 0 0;text-align:right;font-size:29px;font-weight:700;line-height:1.1;color:var(--primary);font-variant-numeric:tabular-nums}
+  .online-course-price span{display:block;margin-top:5px;color:var(--ink);font-size:13px;font-weight:400;line-height:1.35}
+  .online-course-summary{max-width:58ch;margin:20px 0 24px;font-size:16px;line-height:1.5}
+  .online-course-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 24px;padding:0;list-style:none}
+  .online-course-stages li{min-width:0;padding:16px;border:1px solid color-mix(in srgb,var(--primary) 20%,transparent);border-radius:12px;background:var(--cream)}
+  .online-course-stages svg{display:block;width:27px;height:27px;margin-bottom:12px;fill:none;stroke:var(--primary);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .online-course-stages strong,.online-course-stages span{display:block}
+  .online-course-stages strong{font-size:17px;line-height:1.25}
+  .online-course-stages span{margin-top:3px;font-size:13px;line-height:1.4}
+  .online-course h4{margin:0 0 10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .online-course-includes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;margin:0;padding:0;list-style:none}
+  .online-course-includes li{position:relative;padding-left:17px;font-size:14px;line-height:1.45}
+  .online-course-includes li::before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:var(--primary)}
+  .online-course-note{margin:18px 0 0;font-size:14px;line-height:1.5}
+  .online-course-safety{margin:20px 0 0;padding-top:17px;border-top:1px solid color-mix(in srgb,var(--primary) 25%,transparent);font-size:13px;line-height:1.5}
+  .online-course-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:23px}
+  .online-course-actions a{min-height:44px;display:inline-flex;align-items:center;font-size:14px;font-weight:700;text-underline-offset:4px}
+  .online-course-actions .button{background:var(--primary);color:var(--cream);text-decoration:none}
+  .offline-groups-title{margin:0 0 12px;font-size:clamp(29px,4vw,42px);line-height:1.05;letter-spacing:-.03em}
+  .offline-groups-title+.group-dialog-intro{margin:0 0 24px}
+  @media(max-width:560px){.online-course{padding:24px 20px}.online-course-head{display:block}.online-course-price{margin:16px 0 0;text-align:left}.online-course-stages{grid-template-columns:1fr}.online-course-stages li{display:grid;grid-template-columns:28px 1fr;gap:0 12px;align-items:center;padding:12px}.online-course-stages svg{grid-row:span 2;margin:0}.online-course-stages span{grid-column:2}.online-course-includes{grid-template-columns:1fr}}
   .group-dialog-vine{position:absolute;right:62px;top:22px;width:110px;height:96px;color:var(--eucalyptus);opacity:.75;pointer-events:none}
   .group-dialog-vine path{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
   .group-dialog-vine ellipse{fill:color-mix(in srgb,var(--eucalyptus) 44%,transparent);stroke:currentColor;stroke-width:1.1}
@@ -308,7 +334,7 @@
     .group-dialog::backdrop,.group-dialog-surface{transition-duration:160ms}
   }
 </style><style>
-.site-quick-menu{position:fixed;right:24px;bottom:88px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 Plex,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 Plex,system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}@media(max-width:760px){.site-quick-menu{right:16px;bottom:80px}.quick-menu-panel{bottom:62px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle{transition:none}}
+.site-quick-menu{position:fixed;right:24px;bottom:152px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 Plex,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 Plex,system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}.lead-magnet-fab{position:fixed;right:24px;bottom:88px;z-index:21;display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.lead-magnet-fab:hover{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.lead-magnet-fab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lead-magnet-fab:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}@media(max-width:760px){.site-quick-menu{right:16px;bottom:144px}.quick-menu-panel{bottom:62px}.lead-magnet-fab{right:16px;bottom:80px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle,.lead-magnet-fab{transition:none}}
 </style><style>.about-final-actions{display:grid;justify-items:start;gap:12px;margin-top:26px}.cta .about-materials{border-color:var(--eucalyptus);background:var(--eucalyptus);color:var(--primary)}.cta .about-materials:hover{border-color:var(--cream);background:var(--cream);color:var(--primary);transform:translateY(-2px)}@media(max-width:520px){.about-final-actions{justify-items:stretch}.about-final-actions .button{width:100%}}.page-whirl{position:fixed;z-index:60;inset:0;display:grid;place-items:center;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;color:var(--eucalyptus)}
     .page-whirl-haze{position:absolute;inset:-12%;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--primary) 76%,transparent) 0 14%,color-mix(in srgb,var(--ink) 88%,transparent) 48%,color-mix(in srgb,var(--ink) 96%,transparent) 74%);opacity:0}
     .page-whirl-stage{position:absolute;left:50%;top:50%;width:min(134vmax,1480px);aspect-ratio:1;transform:translate(-50%,-50%) scale(.28) rotate(-34deg);transform-origin:center;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--eucalyptus) 88%,transparent)) drop-shadow(0 0 34px color-mix(in srgb,var(--primary) 72%,transparent));will-change:transform,opacity}
@@ -342,17 +368,60 @@
   @media(min-width:1100px){[data-od-id="site-header"]{width:min(1180px,calc(100% - 80px))}}
   @media(max-width:759px){[data-od-id="main-navigation"] a:not([data-od-id="nav-telegram"]),[data-od-id="main-navigation"] .nav-current{display:none}}
   @media(max-width:480px){[data-od-id="site-header"]{min-height:62px;padding:10px 16px}[data-od-id="main-navigation"]{gap:8px}[data-od-id="main-navigation"] [data-od-id="nav-telegram"]{padding:10px 12px}}
-</style></head>
+  [data-od-id="site-header"]{position:absolute;top:18px;left:50%;z-index:30;transform:translateX(-50%);background:#fff;border:1px solid var(--sand);border-radius:999px;box-shadow:0 10px 28px color-mix(in srgb,var(--ink) 12%,transparent)}
+  #main-content [data-od-id="about-hero"]{padding-top:132px}
+  @media(max-width:759px){#main-content [data-od-id="about-hero"]{padding-top:112px}}
+  @media(max-width:480px){[data-od-id="site-header"]{top:12px}}
+</style><style>
+    /* ===== Lead magnet: shake-the-tree popup ===== */
+    .lead-magnet{padding:0;border:0;border-radius:36px;max-width:min(440px,92vw);max-height:min(680px,calc(100dvh - 32px));overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;background:#F7F5EF;color:#183D38;box-shadow:0 30px 70px color-mix(in srgb,#183D38 44%,transparent);opacity:0;transform:scale(.94) translateY(14px);transition:opacity .26s ease,transform .3s cubic-bezier(.22,1,.36,1),overlay .3s allow-discrete,display .3s allow-discrete}
+    .lead-magnet[open]{opacity:1;transform:scale(1) translateY(0)}
+    @starting-style{.lead-magnet[open]{opacity:0;transform:scale(.94) translateY(14px)}}
+    .lead-magnet::backdrop{background:color-mix(in srgb,#183D38 58%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity .3s ease,overlay .3s allow-discrete,display .3s allow-discrete}
+    .lead-magnet[open]::backdrop{opacity:1}
+    @starting-style{.lead-magnet[open]::backdrop{opacity:0}}
+    .lead-magnet-inner{position:relative;padding:34px 28px 30px;text-align:center}
+    .lead-magnet-close{position:absolute;top:14px;right:14px;z-index:6;width:36px;height:36px;border:1px solid color-mix(in srgb,#205A50 35%,transparent);border-radius:50%;background:#F7F5EF;color:#205A50;font:22px/1 Plex,system-ui,sans-serif;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background 160ms ease}
+    .lead-magnet-close:hover{transform:rotate(90deg);background:#DDEBE5}
+    .lead-magnet h3{margin:0 0 10px;font-size:25px;line-height:1.18;letter-spacing:-.02em;padding-right:6px}
+    .lead-magnet h3 em{font-family:"Cormorant",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.02em;font-size:1.18em;color:#205A50}
+    .lead-magnet-lead{margin:0 auto;max-width:29ch;font-size:14px;line-height:1.5;color:color-mix(in srgb,#183D38 78%,transparent)}
+    .lead-magnet-scene{position:relative;margin:18px 0 0;padding:18px 0 16px;border-radius:28px;background:#101f35;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 18px 34px color-mix(in srgb,#183D38 22%,transparent);overflow:hidden}
+    .lead-magnet-moon{position:absolute;top:14px;right:20px;width:34px;height:34px}
+    .lead-magnet-tree{position:relative;width:250px;height:196px;margin:0 auto;touch-action:none;cursor:grab}
+    .lead-magnet-tree:active{cursor:grabbing}
+    .lead-magnet-tree-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+    .lead-magnet-leaf-a{fill:#87B7AB}
+    .lead-magnet-leaf-b{fill:#205A50}
+    .lead-magnet-canopy{transform-origin:120px 130px;transition:transform .1s ease}
+    .lead-magnet-tree.is-shaking .lead-magnet-canopy{animation:lead-tree-sway .16s ease-in-out infinite}
+    .lead-magnet-fruit{position:absolute;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffcf8a,#e08a2e 62%,#b8631a);box-shadow:0 3px 5px rgba(0,0,0,.45)}
+    .lead-magnet-tree.is-shaking .lead-magnet-fruit{animation:lead-fruit-jitter .16s ease-in-out infinite}
+    @keyframes lead-fruit-jitter{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(1.5px,-1px) rotate(-7deg)}50%{transform:translate(-1.5px,1px) rotate(6deg)}75%{transform:translate(1px,1.5px) rotate(-5deg)}}
+    @keyframes lead-tree-sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(1.6deg)}}
+    .lead-magnet-fruit.is-falling{transition:transform .6s cubic-bezier(.4,.1,.7,.9),opacity .45s ease .3s;transform:translate(var(--fx,0),150px) rotate(220deg);opacity:0}
+    .lead-magnet-hint{position:relative;z-index:1;margin:6px 0 0;color:#e8c98a;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:1;visibility:visible;animation:lead-hint-pulse 1.6s ease-in-out infinite;transition:opacity .2s ease}
+    .lead-magnet-hint.is-hidden{opacity:0;visibility:hidden;animation:none}
+    @keyframes lead-hint-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+    .lead-magnet-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:18px;padding:0 26px;border:0;border-radius:999px;background:#205A50;color:#F7F5EF;font:700 15px/1 Plex,system-ui,sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(6px) scale(.96);pointer-events:none;transition:opacity .3s ease,transform .34s cubic-bezier(.34,1.56,.64,1),background .18s ease}
+    .lead-magnet-cta:hover{background:#183D38}
+    .lead-magnet-cta.is-visible{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:auto}
+    .lead-magnet-note{position:fixed;left:50%;bottom:24px;z-index:130;transform:translate(-50%,8px);max-width:min(320px,calc(100% - 32px));padding:14px 18px;border-radius:999px;background:#183D38;color:#F7F5EF;font-size:14px;line-height:1.3;text-align:center;box-shadow:0 16px 30px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+    .lead-magnet-note.is-visible{opacity:1;transform:translate(-50%,0)}
+    @media(prefers-reduced-motion:reduce){.lead-magnet,.lead-magnet::backdrop{transition:none}.lead-magnet-tree.is-shaking .lead-magnet-fruit,.lead-magnet-tree.is-shaking .lead-magnet-canopy{animation:none}.lead-magnet-hint{animation:none;transition:none}.lead-magnet-fruit.is-falling{transition:opacity .3s ease}.lead-magnet-cta{transition:opacity .2s ease}}
+    @media(max-width:480px){.lead-magnet-inner{padding:30px 20px 26px}.lead-magnet-scene{padding:16px 0 14px}.lead-magnet-tree{width:210px;height:164px}.lead-magnet-moon{width:28px;height:28px;top:12px;right:16px}}
+</style>
+</head>
 <body>
   <a class="skip" href="#main-content">К содержанию</a>
-  <header class="shell header" data-od-id="site-header"><a class="wordmark" href="index.html" data-od-id="wordmark">Samal <span>Detox</span></a><nav aria-label="Основная навигация" data-od-id="main-navigation"><a href="index.html#programs" data-od-id="nav-programs">Программы</a><span class="nav-current" data-od-id="nav-trust" aria-current="page">О Самал</span><a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a><a href="legal.html" data-od-id="nav-legal">Условия</a><a href="materials.html" data-od-id="nav-materials">Отзывы</a><a class="button" href="index.html#telegram" data-od-id="nav-telegram">В Telegram</a></nav></header>
+  <header class="shell header" data-od-id="site-header"><a class="wordmark" href="index.html" data-od-id="wordmark">Samal <span>Detox</span></a><nav aria-label="Основная навигация" data-od-id="main-navigation"><span class="nav-current" data-od-id="nav-trust" aria-current="page">О Самал</span><a href="index.html#programs" data-od-id="nav-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a><a href="legal.html" data-od-id="nav-legal">Условия</a><a href="materials.html" data-od-id="nav-materials">Отзывы</a><a class="button" href="index.html#telegram" data-od-id="nav-telegram">В Telegram</a></nav></header>
   <main id="main-content">
-    <section class="shell hero" data-od-id="about-hero"><svg class="about-hero-lines" viewBox="0 0 1600 820" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M-120 70C160 5 330 152 610 88S1050 22 1320 108s420-58 520-42"/><path d="M-120 126C155 62 348 205 620 144s424-56 690 28 414-52 530-34"/><path d="M-120 184C150 121 362 261 632 201s408-47 672 34 409-46 536-28"/><path d="M-120 244C145 182 375 320 644 260s394-37 654 41 402-40 542-20"/><path d="M-120 306C140 245 388 381 657 322s378-28 635 48 395-33 548-13"/><path d="M-120 370C135 310 400 444 670 385s362-18 616 55 390-26 554-6"/><path d="M-120 436C130 377 412 509 683 451s346-9 597 62 383-18 560 2"/><path d="M-120 503C125 445 424 576 696 518s330 1 579 69 377-10 565 10"/><path d="M-120 571C120 514 436 643 709 586s314 10 560 76 371-2 571 18"/><path d="M-120 640C115 584 448 711 722 655s298 20 542 83 365 6 576 26"/><path d="M-120 710C110 655 460 780 735 725s282 30 524 90 358 14 581 34"/><path d="M-120 780C105 726 472 850 748 796s266 40 506 97 352 22 586 42"/></svg><div class="about-hero-copy"><svg class="hero-vine hero-vine--top" viewBox="0 0 160 148" aria-hidden="true"><path d="M158 8C119 22 110 55 108 89c-2 27-18 42-42 51"/><path d="M116 49c-22-16-37-8-42 10 21 8 34 1 42-10Z"/><path d="M109 80c24-10 39 0 40 19-22 3-35-7-40-19Z"/><path d="M89 119c-19-12-33-5-38 11 17 7 29 2 38-11Z"/><circle cx="137" cy="25" r="2.8"/><circle cx="101" cy="103" r="2.4"/></svg><svg class="hero-vine hero-vine--bottom" viewBox="0 0 190 180" aria-hidden="true"><path d="M190 174C151 152 145 119 151 89 158 53 135 26 98 10"/><path d="M151 130c-27-4-39 10-36 29 23-1 35-13 36-29Z"/><path d="M151 95c25 4 37-9 34-27-22 0-33 11-34 27Z"/><path d="M134 48c-24-13-39-4-43 15 22 7 35-1 43-15Z"/><path d="M173 153c-18-12-32-5-37 11 17 7 29 1 37-11Z"/><circle cx="164" cy="116" r="2.6"/><circle cx="119" cy="26" r="2.2"/></svg><p class="about-hero-context">О специалисте</p><h1>Здесь важны<br><em>внимание и опыт.</em></h1><p class="lead">Самал Булатханкызы лично сопровождает клиентов в онлайн-программах очищения и голодания — спокойно, по самочувствию и шаг за шагом.</p></div><figure class="about-portrait" data-od-id="about-portrait"><img src="assets/portraits/samal-consultation-v2.png" width="1122" height="1402" alt="Самал Булатханкызы в кабинете консультаций Samal Detox"></figure></section>
+    <section class="shell hero" data-od-id="about-hero"><svg class="about-hero-lines" viewBox="0 0 1600 820" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M-120 70C160 5 330 152 610 88S1050 22 1320 108s420-58 520-42"/><path d="M-120 126C155 62 348 205 620 144s424-56 690 28 414-52 530-34"/><path d="M-120 184C150 121 362 261 632 201s408-47 672 34 409-46 536-28"/><path d="M-120 244C145 182 375 320 644 260s394-37 654 41 402-40 542-20"/><path d="M-120 306C140 245 388 381 657 322s378-28 635 48 395-33 548-13"/><path d="M-120 370C135 310 400 444 670 385s362-18 616 55 390-26 554-6"/><path d="M-120 436C130 377 412 509 683 451s346-9 597 62 383-18 560 2"/><path d="M-120 503C125 445 424 576 696 518s330 1 579 69 377-10 565 10"/><path d="M-120 571C120 514 436 643 709 586s314 10 560 76 371-2 571 18"/><path d="M-120 640C115 584 448 711 722 655s298 20 542 83 365 6 576 26"/><path d="M-120 710C110 655 460 780 735 725s282 30 524 90 358 14 581 34"/><path d="M-120 780C105 726 472 850 748 796s266 40 506 97 352 22 586 42"/></svg><div class="about-hero-copy"><svg class="hero-vine hero-vine--top" viewBox="0 0 160 148" aria-hidden="true"><path d="M158 8C119 22 110 55 108 89c-2 27-18 42-42 51"/><path d="M116 49c-22-16-37-8-42 10 21 8 34 1 42-10Z"/><path d="M109 80c24-10 39 0 40 19-22 3-35-7-40-19Z"/><path d="M89 119c-19-12-33-5-38 11 17 7 29 2 38-11Z"/><circle cx="137" cy="25" r="2.8"/><circle cx="101" cy="103" r="2.4"/></svg><svg class="hero-vine hero-vine--bottom" viewBox="0 0 190 180" aria-hidden="true"><path d="M190 174C151 152 145 119 151 89 158 53 135 26 98 10"/><path d="M151 130c-27-4-39 10-36 29 23-1 35-13 36-29Z"/><path d="M151 95c25 4 37-9 34-27-22 0-33 11-34 27Z"/><path d="M134 48c-24-13-39-4-43 15 22 7 35-1 43-15Z"/><path d="M173 153c-18-12-32-5-37 11 17 7 29 1 37-11Z"/><circle cx="164" cy="116" r="2.6"/><circle cx="119" cy="26" r="2.2"/></svg><p class="about-hero-context">О специалисте</p><h1>Здесь важны<br><em>внимание и опыт.</em></h1><p class="lead">Самал Булатханкызы лично сопровождает клиентов в онлайн-программах очищения и голодания — спокойно, по самочувствию и шаг за шагом.</p></div><figure class="about-portrait" data-od-id="about-portrait"><img src="assets/portraits/samal-consultation-v2.jpg" width="1122" height="1402" alt="Самал Булатханкызы в кабинете консультаций Samal Detox"></figure></section>
     <section class="section formats-tree-section" id="formats" data-od-id="experience-section"><div class="shell"><div class="formats-intro" data-od-id="formats-intro"><h2>Путь Самал —<br><em>личное внимание.</em></h2><p>В центре всегда остаётся личное внимание Самал. От него расходятся два формата сопровождения, а в основании — медицинская подготовка и годы практики.</p></div><div class="format-tree" data-format-tree data-od-id="formats-tree"><svg class="tree-map tree-map--desktop" viewBox="0 0 1000 1040" preserveAspectRatio="none" aria-hidden="true"><path class="tree-line" data-grow-start="0" data-grow-end="0.88" pathLength="1" d="M500 18C468 122 540 185 500 292C462 394 540 474 500 582C462 684 532 770 498 872C480 926 487 984 500 1022"/><path class="tree-line tree-line--fine" data-grow-start="0.08" data-grow-end="0.30" pathLength="1" d="M493 145C432 129 391 117 337 119C296 120 264 108 229 91"/><path class="tree-line tree-line--fine" data-grow-start="0.30" data-grow-end="0.53" pathLength="1" d="M507 390C575 362 616 349 679 357C734 364 775 347 822 316"/><path class="tree-line tree-line--fine" data-grow-start="0.53" data-grow-end="0.75" pathLength="1" d="M493 659C435 635 395 623 343 632C292 641 255 626 213 598"/><path class="tree-line tree-line--fine" data-grow-start="0.71" data-grow-end="0.97" pathLength="1" d="M503 842C561 824 611 826 657 855C702 883 744 891 806 880"/><g class="tree-leaf"><path d="M462 231C431 206 405 213 397 241C425 252 449 244 462 231Z"/><circle cx="391" cy="247" r="4"/></g><g class="tree-leaf"><path d="M532 508C564 482 591 489 601 517C573 529 548 522 532 508Z"/><circle cx="607" cy="523" r="4"/></g><g class="tree-leaf"><path d="M466 744C435 719 408 727 400 755C428 765 451 757 466 744Z"/><circle cx="394" cy="761" r="4"/></g><g class="tree-leaf"><path d="M526 916C558 892 585 900 594 928C566 938 542 930 526 916Z"/></g></svg><svg class="tree-map tree-map--mobile" viewBox="0 0 360 930" preserveAspectRatio="none" aria-hidden="true"><path class="tree-line" data-grow-start="0" data-grow-end="0.94" pathLength="1" d="M70 8C152 66 270 78 234 174C198 270 80 276 126 384C168 484 294 492 238 606C184 716 80 714 130 818C168 884 250 886 292 924"/><path class="tree-line tree-line--fine" data-grow-start="0.10" data-grow-end="0.30" pathLength="1" d="M224 165C272 151 305 133 330 102"/><path class="tree-line tree-line--fine" data-grow-start="0.32" data-grow-end="0.54" pathLength="1" d="M134 372C88 358 52 341 24 309"/><path class="tree-line tree-line--fine" data-grow-start="0.57" data-grow-end="0.77" pathLength="1" d="M240 598C286 576 316 553 341 520"/><g class="tree-leaf"><path d="M197 151C171 126 149 136 146 160C170 170 189 165 197 151Z"/></g><g class="tree-leaf"><path d="M143 376C117 351 94 360 92 384C117 393 136 389 143 376Z"/></g><g class="tree-leaf"><path d="M248 602C276 580 297 592 297 615C273 622 256 616 248 602Z"/></g></svg>
 <article class="tree-node tree-node--identity" data-reveal-start="0.08" data-reveal-end="0.30" data-od-id="tree-who"><h3>Самал Булатханкызы</h3><p>Основательница и лицо Samal Detox. Она сама ведёт клиента все дни программы — внимательно, спокойно и по самочувствию.</p></article>
 <article class="tree-node tree-node--individual" data-reveal-start="0.31" data-reveal-end="0.54" data-od-id="tree-individual"><h3>Индивидуально</h3><p>Основной формат — онлайн-сопровождение: вопросы, наблюдение за самочувствием и понятный следующий шаг на каждом этапе.</p></article>
-<article class="tree-node tree-node--group" data-reveal-start="0.54" data-reveal-end="0.76" data-od-id="tree-group"><h3>В группе</h3><p>Для совместного прохождения возможны выездные групповые программы с тем же личным вниманием к процессу.</p><div class="group-trigger-wrap"><button class="group-details-trigger" type="button" aria-label="Подробнее о выездных офлайн-группах" aria-controls="group-dialog" data-od-id="group-details-trigger"><span class="group-trigger-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5c0 9-5 13-14 14 9 1 14 5 14 15 0-10 5-14 14-15-9-1-14-5-14-14Z"/><path d="M8 30c5-4 10-4 15 0M19 10c4 3 7 7 8 12"/><circle cx="21" cy="20" r="2.7"/></svg></span></button><span class="group-trigger-label" aria-hidden="true">Подробнее</span></div></article>
-<div class="tree-roots" data-reveal-start="0.73" data-reveal-end="0.96" data-od-id="tree-experience"><div class="tree-root"><strong>Образование</strong><span>Среднее специальное медицинское.</span></div><div class="tree-root"><strong>13+ лет</strong><span>Практики массажа и остеопатии.</span></div><div class="tree-root"><strong>Около 6 лет</strong><span>Сопровождения программ очищения и голодания.</span></div></div></div></div></section>
+<article class="tree-node tree-node--group" data-reveal-start="0.54" data-reveal-end="0.76" data-od-id="tree-group"><h3>В группе</h3><p>Групповые программы можно пройти онлайн или вживую: регулярный курс 7/7 и выездные офлайн-группы.</p><div class="group-trigger-wrap"><button class="group-details-trigger" type="button" aria-label="Подробнее о групповых форматах" aria-controls="group-dialog" data-od-id="group-details-trigger"><span class="group-trigger-face"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 5c0 9-5 13-14 14 9 1 14 5 14 15 0-10 5-14 14-15-9-1-14-5-14-14Z"/><path d="M8 30c5-4 10-4 15 0M19 10c4 3 7 7 8 12"/><circle cx="21" cy="20" r="2.7"/></svg></span></button><span class="group-trigger-label" aria-hidden="true">Подробнее</span></div></article>
+<div class="tree-roots" data-reveal-start="0.73" data-reveal-end="0.96" data-od-id="tree-experience"><div class="tree-root"><strong>Образование</strong><span>Среднее специальное медицинское.</span></div><div class="tree-root"><strong>13+ лет</strong><span>Практики массажа и остеопатии.</span></div><div class="tree-root"><strong>Более трех лет</strong><span>Сопровождения программ очищения и голодания.</span></div></div></div></div></section>
     <section class="section" data-od-id="approach-section">
 <svg class="approach-waves" data-depth="0.35" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true"><path d="M-80 65C160 6 322 132 562 74s437-55 659 24 355-42 438-20"/><path d="M-80 126C158 68 329 188 570 132s424-51 640 25 354-40 440-16"/><path d="M-80 189C156 132 337 246 579 191s411-46 621 27 352-36 446-12"/><path d="M-80 255C154 199 345 305 588 251s398-42 602 29 350-33 452-8"/><path d="M-80 323C152 268 353 365 597 312s385-37 583 32 348-28 458-4"/><path d="M-80 393C150 339 361 426 606 374s372-32 564 35 346-24 464 0"/><path d="M-80 466C148 413 369 489 615 438s359-27 545 38 344-20 470 4"/><path d="M-80 540C146 488 377 553 624 503s346-22 526 41 342-16 476 8"/><path d="M-80 616C144 565 385 618 633 569s333-17 507 44 340-12 482 12"/></svg>
 <svg class="approach-vine approach-vine--left" data-depth="0.6" viewBox="0 0 320 640" aria-hidden="true"><path d="M38 650C78 562 68 490 111 412c43-77-7-146 47-221 35-49 73-88 99-169"/><path d="M88 505c-36-29-67-20-78 13 34 15 62 6 78-13Z"/><path d="M105 441c40-24 71-10 78 25-39 12-67-3-78-25Z"/><path d="M131 353c-36-28-67-17-76 17 35 14 63 4 76-17Z"/><path d="M159 284c40-23 70-8 76 27-38 11-66-5-76-27Z"/><path d="M192 202c-34-26-62-15-70 17 32 13 58 3 70-17Z"/><path d="M228 126c36-21 62-7 68 24-33 10-57-3-68-24Z"/><circle cx="74" cy="549" r="3"/><circle cx="151" cy="329" r="3"/><circle cx="211" cy="180" r="3"/></svg>
@@ -402,8 +471,24 @@
     <div class="group-dialog-surface">
       <button class="group-dialog-close" type="button" aria-label="Закрыть" data-od-id="group-dialog-close">×</button>
       <svg class="group-dialog-vine" viewBox="0 0 120 106" aria-hidden="true"><path d="M116 8C86 18 79 43 80 67c1 18-11 27-27 32"/><ellipse cx="84" cy="33" rx="14" ry="6" transform="rotate(-26 84 33)"/><ellipse cx="73" cy="57" rx="12" ry="5" transform="rotate(22 73 57)"/><ellipse cx="53" cy="90" rx="11" ry="5" transform="rotate(-30 53 90)"/></svg>
-      <p class="group-dialog-kicker">Выездные программы</p>
-      <h2 id="group-dialog-title">Оффлайн<br><em>группы с Самал.</em></h2>
+      <p class="group-dialog-kicker">Форматы участия</p>
+      <h2 id="group-dialog-title">Программы<br><em>в группе.</em></h2>
+      <p class="group-dialog-intro">Онлайн-курс 7/7 можно пройти из любого города. Выездные офлайн-группы — отдельный формат трёхдневного очищения с Самал на месте.</p>
+      <section class="online-course" data-od-id="online-group-7-7" aria-labelledby="online-course-title">
+        <div class="online-course-head"><div><p class="online-course-label">Регулярный онлайн-набор</p><h3 id="online-course-title" data-od-id="online-course-title">Групповой курс 7/7</h3></div><p class="online-course-price">60 000 ₸<span>Индивидуальный формат — 120 000 ₸</span></p></div>
+        <p class="online-course-summary">21 день: семь дней на отварах и воде, семь дней на свежевыжатых соках и семь дней постепенного выхода на растительном питании. Перед основными этапами — мягкая подготовка. Присоединиться к группе можно в удобное время.</p>
+        <ol class="online-course-stages" aria-label="Этапы курса">
+          <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 13h18v10a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7V13Zm18 2h3a4 4 0 0 1 0 8h-3M10 8c-2-2 1-3 0-5m7 5c-2-2 1-3 0-5"/></svg><strong>7 дней</strong><span>Отвары и вода</span></li>
+          <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 5h16l-2 22H10L8 5Zm2 7h12M12 27h8M17 10c0-3 2-5 5-6"/></svg><strong>7 дней</strong><span>Свежевыжатые соки</span></li>
+          <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 23c2 5 6 7 12 7s10-2 12-7H4Zm2-3h20M16 19c-1-7 2-11 9-12-1 7-4 10-9 12Zm-1-3c-4-1-6-4-6-9 5 1 7 4 6 9Z"/></svg><strong>7 дней</strong><span>Постепенный выход</span></li>
+        </ol>
+        <h4>Что входит</h4>
+        <ul class="online-course-includes"><li>Пошаговые инструкции и рекомендации для каждого этапа.</li><li>Групповой чат для вопросов, обратной связи и информационный Telegram-канал.</li><li>Сопровождение при сложностях и корректировка отваров при необходимости.</li><li>Онлайн-тренировки, самомассаж, рекомендации по выходу и примерное меню.</li></ul>
+        <p class="online-course-note">Продукты для отваров, соков и питания на выходе участники организуют самостоятельно. После курса инструкции остаются у вас для самостоятельного прохождения программы.</p>
+        <p class="online-course-safety"><strong>Перед началом:</strong> программа не подходит при беременности и грудном вскармливании, недостаточной массе тела, некоторых онкологических и серьёзных сердечно-сосудистых заболеваниях, в период восстановления после операций и при обострении хронических заболеваний. Если есть сомнения, обсудите участие со специалистом.</p>
+        <div class="online-course-actions"><a class="button" href="index.html#telegram" data-od-id="online-course-contact">Узнать о программе</a><a href="programs/fasting-7-7.html" data-od-id="online-course-individual-link">Об индивидуальном 7/7 ↗</a></div>
+      </section>
+      <h3 class="offline-groups-title" data-od-id="offline-groups-title">Выездные офлайн-группы</h3>
       <p class="group-dialog-intro">Тот же формат сопровождения — 3-дневное антипаразитарное очищение — но группой и вживую: Самал проводит программу у вас в городе. Два варианта, с заранее понятными условиями.</p>
       <div class="group-options">
         <section class="group-option" data-od-id="mini-offline-group">
@@ -478,6 +563,7 @@
       var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
       var busy=false;
       var timers=[];
+      var returnFocus=null;
       if(!trigger||!dialog||!close||!surface)return;
       function later(callback,delay){var id=window.setTimeout(callback,delay);timers.push(id);return id;}
       function clearTimers(){timers.forEach(window.clearTimeout);timers=[];}
@@ -489,6 +575,7 @@
       }
       function openDialog(){
         if(busy||dialog.open)return;
+        returnFocus=document.activeElement;
         busy=true;
         surface.setAttribute('inert','');
         dialog.classList.add('is-entering');
@@ -506,11 +593,11 @@
         },reduce.matches?180:1450);
       }
       function closeDialog(){
-        if(busy||!dialog.open)return;
+        if(!dialog.open||dialog.classList.contains('is-closing'))return;
         busy=true;
-        surface.setAttribute('inert','');
+        if(reduce.matches){dialog.close();return;}
         beginTransition('close');
-        later(function(){dialog.close();},reduce.matches?180:1450);
+        later(function(){dialog.close();},1450);
       }
       trigger.addEventListener('click',openDialog);
       close.addEventListener('click',closeDialog);
@@ -521,7 +608,10 @@
         busy=false;
         surface.removeAttribute('inert');
         dialog.classList.remove('is-opening','is-closing','is-transitioning','is-entering');
-        trigger.focus({preventScroll:true});
+        if(returnFocus&&returnFocus!==document.body&&returnFocus.isConnected&&!returnFocus.closest('[hidden]')){
+          returnFocus.focus({preventScroll:true});
+        }
+        returnFocus=null;
       });
     })();
     (function(){
@@ -638,7 +728,7 @@
       metrics();
     })();
   </script>
-<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle">Menu</button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');if(!toggle||!panel)return;function setOpen(open){toggle.setAttribute('aria-expanded',String(open));panel.hidden=!open}toggle.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();setOpen(panel.hidden)});document.addEventListener('pointerdown',function(event){if(!menu.contains(event.target))setOpen(false)});document.addEventListener('keydown',function(event){if(event.key==='Escape')setOpen(false)})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('formats'))return;var auto=true;try{history.replaceState(null,'',location.pathname+location.search);}catch(_){}if('scrollRestoration' in history){try{history.scrollRestoration='manual';}catch(_){}}window.scrollTo(0,0);var dialog=document.getElementById('group-dialog');var trigger=document.querySelector('.group-details-trigger');if(!dialog||!trigger)return;dialog.addEventListener('close',function(){if(!auto)return;auto=false;var target=document.getElementById('formats');if(target){try{target.scrollIntoView({behavior:'smooth',block:'start'});}catch(_){target.scrollIntoView();}}});function openNow(){trigger.click();}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',openNow);}else{openNow();}})();</script><div class="page-whirl" aria-hidden="true" data-od-id="about-transition-whirl">
+<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');if(!toggle||!panel)return;function setOpen(open){toggle.setAttribute('aria-expanded',String(open));panel.hidden=!open}toggle.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();setOpen(panel.hidden)});document.addEventListener('pointerdown',function(event){if(!menu.contains(event.target))setOpen(false)});document.addEventListener('keydown',function(event){if(event.key==='Escape')setOpen(false)})})();</script><script>(function(){var params=new URLSearchParams(location.search);var fromLink=params.get('formats')==='1';var dialog=document.getElementById('group-dialog');var trigger=document.querySelector('.group-details-trigger');if(!dialog||!trigger)return;var scrollAfterClose=false;function scrollToFormats(){var target=document.getElementById('formats');if(target)window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}dialog.addEventListener('close',function(){if(scrollAfterClose){scrollAfterClose=false;scrollToFormats();}});document.querySelectorAll('[data-od-id="nav-formats"],[data-od-id="quick-menu-formats"]').forEach(function(link){link.addEventListener('click',function(event){if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();scrollAfterClose=true;var menu=link.closest('.site-quick-menu');if(menu){var panel=menu.querySelector('#quick-menu-panel');var toggle=menu.querySelector('.quick-menu-toggle');if(panel)panel.hidden=true;if(toggle)toggle.setAttribute('aria-expanded','false');}trigger.click();});});if(!fromLink)return;params.delete('formats');try{history.replaceState(null,'',location.pathname+(params.toString()?'?'+params.toString():''));}catch(_){}window.scrollTo(0,0);scrollAfterClose=true;function openNow(){trigger.click();}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',openNow,{once:true});}else{openNow();}})();</script><div class="page-whirl" aria-hidden="true" data-od-id="about-transition-whirl">
   <div class="page-whirl-haze"></div>
   <div class="page-whirl-stage">
     <svg viewBox="0 0 1000 1000">
@@ -672,5 +762,182 @@
       <ellipse class="page-whirl-petal" style="--petal-x:-25px;--petal-y:-306px;--petal-r:610deg" cx="500" cy="500" rx="19" ry="8"/>
     </svg>
   </div>
-</div><script>(function(){var link=document.querySelector('[data-od-id="about-materials"]');var whirl=document.querySelector('[data-od-id="about-transition-whirl"]');if(!link||!whirl)return;var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');link.addEventListener('click',function(event){if(reduce.matches||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();whirl.classList.add('is-active');window.setTimeout(function(){location.href=link.href},1450)})})();</script></body>
+</div><script>(function(){var link=document.querySelector('[data-od-id="about-materials"]');var whirl=document.querySelector('[data-od-id="about-transition-whirl"]');if(!link||!whirl)return;var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');link.addEventListener('click',function(event){if(reduce.matches||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;event.preventDefault();whirl.classList.add('is-active');window.setTimeout(function(){location.href=link.href},1450)})})();</script>
+<button class="lead-magnet-fab" type="button" aria-label="Открыть подарок" data-od-id="lead-magnet-fab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.4"/><path d="M4 9h16M12 9v11M8.2 9c-1.9 0-3.2-1.1-3.2-2.6C5 4.9 6.3 4 7.9 4c1.7 0 3 1.3 4.1 3.1M15.8 9c1.9 0 3.2-1.1 3.2-2.6C19 4.9 17.7 4 16.1 4c-1.7 0-3 1.3-4.1 3.1"/></svg></button>
+<dialog class="lead-magnet" id="lead-magnet-dialog" data-od-id="lead-magnet-dialog" aria-labelledby="lead-magnet-title"><div class="lead-magnet-inner"><button class="lead-magnet-close" type="button" aria-label="Закрыть" data-od-id="lead-magnet-close">×</button><h3 id="lead-magnet-title">Потряси дерево — <em>получи подарок</em></h3><p class="lead-magnet-lead">На телефоне — потряси сам телефон. За компьютером — потряси дерево мышкой.</p><div class="lead-magnet-scene"><svg class="lead-magnet-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#f2d999"/><circle cx="27" cy="14" r="12" fill="#101f35"/></svg><div class="lead-magnet-tree" data-od-id="lead-magnet-tree" role="button" tabindex="0" aria-label="Потрясти дерево"><svg class="lead-magnet-tree-art" viewBox="0 0 240 190" aria-hidden="true" focusable="false"><path d="M120 186c0-24 1-46 2-64" stroke="#9c7a52" stroke-width="8" stroke-linecap="round" fill="none"/><g class="lead-magnet-canopy"><circle class="lead-magnet-leaf-a" cx="120" cy="75" r="62"/><circle class="lead-magnet-leaf-a" cx="62" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="178" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="88" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="152" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="120" cy="118" r="40"/><circle class="lead-magnet-leaf-b" cx="95" cy="48" r="20"/><circle class="lead-magnet-leaf-b" cx="150" cy="52" r="18"/><circle class="lead-magnet-leaf-b" cx="68" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="172" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="120" cy="85" r="22"/><circle class="lead-magnet-leaf-b" cx="118" cy="30" r="14"/></g></svg><span class="lead-magnet-fruit" style="left:31%;top:42%;--fx:-18px"></span><span class="lead-magnet-fruit" style="left:58%;top:21%;--fx:14px"></span><span class="lead-magnet-fruit" style="left:40%;top:18%;--fx:-4px"></span><span class="lead-magnet-fruit" style="left:71%;top:39%;--fx:20px"></span><span class="lead-magnet-fruit" style="left:50%;top:58%;--fx:6px"></span><span class="lead-magnet-fruit" style="left:25%;top:32%;--fx:-22px"></span><span class="lead-magnet-fruit" style="left:77%;top:53%;--fx:16px"></span></div><p class="lead-magnet-hint" data-od-id="lead-magnet-hint">Тряси!</p></div><button type="button" class="lead-magnet-cta" data-od-id="lead-magnet-cta">Забери подарок</button></div></dialog>
+<div class="lead-magnet-note" role="status" aria-live="polite" data-od-id="lead-magnet-note">Telegram-бот скоро будет доступен</div>
+<script>
+(function(){
+  var dialog=document.querySelector('[data-od-id="lead-magnet-dialog"]');
+  if(!dialog||typeof dialog.showModal!=='function')return;
+  var fab=document.querySelector('[data-od-id="lead-magnet-fab"]');
+  var closeBtn=dialog.querySelector('[data-od-id="lead-magnet-close"]');
+  var tree=dialog.querySelector('[data-od-id="lead-magnet-tree"]');
+  var fruits=Array.prototype.slice.call(dialog.querySelectorAll('.lead-magnet-fruit'));
+  var hint=dialog.querySelector('[data-od-id="lead-magnet-hint"]');
+  var cta=dialog.querySelector('[data-od-id="lead-magnet-cta"]');
+  var note=document.querySelector('[data-od-id="lead-magnet-note"]');
+  function showNote(){
+    if(!note)return;
+    note.classList.add('is-visible');
+    window.clearTimeout(note._timer);
+    note._timer=window.setTimeout(function(){note.classList.remove('is-visible')},4200);
+  }
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SHOWN_KEY='leadMagnetShown';
+  var hasFallen=false,energy=0;
+
+  function markShown(){try{localStorage.setItem(SHOWN_KEY,'1')}catch(_){}}
+  function alreadyShown(){try{return !!localStorage.getItem(SHOWN_KEY)}catch(_){return false}}
+
+  function rectCenter(r){return {x:r.left+r.width/2,y:r.top+r.height/2};}
+
+  function resetGame(){
+    hasFallen=false;
+    energy=0;
+    tree.classList.remove('is-shaking','has-fallen');
+    fruits.forEach(function(fruit){fruit.classList.remove('is-falling')});
+    hint.classList.remove('is-hidden');
+    cta.classList.remove('is-visible');
+  }
+
+  var lockedScrollY=0;
+  function lockScroll(){
+    lockedScrollY=window.scrollY||window.pageYOffset||0;
+    document.body.style.position='fixed';
+    document.body.style.top=(-lockedScrollY)+'px';
+    document.body.style.left='0';
+    document.body.style.right='0';
+    document.body.style.width='100%';
+  }
+  function unlockScroll(){
+    document.body.style.position='';
+    document.body.style.top='';
+    document.body.style.left='';
+    document.body.style.right='';
+    document.body.style.width='';
+    window.scrollTo(0,lockedScrollY);
+  }
+
+  function openWithGrow(){
+    if(dialog.open)return;
+    resetGame();
+    try{dialog.showModal()}catch(_){return}
+    markShown();
+    lockScroll();
+    if(!reduceMotion&&fab){
+      var fr=fab.getBoundingClientRect(),dr=dialog.getBoundingClientRect();
+      var fc=rectCenter(fr),dc=rectCenter(dr);
+      var scale=Math.max(.08,fr.width/dr.width);
+      dialog.style.transition='none';
+      dialog.style.opacity='0';
+      dialog.style.transform='translate('+(fc.x-dc.x)+'px,'+(fc.y-dc.y)+'px) scale('+scale+')';
+      dialog.offsetHeight;
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        dialog.style.transition='';
+        dialog.style.opacity='';
+        dialog.style.transform='';
+      });});
+    }
+  }
+
+  function closeWithSuck(){
+    if(!dialog.open)return;
+    if(reduceMotion||!fab){dialog.close();return;}
+    var fr=fab.getBoundingClientRect(),dr=dialog.getBoundingClientRect();
+    var fc=rectCenter(fr),dc=rectCenter(dr);
+    var scale=Math.max(.08,fr.width/dr.width);
+    dialog.style.transition='opacity .32s ease,transform .36s cubic-bezier(.4,0,.2,1)';
+    dialog.style.opacity='0';
+    dialog.style.transform='translate('+(fc.x-dc.x)+'px,'+(fc.y-dc.y)+'px) scale('+scale+')';
+    window.setTimeout(function(){
+      dialog.close();
+      dialog.style.transition='';
+      dialog.style.opacity='';
+      dialog.style.transform='';
+    },340);
+  }
+
+  function fall(){
+    if(hasFallen)return;
+    hasFallen=true;
+    tree.classList.remove('is-shaking');
+    tree.classList.add('has-fallen');
+    hint.classList.add('is-hidden');
+    fruits.forEach(function(fruit,i){window.setTimeout(function(){fruit.classList.add('is-falling')},i*70)});
+    window.setTimeout(function(){cta.classList.add('is-visible')},fruits.length*70+240);
+  }
+
+  function addEnergy(amount){
+    if(hasFallen)return;
+    energy=Math.min(200,energy+amount);
+    tree.classList.toggle('is-shaking',energy>6);
+    if(energy>=170)fall();
+  }
+
+  window.setInterval(function(){
+    if(hasFallen)return;
+    energy=Math.max(0,energy-4);
+    if(energy<=6)tree.classList.remove('is-shaking');
+  },120);
+
+
+  if(fab)fab.addEventListener('click',function(){dialog.open?closeWithSuck():openWithGrow();});
+
+  if(reduceMotion){
+    tree.addEventListener('click',fall);
+  }else{
+    var lastX=null,lastY=null;
+    tree.addEventListener('pointermove',function(event){
+      if(event.pointerType==='touch')return;
+      if(lastX!==null)addEnergy(Math.min(6,Math.hypot(event.clientX-lastX,event.clientY-lastY)*.35));
+      lastX=event.clientX;lastY=event.clientY;
+    });
+    tree.addEventListener('pointerleave',function(){lastX=null;lastY=null});
+
+    var lastTX=null,lastTY=null;
+    tree.addEventListener('touchmove',function(event){
+      var t=event.touches[0];if(!t)return;
+      if(lastTX!==null)addEnergy(Math.min(6,Math.hypot(t.clientX-lastTX,t.clientY-lastTY)*.35));
+      lastTX=t.clientX;lastTY=t.clientY;
+    },{passive:true});
+    tree.addEventListener('touchend',function(){lastTX=null;lastTY=null});
+
+    var lastAccel=null,motionEnabled=false;
+    function handleMotion(event){
+      var a=event.accelerationIncludingGravity||event.acceleration;
+      if(!a||a.x==null)return;
+      if(lastAccel){
+        var delta=Math.abs(a.x-lastAccel.x)+Math.abs(a.y-lastAccel.y)+Math.abs(a.z-lastAccel.z);
+        if(delta>10)addEnergy(Math.min(7,delta*.6));
+      }
+      lastAccel={x:a.x,y:a.y,z:a.z};
+    }
+    function enableMotion(){
+      if(motionEnabled||typeof DeviceMotionEvent==='undefined')return;
+      motionEnabled=true;
+      window.addEventListener('devicemotion',handleMotion);
+    }
+    if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
+      dialog.addEventListener('pointerdown',function askMotion(){
+        DeviceMotionEvent.requestPermission().then(function(state){if(state==='granted')enableMotion()}).catch(function(){});
+        dialog.removeEventListener('pointerdown',askMotion);
+      },{once:true});
+    }else{
+      enableMotion();
+    }
+  }
+
+  tree.addEventListener('keydown',function(event){
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();fall()}
+  });
+
+  cta.addEventListener('click',function(event){event.preventDefault();showNote();closeWithSuck();});
+  closeBtn.addEventListener('click',closeWithSuck);
+  dialog.addEventListener('click',function(event){if(event.target===dialog)closeWithSuck();});
+  dialog.addEventListener('cancel',function(event){event.preventDefault();closeWithSuck();});
+  dialog.addEventListener('close',function(){markShown();unlockScroll();});
+})();
+</script>
+</body>
 </html>

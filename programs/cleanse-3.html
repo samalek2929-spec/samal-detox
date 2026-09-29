@@ -128,9 +128,11 @@
       .split-columns{grid-template-columns:1fr 1fr;gap:40px}
       .blend-grid{grid-template-columns:1fr 1fr}
       .related-grid{grid-template-columns:repeat(2,1fr)}
+      .related-card--group{grid-column:1/-1}
       .final-layout{grid-template-columns:1fr auto;align-items:end}
       .final-copy{margin-bottom:0}
     }
+    @media(min-width:980px){.related-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.related-card--group{grid-column:auto}}
     @media(max-width:480px){
       .site-nav{gap:10px}
       .nav-cta{padding:10px 12px}
@@ -154,12 +156,12 @@
     /* Navigation sits in a viewport layer, never inside a transformed story panel. */
     .story-navigation-layer{position:fixed;inset:0;z-index:100;pointer-events:none;isolation:isolate}.story-navigation-layer .chapter-nav{position:absolute;inset:auto 0 0;width:100%;min-height:74px;margin:0;padding:10px max(20px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));transform:none;display:none;align-items:center;justify-content:center;gap:24px;background:transparent;border:0;box-shadow:none}.story-navigation-layer .chapter-nav.is-active-navigation{display:flex;pointer-events:auto}.story-navigation-layer .chapter-control{background:color-mix(in srgb,var(--background) 94%,transparent)}@media(max-width:700px){.story-navigation-layer .chapter-nav{min-height:70px;bottom:0;gap:18px}}
     /* A persistent question control sits apart from the chapter navigation. */
-    .program-question-control{position:fixed;right:24px;bottom:42px;z-index:110;display:grid;grid-template-columns:1fr 46px;align-items:center;gap:10px;min-width:220px;height:64px;padding:0 10px 0 20px;border:1px solid var(--eucalyptus);border-radius:999px;background:var(--ink);color:var(--background);box-shadow:0 12px 26px color-mix(in srgb,var(--ink) 22%,transparent);cursor:pointer;text-align:left;transition:background .18s ease,color .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}
+    .program-question-control{position:fixed;right:24px;bottom:42px;z-index:110;display:grid;place-items:center;width:80px;height:80px;padding:0;border:1px solid var(--eucalyptus);border-radius:50%;background:var(--ink);color:var(--background);box-shadow:0 12px 26px color-mix(in srgb,var(--ink) 22%,transparent);cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s cubic-bezier(.23,1,.32,1)}
     .program-question-control:hover{background:var(--primary);transform:translateY(-3px)}
     .program-question-control:active{transform:translateY(0) scale(.98)}
-    .program-question-label{font:700 15px/1.15 Plex,system-ui,sans-serif;letter-spacing:.01em;white-space:nowrap}
-    .program-question-mark{display:grid;place-items:center;width:46px;height:46px;border:1px solid color-mix(in srgb,var(--eucalyptus) 76%,transparent);border-radius:50%;background:color-mix(in srgb,var(--background) 9%,transparent)}
-    .program-question-control svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    
+    .program-question-mark{display:grid;place-items:center;width:58px;height:58px;border:1px solid color-mix(in srgb,var(--eucalyptus) 76%,transparent);border-radius:50%;background:color-mix(in srgb,var(--background) 9%,transparent)}
+    .program-question-control svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
     .program-question-dialog{width:min(500px,calc(100% - 40px));padding:0;border:0;background:transparent;color:var(--ink);overflow:visible}
     .program-question-dialog::backdrop{background:color-mix(in srgb,var(--ink) 70%,transparent);backdrop-filter:blur(6px)}
     .program-question-surface{position:relative;isolation:isolate;padding:clamp(30px,6vw,48px);border-radius:24px;background:var(--background);box-shadow:0 26px 64px color-mix(in srgb,var(--ink) 42%,transparent)}
@@ -174,9 +176,96 @@
     .program-question-faq:hover{background:var(--ink);transform:translateY(-2px)}
     .program-question-faq svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .program-question-telegram{background:transparent;color:var(--primary);cursor:not-allowed;opacity:.54}
-    @media(max-width:760px){.program-question-control{right:16px;bottom:calc(96px + env(safe-area-inset-bottom));grid-template-columns:1fr 42px;gap:8px;min-width:208px;height:58px;padding-left:18px}.program-question-label{font-size:14px}.program-question-mark{width:42px;height:42px}.program-question-control svg{width:21px;height:21px}.program-question-dialog{width:min(500px,calc(100% - 28px))}}
+    @media(max-width:760px){.program-question-control{right:16px;bottom:calc(96px + env(safe-area-inset-bottom));width:68px;height:68px}.program-question-mark{width:50px;height:50px}.program-question-control svg{width:24px;height:24px}.program-question-dialog{width:min(500px,calc(100% - 28px))}}
+    /* Keep the mobile question control clear of content-heavy slides. */
+    @media(max-width:760px){
+    }
     @media(prefers-reduced-motion:reduce){.program-question-control,.program-question-close{transition:none}}
-  </style>
+    /* Stable translucent content surfaces: avoid backdrop compositing artifacts
+       while story panels move under the viewport navigation. */
+    .duration-chip,.split-col,.flow-item,.blend-card,.delivery-card,
+    .notice-card,.notice-card li,.result-note,.final-copy,.related-card{
+      background:color-mix(in srgb,var(--background) 94%,transparent);
+      color:var(--ink);
+      -webkit-backdrop-filter:none;
+      backdrop-filter:none;
+    }
+    .split-col,.flow-item,.blend-card,.delivery-card,.notice-card,
+    .result-note,.final-copy,.related-card{
+      transition:transform .22s cubic-bezier(.23,1,.32,1),box-shadow .22s ease;
+    }
+    .story-navigation-layer .chapter-control,.chapter-nav .chapter-control{
+      -webkit-backdrop-filter:none;
+      backdrop-filter:none;
+      background:var(--background);
+      color:var(--primary);
+    }
+    .story-navigation-layer .chapter-control:not(:disabled):hover,
+    .chapter-nav .chapter-control:not(:disabled):hover{
+      background:var(--primary);
+      color:var(--background);
+    }
+    @media(prefers-reduced-motion:reduce){
+      .split-col,.flow-item,.blend-card,.delivery-card,.notice-card,
+      .result-note,.final-copy,.related-card{transition:none}
+    }
+    /* Tubazh-inspired translucent text bricks across every story panel. */
+    .story-panel{--story-brick-fill:color-mix(in srgb,var(--background) 94%,transparent);--story-brick-edge:color-mix(in srgb,var(--background) 94%,transparent);--story-brick-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 94%,transparent),0 14px 28px color-mix(in srgb,var(--ink) 12%,transparent)}
+    .story-panel :is(.hero-lead,.price-row,.chip,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.notice-card li,.result-note,.result-list li,.final-copy,.related-card,.flow-foot),
+    .story-panel.overview-section .shell,.story-panel.symptoms-section .symptoms-intro::before,.story-panel.flow-section h2,
+    .story-panel:not(.overview-section):not(.symptoms-section) .section-intro{background:var(--story-brick-fill);border:1px solid var(--story-brick-edge);box-shadow:var(--story-brick-shadow);color:var(--ink);-webkit-backdrop-filter:none;backdrop-filter:none}
+    .story-panel :is(.hero-lead,.price-row,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.result-note,.result-list li,.final-copy,.related-card,.flow-foot),
+    .story-panel.overview-section .shell,.story-panel.symptoms-section .symptoms-intro::before,.story-panel.flow-section h2,
+    .story-panel:not(.overview-section):not(.symptoms-section) .section-intro{border-radius:42% 16px 32% 20px / 18px 34% 20px 30%}
+    .story-panel :is(.split-col:nth-child(even),.flow-item:nth-child(even),.blend-card:nth-child(even),.delivery-card:nth-child(even),.related-card:nth-child(even),.notice-card li:nth-child(even),.result-list li:nth-child(even)){border-radius:16px 38% 20px 34% / 28% 16px 34% 18px}
+    .story-panel .hero-lead{width:min(640px,100%);max-width:none;margin:22px 0 18px;padding:20px 24px}
+    .story-panel .price-row{width:max-content;max-width:100%;padding:18px 24px;gap:14px 22px}
+    .story-panel .price-row .duration-chip{padding:8px 0;background:transparent;border:0;border-radius:0;box-shadow:none;color:var(--primary)}
+    .story-panel .flow-foot{display:table;width:auto;max-width:100%;padding:12px 18px;text-shadow:none}
+    .story-panel :is(.delivery-cost-list li,.result-list li){padding:12px 18px}
+    .story-panel .notice-card li{background:color-mix(in srgb,var(--background) 80%,transparent)}
+    .story-panel .related-card{color:var(--ink)}
+    @media (hover:hover) and (pointer:fine){
+      @keyframes story-brick-hop{0%{translate:0 0}42%{translate:0 -9px}72%{translate:0 -4px}100%{translate:0 -6px}}
+      .story-panel :is(.hero-lead,.price-row,.chip,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.notice-card li,.result-note,.result-list li,.final-copy,.related-card,.flow-foot):hover,
+      .story-panel.overview-section .shell:hover,.story-panel.symptoms-section .symptoms-intro:hover,.story-panel.flow-section h2:hover,
+      .story-panel:not(.overview-section):not(.symptoms-section) .section-intro:hover{animation:story-brick-hop .48s cubic-bezier(.23,1,.32,1) both;transform:rotate(0deg);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 96%,transparent),0 20px 32px color-mix(in srgb,var(--ink) 17%,transparent)}
+    }
+    @media (prefers-reduced-motion:reduce){.story-panel :is(.hero-lead,.price-row,.chip,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.notice-card li,.result-note,.result-list li,.final-copy,.related-card,.flow-foot):hover,.story-panel.overview-section .shell:hover,.story-panel.symptoms-section .symptoms-intro:hover,.story-panel.flow-section h2:hover,.story-panel:not(.overview-section):not(.symptoms-section) .section-intro:hover{animation:none;translate:none;transform:none}}
+    @media (max-width:700px){.story-panel .hero-lead{padding:17px 19px}.story-panel .price-row{padding:16px 19px}}
+    /* Running book-style label and safer text area inside organic bricks. */
+    .program-running-label{position:absolute;top:12px;right:max(20px,calc((100% - 880px)/2));z-index:2;display:grid;gap:1px;max-width:min(360px,calc(100% - 40px));padding:6px 12px 7px;border:1px solid color-mix(in srgb,var(--background) 90%,transparent);border-radius:13px 8px 13px 9px;background:color-mix(in srgb,var(--background) 93%,transparent);box-shadow:0 4px 12px color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink);text-align:right;pointer-events:none}
+    .program-running-name{font-size:12px;font-weight:700;line-height:1.2}
+    .program-running-meta{font-size:10px;line-height:1.2;color:var(--primary);letter-spacing:.02em}
+    .story-panel :is(.hero-lead,.price-row,.chip,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.notice-card li,.result-note,.result-list li,.final-copy,.related-card,.flow-foot),.story-panel.overview-section .shell,.story-panel:not(.overview-section):not(.symptoms-section) .section-intro{min-width:0;max-width:100%;overflow-wrap:break-word}
+    .story-panel :is(.hero-lead,.price-row,.split-col,.flow-item,.blend-card,.delivery-card,.delivery-cost-list li,.notice-card,.result-note,.result-list li,.final-copy,.related-card,.flow-foot),.story-panel.overview-section .shell,.story-panel.symptoms-section .symptoms-intro::before,.story-panel.flow-section h2,.story-panel:not(.overview-section):not(.symptoms-section) .section-intro{border-radius:38% 18px 30% 20px / 20px 28px 22px 26px}
+    .story-panel :is(.split-col:nth-child(even),.flow-item:nth-child(even),.blend-card:nth-child(even),.delivery-card:nth-child(even),.related-card:nth-child(even),.notice-card li:nth-child(even),.result-list li:nth-child(even)){border-radius:18px 34% 20px 30% / 26px 18px 28px 20px}
+    .story-panel .hero-lead{padding:22px 26px 28px}
+    .story-panel .price-row{padding:18px 24px 24px}
+    .story-panel :is(.split-col,.blend-card,.delivery-card,.notice-card,.related-card){padding-right:28px;padding-bottom:30px;padding-left:28px}
+    .story-panel .flow-item{padding-right:24px;padding-bottom:22px;padding-left:24px}
+    .story-panel .notice-card li{padding-right:20px;padding-bottom:16px}
+    .story-panel .result-list li{padding-right:22px;padding-bottom:20px}
+    .story-panel.overview-section .shell{padding:28px 34px 34px}
+    .story-panel:not(.overview-section):not(.symptoms-section) .section-intro{padding:16px 22px 22px}
+    @media(max-width:700px){.story-panel:not([data-story-panel="0"]){padding-top:76px}.program-running-label{top:8px;right:20px;max-width:min(300px,calc(100% - 40px))}.story-panel .hero-lead{padding:18px 20px 24px}.story-panel :is(.split-col,.blend-card,.delivery-card,.notice-card,.related-card){padding-right:22px;padding-bottom:26px;padding-left:22px}.story-panel.overview-section .shell{padding:24px 24px 30px}.story-panel:not(.overview-section):not(.symptoms-section) .section-intro{padding:14px 18px 20px}}
+      .flow-section h2 em{color:#76503A}
+    /* Floating oval header, matched to the home page. */
+    .site-header{position:fixed;top:18px;left:50%;z-index:120;transform:translate3d(-50%,0,0);will-change:transform;width:min(1180px,calc(100% - 40px));padding:0 24px;border:1px solid color-mix(in srgb,var(--background) 82%,transparent);border-radius:999px;background:color-mix(in srgb,var(--background) 94%,transparent);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--background) 86%,transparent),0 10px 28px color-mix(in srgb,var(--ink) 12%,transparent);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+    .site-header .shell{width:100%;min-height:68px}
+    #main-content{height:100svh}
+    .program-hero{padding-top:126px}
+    .story-panel:not([data-story-panel="0"]){padding-top:174px}
+    .program-running-label{top:100px}
+    @media(max-width:700px){
+      .site-header{top:12px;width:calc(100% - 24px);padding:0 16px}
+      .site-header .shell{min-height:62px}
+      .site-nav .back-link{display:none}
+      .program-hero{padding-top:104px}
+      .story-panel:not([data-story-panel="0"]){padding-top:168px}
+      .program-running-label{top:88px}
+    }
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">К содержанию</a>
@@ -193,11 +282,11 @@
   <main id="main-content">
     <section class="program-hero opening-scene story-panel" data-story-panel="0" data-od-id="program-hero">
       <div class="shell">
-        <p class="eyebrow">Программа</p>
+        <p class="eyebrow">Индивидуальная программа</p>
         <h1 data-od-id="program-title">3-дневное антипаразитарное <em>очищение</em></h1>
         <p class="hero-lead">Экспресс-очищение кишечника, желчного пузыря и протоков. Происходит процесс глубинной чистки от всего накопленного в кишечнике и желчном пузыре. Клизмы по графику, травяные сборы по времени, пошаговая инструкция и сопровождение на всех днях при необходимости. Подробные рекомендации по правильному выходу.</p>
         <div class="price-row" data-od-id="price-block">
-          <div class="price-main">130 000 ₸<span class="price-alt">23 000 ₽ · 275 $</span></div>
+          <div class="price-main">130 000 ₸<span class="price-alt">25 000 ₽ · 295 $</span></div>
           <div class="duration-chip" data-od-id="duration-chip">3 дня + 2 дня подготовки</div>
         </div>
         <div class="chapter-nav" data-od-id="hero-navigation"><button class="chapter-control" type="button" disabled aria-label="Предыдущий экран">←</button><button class="chapter-control" type="button" data-story-next="1" aria-label="Что это за программа">→</button></div>
@@ -205,6 +294,7 @@
     </section>
 
     <section class="section overview-section story-panel" data-story-panel="1" data-od-id="overview-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 02 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="overview-heading">Что это за <em>программа.</em></h2>
         <p class="section-intro">Короткий и интенсивный формат для тех, кто хочет разовую глубокую чистку кишечника, желчного пузыря и протоков — с готовыми травяными сборами и полным сопровождением Самал на каждом дне, а не самостоятельно по инструкции из интернета.</p>
@@ -213,6 +303,7 @@
     </section>
 
     <section class="section included-section story-panel" data-story-panel="2" data-od-id="included-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 03 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="included-heading">Что <em>входит.</em></h2>
         <div class="split-columns">
@@ -236,6 +327,7 @@
     </section>
 
     <section class="section flow-section story-panel" data-story-panel="3" data-od-id="flow-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 04 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="flow-heading">Схема <em>прохождения.</em></h2>
         <ol class="flow-list" data-od-id="flow-list">
@@ -249,6 +341,7 @@
     </section>
 
     <section class="section blend-section story-panel" data-story-panel="4" data-od-id="blend-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 05 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="blend-heading">Состав <em>сборов.</em></h2>
         <p class="section-intro">Оба сбора уже перемолоты и готовы к употреблению — входят в стоимость программы.</p>
@@ -283,6 +376,7 @@
     </section>
 
     <section class="section delivery-section story-panel" data-story-panel="5" data-od-id="delivery-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 06 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="delivery-heading">Доставка <em>сбора.</em></h2>
         <p class="section-intro">Оплачивается отдельно, сверх цены программы.</p>
@@ -299,6 +393,7 @@
     </section>
 
     <section class="section contraindications-section story-panel" data-story-panel="6" data-od-id="contraindications-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 07 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="contraindications-heading">Противопоказания</h2>
         <p class="section-intro">Важная часть, а не формальность — прочитайте перед записью.</p>
@@ -315,6 +410,7 @@
     </section>
 
     <section class="section result-section story-panel" data-story-panel="7" data-od-id="result-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 08 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="result-heading">Чего <em>ожидать.</em></h2>
         <p class="section-intro">По опыту клиентов: лёгкость в теле, уменьшение объёмов после курса чистки.</p>
@@ -323,6 +419,7 @@
     </section>
 
     <section id="telegram" class="final-cta story-panel" data-story-panel="8" data-od-id="final-cta">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 09 / 10</span></div>
       <div class="shell final-layout">
         <h2 data-od-id="final-heading">Готовы<br><em>начать?</em></h2>
         <div>
@@ -333,11 +430,13 @@
     </section>
 
     <section class="section related-section story-panel" data-story-panel="9" data-od-id="related-section">
+      <div class="program-running-label"><span class="program-running-name">3-дневное антипаразитарное очищение</span><span class="program-running-meta">Индивидуальная программа · 10 / 10</span></div>
       <div class="shell">
         <h2 data-od-id="related-heading">Другие <em>форматы.</em></h2>
         <div class="related-grid">
           <a class="related-card" href="tubazh.html" data-od-id="related-tubazh"><span class="related-duration">1 день</span><h3>Глубинный однодневный тюбаж</h3><span class="related-price">25 000 ₸</span></a>
           <a class="related-card" href="fasting-7-7.html" data-od-id="related-fasting-7"><span class="related-duration">21 день</span><h3>Голодание 7/7</h3><span class="related-price">120 000 ₸</span></a>
+          <a class="related-card related-card--group" href="../about.html?formats=1#formats" data-od-id="related-group-formats"><span class="related-duration">Онлайн и офлайн</span><h3>Групповые форматы</h3><span class="related-price">Подробнее о занятиях ↗</span></a>
         </div>
         <a class="link-arrow" href="../index.html#programs" data-od-id="related-all-link">Все программы ↗</a><div class="chapter-nav" data-od-id="related-navigation"><button class="chapter-control" type="button" data-story-prev="8" aria-label="Назад">←</button><button class="chapter-control" type="button" data-story-next="0" aria-label="Начать сначала">→</button></div>
       </div>
@@ -345,8 +444,8 @@
   </main>
 
   <footer class="site-footer" data-od-id="site-footer"><p>Samal Detox · Самал Булатханкызы</p><p class="footer-muted">Страница программы · 2026</p></footer>
-  <button class="program-question-control" type="button" aria-haspopup="dialog" aria-controls="program-question-dialog" aria-label="Остались вопросы? Задать вопрос Самал" data-od-id="program-question-trigger"><span class="program-question-label">Остались вопросы?</span><span class="program-question-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.4 9a3 3 0 1 1 5.25 1.98c-1.24 1.4-2.65 1.88-2.65 4.02"/><path d="M12 18.1h.01"/></svg></span></button>
-  <dialog class="program-question-dialog" id="program-question-dialog" aria-labelledby="program-question-title" data-od-id="program-question-dialog"><div class="program-question-surface"><button class="program-question-close" type="button" aria-label="Закрыть" data-od-id="program-question-close">×</button><p class="program-question-kicker">Остались вопросы?</p><h2 id="program-question-title" data-od-id="program-question-title">Начните<br><em>с ответов.</em></h2><div class="program-question-actions"><button class="program-question-telegram" type="button" disabled data-od-id="program-question-telegram">Перейти в Telegram-бот</button></div></div></dialog>
+  <button class="program-question-control" type="button" aria-haspopup="dialog" aria-controls="program-question-dialog" aria-label="Остались вопросы? Задать вопрос Самал" data-od-id="program-question-trigger"><span class="program-question-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.4 9a3 3 0 1 1 5.25 1.98c-1.24 1.4-2.65 1.88-2.65 4.02"/><path d="M12 18.1h.01"/></svg></span></button>
+  <dialog class="program-question-dialog" id="program-question-dialog" aria-labelledby="program-question-title" data-od-id="program-question-dialog"><div class="program-question-surface"><button class="program-question-close" type="button" aria-label="Закрыть" data-od-id="program-question-close">×</button><p class="program-question-kicker">Остались вопросы?</p><h2 id="program-question-title" data-od-id="program-question-title">Узнайте больше<br><em>до старта.</em></h2><div class="program-question-actions"><a class="program-question-faq" href="../index.html?faq=1#proof" data-od-id="program-question-faq">Частые вопросы ↗</a><button class="program-question-telegram" type="button" disabled data-od-id="program-question-telegram">Telegram-бот скоро появится</button></div></div></dialog>
   <div class="telegram-status" role="status" aria-live="polite" data-od-id="telegram-status">Переход в Telegram будет доступен после подключения бота.</div>
   <script>
     (function(){
@@ -378,7 +477,7 @@
       });
       document.querySelectorAll('[data-story-next]').forEach(function(button){button.addEventListener('click',function(){updateStory(Number(button.getAttribute('data-story-next')))});});document.querySelectorAll('[data-story-prev]').forEach(function(button){button.addEventListener('click',function(){updateStory(Number(button.getAttribute('data-story-prev')))});});
       document.addEventListener('keydown',function(event){if(['INPUT','TEXTAREA','SELECT'].indexOf(document.activeElement&&document.activeElement.tagName)>-1)return;if(event.key==='ArrowRight'||event.key==='ArrowDown'){event.preventDefault();updateStory(storyIndex+1)}if(event.key==='ArrowLeft'||event.key==='ArrowUp'){event.preventDefault();updateStory(storyIndex-1)}});
-      var mainContent=document.querySelector('#main-content'),touchStartX=0,touchStartY=0,wheelDelta=0,wheelTimer=0,wheelLocked=false;if(mainContent){mainContent.addEventListener('touchstart',function(event){var touch=event.touches[0];if(touch){touchStartX=touch.clientX;touchStartY=touch.clientY}},{passive:true});mainContent.addEventListener('touchend',function(event){var touch=event.changedTouches[0];if(!touch)return;var x=touch.clientX-touchStartX,y=touch.clientY-touchStartY;if(Math.abs(x)<64||Math.abs(x)<=Math.abs(y)*1.15)return;updateStory(storyIndex+(x<0?1:-1))},{passive:true});mainContent.addEventListener('wheel',function(event){event.preventDefault();wheelDelta+=(Math.abs(event.deltaY)>=Math.abs(event.deltaX)?event.deltaY:event.deltaX)*.25;window.clearTimeout(wheelTimer);wheelTimer=window.setTimeout(function(){wheelDelta=0},360);if(Math.abs(wheelDelta)<75||wheelLocked)return;var direction=wheelDelta>0?1:-1;wheelDelta=0;wheelLocked=true;window.setTimeout(function(){wheelLocked=false},480);updateStory(storyIndex+direction)},{passive:false})}
+      var mainContent=document.querySelector('#main-content'),touchStartX=0,touchStartY=0;if(mainContent){mainContent.addEventListener('touchstart',function(event){var touch=event.touches[0];if(touch){touchStartX=touch.clientX;touchStartY=touch.clientY}},{passive:true});mainContent.addEventListener('touchend',function(event){var touch=event.changedTouches[0];if(!touch)return;var x=touch.clientX-touchStartX,y=touch.clientY-touchStartY;if(Math.abs(x)<64||Math.abs(x)<=Math.abs(y)*1.15)return;updateStory(storyIndex+(x<0?1:-1))},{passive:true})}
       var navTelegram=document.querySelector('[data-od-id="nav-telegram"]');if(navTelegram)navTelegram.addEventListener('click',function(event){event.preventDefault();updateStory(8)});
     }());
   </script>
