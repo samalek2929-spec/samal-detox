@@ -743,7 +743,18 @@
   .final-actions{display:grid;justify-items:start;gap:12px;margin-top:12px}.final-cta .telegram-link{margin-top:0}.final-cta .button-materials{border-color:var(--eucalyptus);background:var(--eucalyptus);color:var(--ink)}.final-cta .button-materials:hover{border-color:var(--background);background:var(--background);color:var(--primary);transform:translateY(-2px)}@media(max-width:480px){.final-actions{justify-items:stretch;gap:10px;margin-top:26px}.final-actions .button{width:100%}.final-cta .telegram-link{margin-top:0}}</style>
 <style>
 .site-quick-menu{position:fixed;right:24px;bottom:152px;z-index:21}.quick-menu-toggle{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;font:700 11px/1 "IBM Plex Sans Local",system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.quick-menu-toggle:hover,.quick-menu-toggle[aria-expanded="true"]{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.quick-menu-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}.quick-menu-toggle:focus-visible,.quick-menu-panel a:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}.quick-menu-panel{position:absolute;right:0;bottom:64px;width:min(256px,calc(100vw - 32px));padding:10px;border:1px solid rgba(24,61,56,.18);border-radius:16px;background:#F7F5EF;box-shadow:0 18px 44px rgba(0,0,0,.22)}.quick-menu-panel[hidden]{display:none}.quick-menu-panel a{display:flex;align-items:center;min-height:42px;padding:0 12px;border-radius:10px;color:#183D38;font:500 14px/1.3 "IBM Plex Sans Local",system-ui,sans-serif;text-decoration:none}.quick-menu-panel a:hover{background:#DDEBE5;color:#205A50}.lead-magnet-fab{position:fixed;right:24px;bottom:88px;z-index:21;display:grid;place-items:center;width:52px;height:52px;padding:0;border:1px solid #87B7AB;border-radius:50%;background:#F7F5EF;color:#183D38;box-shadow:0 12px 26px rgba(0,0,0,.18);cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease}.lead-magnet-fab:hover{background:#87B7AB;color:#183D38;transform:translateY(-2px)}.lead-magnet-fab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.lead-magnet-fab:focus-visible{outline:3px solid #87B7AB;outline-offset:4px}@media(max-width:760px){.site-quick-menu{right:16px;bottom:144px}.quick-menu-panel{bottom:62px}.lead-magnet-fab{right:16px;bottom:80px}}@media(prefers-reduced-motion:reduce){.quick-menu-toggle,.lead-magnet-fab{transition:none}}
-</style></head>
+</style>
+<style>
+/* WhatsApp links inherit the existing Samal button system. */
+a[data-contact="whatsapp"]{text-decoration:none;max-width:100%;overflow-wrap:anywhere}
+.site-header a[data-contact="whatsapp"],header .nav-cta[data-contact="whatsapp"]{white-space:nowrap;overflow-wrap:normal}
+.lead-magnet-cta[data-contact="whatsapp"]{font-family:inherit}
+.program-question-telegram[data-contact="whatsapp"]{cursor:pointer;opacity:1}
+.program-question-telegram[data-contact="whatsapp"]:hover{background:var(--primary);color:var(--background)}
+a[data-contact="whatsapp"]:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+@media(max-width:480px){.site-header a[data-contact="whatsapp"],header .nav-cta[data-contact="whatsapp"]{font-size:12px}}
+</style>
+</head>
 <body>
   <a class="skip-link" href="#main-content">К содержанию</a>
   <header class="shell site-header" data-od-id="site-header">
@@ -754,7 +765,7 @@
       <a href="about.html?formats=1#formats" data-od-id="nav-formats">Форматы</a>
       <a href="legal.html" data-od-id="nav-legal">Условия</a>
       <a href="materials.html" data-od-id="nav-materials">Отзывы</a>
-      <a class="nav-cta" href="#telegram" data-od-id="nav-telegram">В Telegram</a>
+      <a class="nav-cta" data-od-id="nav-telegram" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%9F%D0%B8%D1%88%D1%83+%D1%81+%D1%81%D0%B0%D0%B9%D1%82%D0%B0+Samal+Detox.+%D0%A5%D0%BE%D1%87%D1%83+%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+%D0%BE+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%85+%D0%B8+%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D0%B9+%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82." target="_blank" rel="noopener noreferrer" data-contact="whatsapp">В WhatsApp</a>
     </nav>
   </header>
 
@@ -766,7 +777,7 @@
         <h1 data-od-id="hero-heading">Вернуться<br>к себе — <em>спокойно.</em></h1>
         <p class="hero-lead">Онлайн-программы очищения и голодания с личным сопровождением Самал Булатханкызы — по самочувствию, шаг за шагом.</p>
         <div class="hero-actions">
-          <a class="button button-primary telegram-link" href="#telegram" data-od-id="hero-telegram">Перейти в Telegram-бот</a>
+          <a class="button button-primary telegram-link" data-od-id="hero-telegram" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83+Samal+Detox.+%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C+%D0%BA%D0%B0%D0%BA%D0%B8%D0%B5+%D0%B5%D1%81%D1%82%D1%8C+%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D1%8B+%D1%81%D0%BE%D0%BF%D1%80%D0%BE%D0%B2%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F." target="_blank" rel="noopener noreferrer" data-contact="whatsapp">Подобрать программу в WhatsApp</a>
           <a class="button button-quiet" href="#programs" data-od-id="hero-programs">Посмотреть программы</a>
         </div>
 
@@ -847,7 +858,7 @@
        <div class="shell section-grid">
          <div class="section-heading"><h2 data-od-id="safety-heading">Сначала —<br><em>безопасность.</em></h2></div>
          <div>
-           <div class="pending-panel" data-od-id="safety-panel"><strong>Подходит не всем</strong><p>До записи обсуди самочувствие, противопоказания и текущие диагнозы. Если есть сомнения, сначала обратись к врачу — в Telegram можно задать вопрос Самал до выбора программы.</p></div>
+           <div class="pending-panel" data-od-id="safety-panel"><strong>Подходит не всем</strong><p>До записи обсуди самочувствие, противопоказания и текущие диагнозы. Если есть сомнения, сначала обратись к врачу — в WhatsApp можно задать вопрос Самал до выбора программы.</p></div>
            <a class="link-arrow" href="legal.html" data-od-id="safety-link">Читать медицинский дисклеймер ↗</a>
          </div>
        </div>
@@ -857,7 +868,7 @@
        <div class="shell section-grid">
          <div class="section-heading"><h2 data-od-id="proof-heading">Важные<br><em>ответы.</em></h2></div>
          <div>
-           <div class="pending-panel" data-od-id="proof-panel"><strong>Без обещаний и давления</strong><p>Перед стартом важно понять противопоказания, формат сопровождения и ожидания. Ответы и важные пояснения собраны здесь.</p><div class="proof-orb-wrap"><button class="proof-orb" type="button" aria-expanded="false" aria-controls="proof-faq-collapse" aria-label="Развернуть важные ответы" data-od-id="proof-notch"><span class="proof-orb-face"><span class="proof-orb-turn"><svg class="proof-orb-arrow" viewBox="0 0 72 72" aria-hidden="true" focusable="false"><path d="M16 46c7-5 12-13 14-27 5 13 12 20 26 23"/><path d="M19 56c9-8 19-12 33-8 4 1 7 3 10 6"/><path class="proof-orb-arrow-fine" d="M42 18c-1 10 5 16 15 19M30 19c-3 8-1 15 5 21"/></svg></span></span></button><p class="proof-orb-caption" aria-hidden="true">Ответы на важные вопросы</p></div><div class="proof-faq-collapse" data-od-id="proof-faq-collapse" id="proof-faq-collapse"><div class="proof-faq-panel" inert data-od-id="proof-faq-panel"><a class="proof-faq-type" href="#telegram" data-od-id="proof-faq-type"><span class="proof-faq-cursor" aria-hidden="true"></span>Задайте ваш вопрос Самал в Telegram</a><div class="proof-faq-list" data-od-id="proof-faq-list"><span class="proof-faq-cursor-dot" aria-hidden="true" data-od-id="proof-faq-cursor-dot"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg></span>
+           <div class="pending-panel" data-od-id="proof-panel"><strong>Без обещаний и давления</strong><p>Перед стартом важно понять противопоказания, формат сопровождения и ожидания. Ответы и важные пояснения собраны здесь.</p><div class="proof-orb-wrap"><button class="proof-orb" type="button" aria-expanded="false" aria-controls="proof-faq-collapse" aria-label="Развернуть важные ответы" data-od-id="proof-notch"><span class="proof-orb-face"><span class="proof-orb-turn"><svg class="proof-orb-arrow" viewBox="0 0 72 72" aria-hidden="true" focusable="false"><path d="M16 46c7-5 12-13 14-27 5 13 12 20 26 23"/><path d="M19 56c9-8 19-12 33-8 4 1 7 3 10 6"/><path class="proof-orb-arrow-fine" d="M42 18c-1 10 5 16 15 19M30 19c-3 8-1 15 5 21"/></svg></span></span></button><p class="proof-orb-caption" aria-hidden="true">Ответы на важные вопросы</p></div><div class="proof-faq-collapse" data-od-id="proof-faq-collapse" id="proof-faq-collapse"><div class="proof-faq-panel" inert data-od-id="proof-faq-panel"><a class="proof-faq-type" data-od-id="proof-faq-type" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A3+%D0%BC%D0%B5%D0%BD%D1%8F+%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81+%D0%BE+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%85+Samal+Detox.+%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C+%D1%81+%D1%87%D0%B5%D0%B3%D0%BE+%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C%3F" target="_blank" rel="noopener noreferrer" data-contact="whatsapp"><span class="proof-faq-cursor" aria-hidden="true"></span>Задать вопрос Самал в WhatsApp</a><div class="proof-faq-list" data-od-id="proof-faq-list"><span class="proof-faq-cursor-dot" aria-hidden="true" data-od-id="proof-faq-cursor-dot"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg></span>
              <button class="proof-faq-item" type="button" data-faq-q="Что входит в программы Samal Detox?" data-faq-a="Формат зависит от выбранной программы: подготовка, инструкции по этапам и личное сопровождение Самал в согласованные дни. Точный состав и порядок действий обсуждаются до старта." data-od-id="proof-faq-01">Что входит в программы Samal Detox?</button>
              <button class="proof-faq-item" type="button" data-faq-q="Это медицинское лечение?" data-faq-a="Нет. Сайт и программы не заменяют диагностику, лечение или наблюдение у врача. Решение о том, подходит ли вам участие, нельзя принимать только по описанию на сайте." data-od-id="proof-faq-02">Это медицинское лечение?</button>
              <button class="proof-faq-item" type="button" data-faq-q="Кому участие может не подойти?" data-faq-a="Ограничения зависят от состояния здоровья, возраста, лекарств и других обстоятельств. При беременности, хронических заболеваниях, расстройствах пищевого поведения или любых сомнениях сначала обратитесь к врачу." data-od-id="proof-faq-03">Кому участие может не подойти?</button>
@@ -867,8 +878,8 @@
              <button class="proof-faq-item" type="button" data-faq-q="Какие сроки у программ?" data-faq-a="Есть форматы на 1 день и 3 дня, а также программы 7/7 на 21 день и 14/14 на 42 дня. Продолжительность включает указанный в описании период сопровождения." data-od-id="proof-faq-07">Какие сроки у программ?</button>
              <button class="proof-faq-item" type="button" data-faq-q="Гарантирован ли результат?" data-faq-a="Нет. Реакция и опыт каждого человека индивидуальны, поэтому честно обещать конкретный результат, снижение веса или улучшение самочувствия нельзя." data-od-id="proof-faq-08">Гарантирован ли результат?</button>
              <button class="proof-faq-item" type="button" data-faq-q="Что делать, если во время программы стало плохо?" data-faq-a="Остановите действия, связанные с программой, сообщите Самал и оцените необходимость срочной медицинской помощи. При выраженных или опасных симптомах обращайтесь в экстренные службы, не ожидая ответа в чате." data-od-id="proof-faq-09">Что делать, если во время программы стало плохо?</button>
-             <button class="proof-faq-item" type="button" data-faq-q="Как происходит оплата?" data-faq-a="Сейчас основной путь — обсудить подходящий формат в Telegram-боте, пройти чек-лист перед оплатой и получить инструкции. Способ и детали оплаты уточняются в диалоге." data-od-id="proof-faq-10">Как происходит оплата?</button>
-             <button class="proof-faq-item" type="button" data-faq-q="Можно ли сначала просто задать вопрос?" data-faq-a="Да. Переход в бот начинается с разговора: расскажите о себе и задайте вопросы без обязательства сразу покупать программу." data-od-id="proof-faq-11">Можно ли сначала просто задать вопрос?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Как происходит оплата?" data-faq-a="Сейчас основной путь — обсудить подходящий формат с Самал в WhatsApp и получить инструкции перед оплатой. Способ и детали оплаты уточняются в диалоге." data-od-id="proof-faq-10">Как происходит оплата?</button>
+             <button class="proof-faq-item" type="button" data-faq-q="Можно ли сначала просто задать вопрос?" data-faq-a="Да. Общение с Самал в WhatsApp начинается с разговора: расскажите о себе и задайте вопросы без обязательства сразу покупать программу." data-od-id="proof-faq-11">Можно ли сначала просто задать вопрос?</button>
            </div></div></div></div>
          </div>
        </div>
@@ -877,7 +888,7 @@
 
     <section id="telegram" class="final-cta" data-od-id="final-cta">
       <div class="cta-glow" aria-hidden="true"></div>
-      <div class="shell final-layout"><h2 data-od-id="final-heading">Можно начать<br><em>с простого разговора.</em></h2><div><p class="final-copy">Напиши о себе, задай вопросы и вместе с Самал выбери подходящий формат.</p><div class="final-actions"><a class="button button-primary telegram-link" href="#telegram" data-od-id="final-telegram">Перейти в Telegram-бот</a><a class="button button-materials" href="materials.html" data-od-id="final-materials">Отзывы и фото</a></div></div></div>
+      <div class="shell final-layout"><h2 data-od-id="final-heading">Можно начать<br><em>с простого разговора.</em></h2><div><p class="final-copy">Напиши о себе, задай вопросы и вместе с Самал выбери подходящий формат.</p><div class="final-actions"><a class="button button-primary telegram-link" data-od-id="final-telegram" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C+%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%B5+%D0%B2+Samal+Detox%3A+%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83+%D0%B8+%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F+%D0%B8+%D0%B1%D0%BB%D0%B8%D0%B6%D0%B0%D0%B9%D1%88%D0%B8%D0%B5+%D0%B4%D0%B0%D1%82%D1%8B." target="_blank" rel="noopener noreferrer" data-contact="whatsapp">Обсудить участие в WhatsApp</a><a class="button button-materials" href="materials.html" data-od-id="final-materials">Отзывы и фото</a></div></div></div>
     </section>
   </main>
 
@@ -885,12 +896,12 @@
   <button class="back-to-top" type="button" aria-label="Вернуться наверх" data-od-id="back-to-top">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"></path></svg>
   </button>
-  <div class="telegram-status" role="status" aria-live="polite" data-od-id="telegram-status">Переход в Telegram будет доступен после подключения бота.</div>
+  
   <script>
     (function(){
       var status=document.querySelector('[data-od-id="telegram-status"]');
       var links=document.querySelectorAll('.telegram-link');
-      links.forEach(function(link){link.addEventListener('click',function(){status.classList.add('is-visible');window.clearTimeout(status._timer);status._timer=window.setTimeout(function(){status.classList.remove('is-visible')},4200)})});
+      
       document.querySelectorAll('.program-points-row').forEach(function(row){
         var moreBtn=row.querySelector('.program-more');
         var collapseBtn=row.querySelector('.program-collapse');
@@ -1153,11 +1164,11 @@
     dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
   })();
 </script>
-<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a href="index.html#telegram" data-od-id="quick-menu-telegram">Telegram-бот</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('faq'))return;window.addEventListener('load',function(){var trigger=document.querySelector('[data-od-id="proof-notch"]');if(trigger&&trigger.getAttribute('aria-expanded')!=='true')trigger.click()})})();</script>
+<nav class="site-quick-menu" aria-label="Быстрая навигация" data-od-id="quick-menu"><button class="quick-menu-toggle" type="button" aria-expanded="false" aria-controls="quick-menu-panel" data-od-id="quick-menu-toggle" aria-label="Меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="quick-menu-panel" id="quick-menu-panel" hidden><a href="index.html" data-od-id="quick-menu-home">Главная</a><a href="index.html#programs" data-od-id="quick-menu-programs">Программы</a><a href="about.html?formats=1#formats" data-od-id="quick-menu-formats">Форматы</a><a href="legal.html" data-od-id="quick-menu-legal">Условия и права</a><a href="materials.html" data-od-id="quick-menu-materials">Отзывы и фото</a><a href="index.html?faq=1#proof" data-od-id="quick-menu-faq">Частые вопросы</a><a data-od-id="quick-menu-telegram" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%9F%D0%B8%D1%88%D1%83+%D1%81+%D1%81%D0%B0%D0%B9%D1%82%D0%B0+Samal+Detox.+%D0%A5%D0%BE%D1%87%D1%83+%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+%D0%BE+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%85+%D0%B8+%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D0%B9+%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82." target="_blank" rel="noopener noreferrer" data-contact="whatsapp">Написать в WhatsApp</a></div></nav><script>(function(){var menu=document.querySelector('[data-od-id="quick-menu"]');if(!menu)return;var toggle=menu.querySelector('[data-od-id="quick-menu-toggle"]');var panel=menu.querySelector('#quick-menu-panel');function close(){toggle.setAttribute('aria-expanded','false');panel.hidden=true}function open(){toggle.setAttribute('aria-expanded','true');panel.hidden=false}toggle.addEventListener('click',function(){toggle.getAttribute('aria-expanded')==='true'?close():open()});document.addEventListener('click',function(event){if(!menu.contains(event.target))close()});document.addEventListener('keydown',function(event){if(event.key==='Escape')close()})})();</script><script>(function(){if(!new URLSearchParams(location.search).has('faq'))return;window.addEventListener('load',function(){var trigger=document.querySelector('[data-od-id="proof-notch"]');if(trigger&&trigger.getAttribute('aria-expanded')!=='true')trigger.click()})})();</script>
 
 <button class="lead-magnet-fab" type="button" aria-label="Открыть подарок" data-od-id="lead-magnet-fab"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1.4"/><path d="M4 9h16M12 9v11M8.2 9c-1.9 0-3.2-1.1-3.2-2.6C5 4.9 6.3 4 7.9 4c1.7 0 3 1.3 4.1 3.1M15.8 9c1.9 0 3.2-1.1 3.2-2.6C19 4.9 17.7 4 16.1 4c-1.7 0-3 1.3-4.1 3.1"/></svg></button>
-<dialog class="lead-magnet" id="lead-magnet-dialog" data-od-id="lead-magnet-dialog" aria-labelledby="lead-magnet-title"><div class="lead-magnet-inner"><button class="lead-magnet-close" type="button" aria-label="Закрыть" data-od-id="lead-magnet-close">×</button><h3 id="lead-magnet-title">Потряси дерево — <em>получи подарок</em></h3><p class="lead-magnet-lead">На телефоне — потряси сам телефон. За компьютером — потряси дерево мышкой.</p><div class="lead-magnet-scene"><svg class="lead-magnet-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#f2d999"/><circle cx="27" cy="14" r="12" fill="#101f35"/></svg><div class="lead-magnet-tree" data-od-id="lead-magnet-tree" role="button" tabindex="0" aria-label="Потрясти дерево"><svg class="lead-magnet-tree-art" viewBox="0 0 240 190" aria-hidden="true" focusable="false"><path d="M120 186c0-24 1-46 2-64" stroke="#9c7a52" stroke-width="8" stroke-linecap="round" fill="none"/><g class="lead-magnet-canopy"><circle class="lead-magnet-leaf-a" cx="120" cy="75" r="62"/><circle class="lead-magnet-leaf-a" cx="62" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="178" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="88" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="152" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="120" cy="118" r="40"/><circle class="lead-magnet-leaf-b" cx="95" cy="48" r="20"/><circle class="lead-magnet-leaf-b" cx="150" cy="52" r="18"/><circle class="lead-magnet-leaf-b" cx="68" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="172" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="120" cy="85" r="22"/><circle class="lead-magnet-leaf-b" cx="118" cy="30" r="14"/></g></svg><span class="lead-magnet-fruit" style="left:31%;top:42%;--fx:-18px"></span><span class="lead-magnet-fruit" style="left:58%;top:21%;--fx:14px"></span><span class="lead-magnet-fruit" style="left:40%;top:18%;--fx:-4px"></span><span class="lead-magnet-fruit" style="left:71%;top:39%;--fx:20px"></span><span class="lead-magnet-fruit" style="left:50%;top:58%;--fx:6px"></span><span class="lead-magnet-fruit" style="left:25%;top:32%;--fx:-22px"></span><span class="lead-magnet-fruit" style="left:77%;top:53%;--fx:16px"></span></div><p class="lead-magnet-hint" data-od-id="lead-magnet-hint">Тряси!</p></div><button type="button" class="lead-magnet-cta" data-od-id="lead-magnet-cta">Забери подарок</button></div></dialog>
-<div class="lead-magnet-note" role="status" aria-live="polite" data-od-id="lead-magnet-note">Telegram-бот скоро будет доступен</div>
+<dialog class="lead-magnet" id="lead-magnet-dialog" data-od-id="lead-magnet-dialog" aria-labelledby="lead-magnet-title"><div class="lead-magnet-inner"><button class="lead-magnet-close" type="button" aria-label="Закрыть" data-od-id="lead-magnet-close">×</button><h3 id="lead-magnet-title">Потряси дерево — <em>получи подарок</em></h3><p class="lead-magnet-lead">На телефоне — потряси сам телефон. За компьютером — потряси дерево мышкой.</p><div class="lead-magnet-scene"><svg class="lead-magnet-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#f2d999"/><circle cx="27" cy="14" r="12" fill="#101f35"/></svg><div class="lead-magnet-tree" data-od-id="lead-magnet-tree" role="button" tabindex="0" aria-label="Потрясти дерево"><svg class="lead-magnet-tree-art" viewBox="0 0 240 190" aria-hidden="true" focusable="false"><path d="M120 186c0-24 1-46 2-64" stroke="#9c7a52" stroke-width="8" stroke-linecap="round" fill="none"/><g class="lead-magnet-canopy"><circle class="lead-magnet-leaf-a" cx="120" cy="75" r="62"/><circle class="lead-magnet-leaf-a" cx="62" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="178" cy="90" r="44"/><circle class="lead-magnet-leaf-a" cx="88" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="152" cy="38" r="36"/><circle class="lead-magnet-leaf-a" cx="120" cy="118" r="40"/><circle class="lead-magnet-leaf-b" cx="95" cy="48" r="20"/><circle class="lead-magnet-leaf-b" cx="150" cy="52" r="18"/><circle class="lead-magnet-leaf-b" cx="68" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="172" cy="80" r="16"/><circle class="lead-magnet-leaf-b" cx="120" cy="85" r="22"/><circle class="lead-magnet-leaf-b" cx="118" cy="30" r="14"/></g></svg><span class="lead-magnet-fruit" style="left:31%;top:42%;--fx:-18px"></span><span class="lead-magnet-fruit" style="left:58%;top:21%;--fx:14px"></span><span class="lead-magnet-fruit" style="left:40%;top:18%;--fx:-4px"></span><span class="lead-magnet-fruit" style="left:71%;top:39%;--fx:20px"></span><span class="lead-magnet-fruit" style="left:50%;top:58%;--fx:6px"></span><span class="lead-magnet-fruit" style="left:25%;top:32%;--fx:-22px"></span><span class="lead-magnet-fruit" style="left:77%;top:53%;--fx:16px"></span></div><p class="lead-magnet-hint" data-od-id="lead-magnet-hint">Тряси!</p></div><a class="lead-magnet-cta" data-od-id="lead-magnet-cta" href="https://wa.me/77081243271?text=%D0%A1%D0%B0%D0%BC%D0%B0%D0%BB%2C+%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C+%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D0%BE%D0%BA+%D1%81+%D1%81%D0%B0%D0%B9%D1%82%D0%B0+Samal+Detox.+%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C+%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C+%D0%BA%D0%B0%D0%BA+%D0%B5%D0%B3%D0%BE+%D0%B7%D0%B0%D0%B1%D1%80%D0%B0%D1%82%D1%8C%3F" target="_blank" rel="noopener noreferrer" data-contact="whatsapp">Получить подарок в WhatsApp</a></div></dialog>
+
 <script>
 (function(){
   var dialog=document.querySelector('[data-od-id="lead-magnet-dialog"]');
@@ -1186,7 +1197,7 @@
 
   function resetGame(){
     hasFallen=false;
-    energy=0;
+    strokes=0;strokeDir=0;strokeDist=0;strokeCounted=false;
     tree.classList.remove('is-shaking','has-fallen');
     fruits.forEach(function(fruit){fruit.classList.remove('is-falling')});
     hint.classList.remove('is-hidden');
@@ -1260,18 +1271,35 @@
     window.setTimeout(function(){cta.classList.add('is-visible')},fruits.length*70+240);
   }
 
-  function addEnergy(amount){
-    if(hasFallen)return;
-    energy=Math.min(200,energy+amount);
-    tree.classList.toggle('is-shaking',energy>6);
-    if(energy>=170)fall();
+  var STROKES_NEEDED=3,strokes=0,strokeDir=0,strokeDist=0,strokeCounted=false,lastStrokeAt=0,shakeTimer=0;
+
+  function pulseShake(){
+    tree.classList.add('is-shaking');
+    window.clearTimeout(shakeTimer);
+    shakeTimer=window.setTimeout(function(){tree.classList.remove('is-shaking')},220);
   }
 
-  window.setInterval(function(){
+  function countStroke(){
+    var now=Date.now();
+    if(now-lastStrokeAt>1500)strokes=0;
+    lastStrokeAt=now;
+    strokes++;
+    if(strokes>=STROKES_NEEDED)fall();
+  }
+
+  function registerMove(dx,dy){
     if(hasFallen)return;
-    energy=Math.max(0,energy-4);
-    if(energy<=6)tree.classList.remove('is-shaking');
-  },120);
+    var d=Math.abs(dx)>=Math.abs(dy)?dx:dy;
+    if(!d)return;
+    var dir=d>0?1:-1;
+    pulseShake();
+    if(dir!==strokeDir){
+      if(Math.abs(d)<3)return;
+      strokeDir=dir;strokeDist=0;strokeCounted=false;
+    }
+    strokeDist+=Math.abs(d);
+    if(!strokeCounted&&strokeDist>=40){strokeCounted=true;countStroke();}
+  }
 
   var trustSection=document.querySelector('[data-od-id="trust-section"]');
   if(!alreadyShown()&&trustSection&&'IntersectionObserver' in window){
@@ -1294,7 +1322,7 @@
     var lastX=null,lastY=null;
     tree.addEventListener('pointermove',function(event){
       if(event.pointerType==='touch')return;
-      if(lastX!==null)addEnergy(Math.min(6,Math.hypot(event.clientX-lastX,event.clientY-lastY)*.35));
+      if(lastX!==null)registerMove(event.clientX-lastX,event.clientY-lastY);
       lastX=event.clientX;lastY=event.clientY;
     });
     tree.addEventListener('pointerleave',function(){lastX=null;lastY=null});
@@ -1302,18 +1330,18 @@
     var lastTX=null,lastTY=null;
     tree.addEventListener('touchmove',function(event){
       var t=event.touches[0];if(!t)return;
-      if(lastTX!==null)addEnergy(Math.min(6,Math.hypot(t.clientX-lastTX,t.clientY-lastTY)*.35));
+      if(lastTX!==null)registerMove(t.clientX-lastTX,t.clientY-lastTY);
       lastTX=t.clientX;lastTY=t.clientY;
     },{passive:true});
     tree.addEventListener('touchend',function(){lastTX=null;lastTY=null});
 
-    var lastAccel=null,motionEnabled=false;
+    var lastAccel=null,motionEnabled=false,lastMotionStroke=0;
     function handleMotion(event){
       var a=event.accelerationIncludingGravity||event.acceleration;
       if(!a||a.x==null)return;
       if(lastAccel){
         var delta=Math.abs(a.x-lastAccel.x)+Math.abs(a.y-lastAccel.y)+Math.abs(a.z-lastAccel.z);
-        if(delta>10)addEnergy(Math.min(7,delta*.6));
+        if(delta>14&&Date.now()-lastMotionStroke>280&&!hasFallen){lastMotionStroke=Date.now();pulseShake();countStroke();}
       }
       lastAccel={x:a.x,y:a.y,z:a.z};
     }
@@ -1336,7 +1364,7 @@
     if(event.key==='Enter'||event.key===' '){event.preventDefault();fall()}
   });
 
-  cta.addEventListener('click',function(event){event.preventDefault();showNote();closeWithSuck();});
+  cta.addEventListener('click',closeWithSuck);
   closeBtn.addEventListener('click',closeWithSuck);
   dialog.addEventListener('click',function(event){if(event.target===dialog)closeWithSuck();});
   dialog.addEventListener('cancel',function(event){event.preventDefault();closeWithSuck();});

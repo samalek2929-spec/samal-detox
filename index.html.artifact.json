@@ -1,8 +1,8 @@
 {
   "version": 1,
   "kind": "html",
-  "title": "samal-detox/index.html",
-  "entry": "samal-detox/index.html",
+  "title": "samal-detox-whatsapp/index.html",
+  "entry": "samal-detox-whatsapp/index.html",
   "renderer": "html",
   "status": "complete",
   "exports": [
